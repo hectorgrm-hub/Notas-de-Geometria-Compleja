@@ -1,0 +1,33 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Agradecimientos (opcional)}{4}{chapter*.1}%
+\contentsline {chapter}{Introducción}{1}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Variedades Complejas}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Definición}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Aplicaciones Holomorfas}{7}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Funciones holomorfas}{9}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.3}Gavilla de funciones holomorfas}{10}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Definición}{10}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Anillo de gérmenes de funciones holomorfas}{12}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Estructura analítica de las variedades algebraicas}{13}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Encaje al proyectivo}{18}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Encaje Holomorfo}{19}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}El caso de las curvas complejas}{24}{subsection.2.1.1}%
+\contentsline {section}{\numberline {2.2}Haces Lineales holomorfos}{24}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Operaciones con haces lineales}{27}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Espacio de secciones}{28}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Haces amplios y encajes}{31}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Haces lineales del espacio proyectivo}{31}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Aplicación asociada a un haz}{34}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Algebrización de Variedades Complejas}{38}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Subvariedades Analíticas}{38}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Teoremas de Remmert}{41}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Teorema de Chow}{42}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Otros criterios de algebrización}{45}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Variedades de Moishezon}{45}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Variedades de Kähler}{51}{subsection.3.3.2}%
+\contentsline {chapter}{Conclusiones}{58}{chapter*.22}%
+\contentsline {chapter}{Apéndice}{59}{chapter*.23}%
+\contentsline {section}{\numberline {A.1}Funciones holomorfas de varias variables}{59}{section.3.1}%
+\contentsline {section}{\numberline {A.2}Comportamiento local}{60}{section.3.2}%
+\contentsline {section}{\numberline {A.3}Álgebra de los conjuntos analíticos}{63}{section.3.3}%
+\contentsline {chapter}{Referencias}{65}{chapter*.24}%
