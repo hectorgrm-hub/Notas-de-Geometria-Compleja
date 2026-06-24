@@ -1,1 +1,60 @@
+\documentclass[oneside]{book}%landscape,twocolumn,
+\input{preambulo}
 
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\listoffigures
+
+\newpage
+
+%\renewcommand{\listtablename}{Índice de tablas}
+%\listoftables
+
+%-----------------------new page----------------------------
+
+\input{Capitulos/Introduccion}
+
+%-----------------------new page----------------------------
+
+\input{Capitulos/Variedades Complejas}
+
+%-----------------------new page----------------------------
+
+\input{Capitulos/Encaje}
+
+%-----------------------new page----------------------------
+
+\input{Capitulos/Chow}
+
+%-----------------------new page----------------------------
+
+\input{Capitulos/Conclusion}
+
+
+
+%-----------------------new page----------------------------
+
+\input{Capitulos/apendice}
+
+%-----------------------new page----------------------------
+
+\backmatter
+
+
+\nocite{*}
+\printbibliography[
+heading=bibnumbered,
+title={Referencias}
+]
+
+%-----------------------new page----------------------------
+
+\end{document}
