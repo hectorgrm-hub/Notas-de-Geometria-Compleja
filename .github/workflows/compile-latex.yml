@@ -17,6 +17,7 @@ jobs:
         with:
           root_file: |
             Notas/main.tex
+            work_in_root_file_dir: true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
