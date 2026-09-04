@@ -16,7 +16,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
-            notas/main.tex
+            Notas/main.tex
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
