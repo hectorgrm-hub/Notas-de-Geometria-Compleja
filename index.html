@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Notas de Matemáticas</title>
+  <style>
+    body { display: flex; margin: 0; height: 100vh; font-family: sans-serif; }
+    nav { width: 250px; background: #f4f4f9; padding: 1rem; border-right: 1px solid #ccc; }
+    iframe { flex: 1; border: none; height: 100%; }
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 0.5rem; }
+    a { text-decoration: none; color: #0066cc; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <nav>
+    <h2>Mis Notas</h2>
+    <ul>
+      <li><a href="notas/main.pdf" target="pdf-viewer">NOTAS</a></li>
+    </ul>
+  </nav>
+  <iframe name="pdf-viewer" src="notas/main.pdf"></iframe>
+</body>
+</html>
