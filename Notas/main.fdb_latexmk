@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1788732950.44875 "main.bcf" "main.bbl" "main" 1788732958.65239 0
-  "main.bcf" 1788732958.48824 108720 85fca530d5e99928fef07b29b783debd "pdflatex"
-  "referencias.bib" 1788732873.92597 3828 b9ba5fe15924fdde6e71ef1380607175 ""
+["biber main"] 1788733048.91722 "main.bcf" "main.bbl" "main" 1788733056.91695 0
+  "main.bcf" 1788733056.74169 108720 85fca530d5e99928fef07b29b783debd "pdflatex"
+  "referencias.bib" 1788732921.51686 3828 b9ba5fe15924fdde6e71ef1380607175 ""
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1788732957.32992 "main.tex" "main.pdf" "main" 1788732958.65281 0
+["pdflatex"] 1788733055.62269 "main.tex" "main.pdf" "main" 1788733056.91731 0
   "/opt/texlive/texdir/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/opt/texlive/texdir/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/texlive/texdir/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -230,13 +230,13 @@
   "/opt/texlive/texdir/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1782931182 5573030 e9a973387705481b4e2cb8bfeaf8fe6e ""
   "/opt/texlive/texdir/texmf-var/web2c/pdftex/pdflatex.fmt" 1782931320 3656467 a5ebb1661181d99d7ab3cd063291429c ""
   "/opt/texlive/texdir/texmf.cnf" 1782931175 555 bd60ff59e4d560b42d96b004436f91d3 ""
-  "macros.tex" 1788732873.92496 274 7d9bdcdbc508e2110e9f93f5103cf3af ""
-  "main.aux" 1788732958.48624 2036 24f19b9c68a205ba39357d9af3c6a9f3 "pdflatex"
-  "main.bbl" 1788732954.63913 23443 5ced20823aa141e473d225cffe2fc63e "biber main"
-  "main.out" 1788732958.48724 99 225bccd269130b621a566138fd2edca0 "pdflatex"
-  "main.run.xml" 1788732958.48924 2312 e0d9288dcd7c7d9512b605f253fd1cb9 "pdflatex"
-  "main.tex" 1788732873.92496 1071 3ac5cc1d4374d4ebb5ae7f83b10b5474 ""
-  "preambulo.tex" 1788732873.92597 2832 64b68840f53ff8d039f145677cd5f2f1 ""
+  "macros.tex" 1788732921.51686 274 7d9bdcdbc508e2110e9f93f5103cf3af ""
+  "main.aux" 1788733056.73969 2036 24f19b9c68a205ba39357d9af3c6a9f3 "pdflatex"
+  "main.bbl" 1788733052.99263 23443 5ced20823aa141e473d225cffe2fc63e "biber main"
+  "main.out" 1788733056.74069 99 225bccd269130b621a566138fd2edca0 "pdflatex"
+  "main.run.xml" 1788733056.74269 2312 e0d9288dcd7c7d9512b605f253fd1cb9 "pdflatex"
+  "main.tex" 1788732921.51686 1071 3ac5cc1d4374d4ebb5ae7f83b10b5474 ""
+  "preambulo.tex" 1788732921.51686 2832 64b68840f53ff8d039f145677cd5f2f1 ""
   (generated)
   "main.aux"
   "main.bcf"
