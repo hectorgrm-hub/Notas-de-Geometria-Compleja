@@ -1,0 +1,444 @@
+\chapter{Algebrización de Variedades Complejas}
+
+	Hasta este punto hemos introducido diversas herramientas cuya motivación está dada por la pregunta: ¿cuándo puede una variedad compleja describirse mediante ecuaciones algebraicas?
+	
+	\begin{definition}
+		Una variedad compleja se dice \textbf{algebrizable}, o se dice que \textbf{admite una estructura algebraica}, si es biholomorfa a una variedad algebraica $V\subset \pp^N$.
+	\end{definition}
+	
+	Si $M$ es una variedad compleja algebrizable, a la variedad algebraica $V\subset \pp^N$ se le denomina \textbf{realización} de $M$\footnote{También se suele decir que $M$ se \textbf{realiza} como la variedad algebraica $V$.}. Por el Teorema \ref{varalg}, toda variedad algebraica es conexa y compacta; y en consecuencia, en todo este trabajo nos hemos enfocado principalmente en variedades complejas con estas propiedades topológicas, pues toda variedad compleja algebrizable necesariamente debe ser conexa y compacta.
+	
+	En este último capítulo retomaremos todas las herramientas introducidas anteriormente para darle sentido a la pregunta de algebrización y exponer los criterios que nos permiten determinar cuándo una variedad compleja admite una estructura algebraica.
+
+    \section{Subvariedades Analíticas}
+    
+    Antes de estudiar la algebrización de variedades, debemos introducir los últimos objetos fundamentales del trabajo.
+    
+    \begin{definition}[Subconjunto analítico]
+    	Sea $M$ una variedad compleja. Un \textbf{subconjunto analítico} de $M$ es un subconjunto cerrado $V\subset M$ con la siguiente propiedad: para cada punto $x\in V$ existe una vecindad $U\subset M$ de $x$ tal que
+    	\begin{equation*}
+    		U\cap V=\{z\in U:f_1(z)=\cdots=f_k(z)=0\}
+    	\end{equation*}  
+    	para algunas funciones holomorfas $f_1,\dots,f_k\in\oo_M(U)$.
+    \end{definition}
+    
+    Todo conjuntos algebraico de $\cc$ o $\pp^n$ son subconjuntos analíticos. Así, los subconjuntos analíticos son una generalización de los conjuntos algebraicos para otras variedades complejas.
+    
+    \begin{definition}[No singular]
+    	Sea $M$ una variedad compleja y $V$ un subconjunto analítico de $M$. Decimos que $x\in V$ es \textbf{regular} o \textbf{no singular} si existe una carta $(U,\varphi)$ de $M$ alrededor de $x$ tal que $U\cap V=Z(f_1,\dots,f_k)$ y $\varphi(x)\in \varphi(U)$ es un punto regular de la aplicación
+    	\begin{equation*}
+    		f:=(f_1\circ\varphi^{-1},\dots,f_k\circ\varphi^{-1}):\varphi(U)\longrightarrow \cc^k.
+    	\end{equation*}
+    	Es decir, la jacobiana de $f$ en $\varphi(x)$ tiene rango $k$. Denotamos por $V^*$ al conjunto de todos los puntos regulares de $V$.
+    	
+    	Los puntos del conjunto $V_s:=V\setminus V^*$ son llamados \textbf{puntos singulares}. Por último, decimos que $V$ es \textbf{no singular} si $V_s=\emptyset$, es decir, si $V$ es una subvariedad compleja de $M$ (véase observación \ref{subvariedadesporecuaciones}).
+    \end{definition}
+    
+    Los subconjuntos analíticos pueden interpretarse como variedades complejas que permiten singularidades. Aunque estas singularidades serán solo un subconjunto cerrado y al igual que las variedades algebraicas, los puntos regulares formarán un subconjunto denso. Esto implica que las subvariedades analíticas se comportan como subvariedades complejas con una muy pequeña cantidad de singularidades.
+    
+    \begin{propo}\parencite[Chap 0, Sec. 2.2]{griffiths}\label{puntossingulares}
+    	Sea $M$ una variedad compleja y $V\subset M$ un subconjunto analítico. Entonces el conjuntos de puntos singulares $V_s$ está contenido en un subconjunto analítico de $M$ no igual a $V$.
+    \end{propo} 
+%    \begin{proof}
+%    	Tomemos $p\in V$ y una vecindad $U$ de $p$ tal que
+%    	\begin{equation*}
+%    		V\cap U=Z(f_1,\dots, f_r),\qquad f_i\in\oo_M(U).
+%    	\end{equation*}
+%    	Sea $J(f)$ la matriz jacobiana de la aplicación $f=(f_1,\dots,f_r)$. Definamos
+%    	\begin{equation*}
+%    		k=\max_{q\in V\cap U}\operatorname{rk} J(f)(q).
+%    	\end{equation*}
+%    	Entonces el conjunto
+%    	\begin{equation*}
+%    		W=\{q\in V\cap U:\mathrm{rk}J(f)(q)<k\}
+%    	\end{equation*}
+%    	está definido por la anulación de todos los menores $k\times k$, por lo que es un subconjunto analítico de $V\cap U$. En particular, $W\neq V\cap U$ pues existe al menos una menor $k\times k$ que no se anula idénticamente en $V\cap U$. De esta manera,
+%    	\begin{equation*}
+%    		V_s\cap U\subset W.
+%    	\end{equation*}
+%    	Por lo tanto, $V_s$ está contenido en un subconjunto analítico no igual a $V$.
+%    \end{proof}
+    
+%    \begin{remark}
+%    	Sea $V$ un subconjunto analítico de $M$ y $p\in V$ un punto no singular. Por definición, existe una vecindad $U$ de $p$ tal que
+%    	\begin{equation*}
+%    		V\cap U=Z(f_1,\cdots,f_k)
+%    	\end{equation*}
+%    	donde la función inducida en una carta tiene rango $k$. En particular, $p$ es un punto regular de $f$ y $f^{-1}(p)=V\cap U$ es una variedad compleja de dimensión $k$ (falta cita). Así, definimos 
+%    	\begin{eqnarray*}
+%    		\dim_p V:= k.
+%    	\end{eqnarray*}
+%    \end{remark}
+   
+    \begin{example}
+    	Consideremos $D\subset \cc^n$ un conjunto discreto y cerrado no vacío. Esto significa que para todo punto $p=(p_1,\dots,p_n)\in D$ existe una vecindad del punto $U\subset\cc^n$ tal que
+    	\begin{equation*}
+    		U\cap D =\{p\}.
+    	\end{equation*} 
+    	Notemos que $Z(z_1-p_1,\cdots,z_n-p_n)=\{p\}$. Por lo tanto, $D$ es un subconjunto analítico de $\cc^n$.
+    \end{example}
+    
+    \begin{remark}
+    	Sabemos que los conjuntos algebraicos de $\mathbb{A}^1_\cc$ solo son conjuntos finitos. Por el ejemplo anterior, cualquier conjunto discreto $D$ en $\cc$ es analítico. Por lo tanto, los conjuntos algebraicos de  $\mathbb{A}^1_\cc$ también son analíticos, pero además, existen subconjuntos analíticos que no son algebraicos (véase ejemplo \ref{graficadelseno}).
+    \end{remark}
+    
+    \begin{lemma}\label{preimagen analitico}
+    	Sea $f:N\to M$ una aplicación holomorfa y $V\subset M$ un subconjunto analítico. Entonces $f^{-1}(V)\subset N$ es un subconjunto analítico.
+    \end{lemma}
+    \begin{proof}
+    	Sea $V\subset M$ un subconjunto analítico y definamos $W=f^{-1}(V)$. Consideremos $p\in W$, entonces $f(p)\in V$. Como $V$ es analítico, existe una vecindad $U$ de $f(p)$ tal que
+    	\begin{equation*}
+    		U\cap V=Z(f_1,\dots,f_k)
+    	\end{equation*} 
+    	donde $f_1,\dots,f_k\in\oo_M(U)$. Luego, como $f$ es continua, $U'=f^{-1}(U)$ es una vecindad abierta de $p$. Definamos las funciones
+    	\begin{equation*}
+    		g_i=f_i\circ f:U'\to\cc,\quad i=1,2,\dots,k.
+    	\end{equation*}
+    	Notemos que las funciones $g_i$ son holomorfas, por ser composición de aplicaciones holomorfas. Así, 
+    	\begin{align*}
+    		U'\cap W&=f^{-1}(U\cap V)\\
+    		&=f^{-1}(Z(f_1,\dots,f_k))\\
+    		&=f^{-1}\left(\bigcap_{i=1}^k Z(f_i) \right)\\
+    		&= \bigcap_{i=1}^k f^{-1}(Z(f_i))\\
+    		&=\bigcap_{i=1}^k Z(f_i\circ f)\\
+    		&=\bigcap_{i=1}^k Z(g_i)\\
+    		&=Z(g_1,\dots,g_k).
+    	\end{align*}
+    	Por lo tanto, $W=f^{-1}(V)$ es un subconjunto analítico.
+    \end{proof}
+    
+    \begin{definition}
+    	Sea $M$ una variedad compleja y $V$ un subconjunto analítico de $M$. Decimos que $V$ es \textbf{irreducible} si no es posible escribirla como una unión $V=V_1\cup V_2$ de dos subconjuntos analíticos propios $V_i\subset V$ de $M$.\\
+    	Un subconjunto analítico irreducible es llamado \textbf{subvariedad analítica}.
+    \end{definition}
+    
+    \begin{corollary}
+    	Sea $M$ una variedad compleja y $V$ un subconjunto analítico de $M$. Entonces el conjunto $V^*$ es denso en $V$ y una subvariedad compleja no vacía de $M$.
+    \end{corollary}
+    \begin{proof}
+    	Supongamos que $V$ es irreducible. Sea $p\in V$ un punto regular, entonces existe una vecindad $U$ de $p$ tal que $V\cap U\subset V^*$ es una subvariedad compleja de $U$. De esta manera, $p$ es un punto interior de $V^*$. Con lo cual, $V^*$ es un abierto. 
+    	
+    	Por la proposición \ref{puntossingulares}, sabemos que existe un subconjunto analítico $W$ tal que
+    	\begin{equation*}
+    		V_s\subset W\subsetneqq V.
+    	\end{equation*}
+    	Como $W\neq V$, entonces $V^*=V\setminus V_s$ es no vacío. En particular, $V^*$ es una subvariedad compleja no vacía.
+    	
+    	Supongamos que $V_s$ contiene un abierto no vacío $A\subset V$. Entonces $A\subset W$. Dado que $V$ es irreducible y $W$ es un subconjunto analítico propio, por el teorema de la identidad, las funciones que definen a $W$ cerca de $A$ se deben anular siempre. Esto implica que $W=V$, lo cual es una contradicción. Con lo cual, $A$ es vacío.
+    	
+    	Si $V_s$ contuviera un abierto no vacío de $V$, entonces también lo contiene el subconjunto analítico $W$. Sin embargo, un subconjunto analítico propio de un subconjunto analítico irreducible no puede contener un abierto relativo. Por lo que, $V_s$ no contiene abiertos de $V$
+    	
+    	Como $V_s$ es cerrado en $V$ y no contiene abiertos de $V$, entonces
+    	\begin{equation*}
+    		\mathrm{Int}(V_s)=\emptyset.
+    	\end{equation*}
+    	Con lo cual, $V^*=V\setminus V_s$ es denso en $V$.
+    	
+    	Si $V$ no es irreducible, se aplica el argumento a cada componente irreducible $V_i$. Obteniendo que $V_i^*$ es denso en $V_i$, y por tanto la unión de todos los puntos regulares es densa en $V$.
+    \end{proof}
+    
+    \begin{definition}
+    	Sea $V\subset M$ una subvariedad analítica. Definimos la \textbf{dimensión} de $V\subset M$ como
+    	\begin{equation*}
+    		\dim V:=\dim V^*.
+    	\end{equation*}
+    	Es decir, la dimensión como subvariedad compleja de sus puntos no singulares.
+    	
+    	De igual manera, definimos la \textbf{codimensión} de $V$ como la codimensión de $V^*$.
+    	Una \textbf{hipersuperficie analítica} es una subvariedad analítica de codimensión uno.
+    \end{definition}
+    
+    \begin{remark}
+    	Una consecuencia directa de la geometría local (véase proposición \ref{hipersuperficiesenCn}), es que toda hipersuperficie analítica en una variedad compleja $M$ está definida localmente como el conjunto de ceros de una sola función. Es decir, si $H\subset M$ es una hipersuperficie analítica, entonces para todo punto $p\in H$ existe una vecindad $U$ de $p$ y una función holomorfa $f\in \oo_M(U)$ irreducible tal que
+    	\begin{equation*}
+    		H\cap U=Z(f).
+    	\end{equation*}
+    \end{remark}
+    
+    \begin{example}
+    	Consideremos la función holomorfa $y^2-x^2-x^3$ en $\cc^2$. Su conjunto de ceros es un subconjunto analítico en $\cc^2$, y de hecho es irreducible, por lo que
+    	\begin{equation*}
+    		Z(y^2-x^2-x^3)\subset\cc^2
+    	\end{equation*}
+    	es una subvariedad analítica irreducible (de hecho también algebraica) de $\cc^2$. En una vecindad suficientemente pequeña del origen, la función $\sqrt{1+x}$ es holomorfa. De esta manera, como
+    	\begin{equation*}
+    		y^2-x^2-x^3=(y-x\sqrt{1+x})(y+x\sqrt{1+x}),
+    	\end{equation*}
+    	el germen de la subvariedad es reducible. Por lo tanto, existen dos componentes irreducibles localmente definidas por los factores $y\pm x\sqrt{1+x}$.
+    	\begin{figure}[H]
+    		\centering
+    		\includegraphics[width=0.5\linewidth]{Imagenes/componenteslocales}
+    		\caption{Componentes irreducibles locales de $Z(y^2-x^2-x^3)$.}
+    		\label{fig:componenteslocales}
+    	\end{figure}
+    	
+    \end{example}
+    
+    Por último, presentaremos uno de los resultados más importantes de las subvariedades analíticas:
+    
+    \begin{theorem}\parencite[Chap 0, Sec. 2.2]{griffiths}\label{irreducibleconexo}
+    	Sea $M$ una variedad compleja y $V\subset M$ un subconjunto analítico. Entonces $V$ es irreducible si, y solo si, $V^*$ es conexa.
+    \end{theorem}
+	
+    \subsection{Teoremas de Remmert}
+		
+		Los subconjuntos analíticos son objetos muy importantes en la geometría algebraica y el análisis complejo. Sin embargo, describir su comportamiento es una tarea lejos de ser trivial y llevó a muchos matemáticos a estudiar en profundidad estos objetos.
+		
+		Los teoremas de \textit{Remmert} describen el comportamiento de los subconjuntos analíticos bajo imágenes y cerradura. El \textit{teorema de la aplicación propia} nos garantiza que la imagen de un subconjunto analítico por una aplicación holomorfa propia es nuevamente un subconjunto analítico, mientras que el \textit{teorema de Remmert-Stein} describe las condiciones para que la cerradura de un subconjunto analítico siga siendo analítico.
+		
+		Estos resultados son importantes para la teoría de subconjuntos analíticos y funcionan como herramientas esenciales en nuestro entendimiento de los encajes de variedades complejas. Solo nos limitaremos a enunciar ambos teoremas, remitiendo al lector a las referencias clásicas para entender sus demostraciones (véase \parencite{griffiths}, \parencite{lojasiewicz} y \parencite{chirka}). 
+		
+    	\begin{theorem}[de la aplicación propia de Remmert]\label{aplicacionpropia}
+    		Sea $f:M\to N$ una aplicación holomorfa propia\footnote{Recordemos que una aplicación propia es una función continua entre espacios topológicos cuya preimagen de conjuntos compactos es compacta.} entre variedades complejas. Si $V$ es un subconjunto analítico de $M$, entonces $f(V)$ es un subconjunto analítico de $N$.
+    	\end{theorem}
+    	Una demostración puede consultarse en el libro \parencite[Chap.3~,Sec.2]{griffiths}, donde se basa fuertemente en una versión particular del teorema de Remmert-Stein llamado \textbf{teorema de Extensión de Levi (II)} y muchas técnicas del análisis complejo. Otra demostración, de carácter más geométrico, fue dada por Chirka \parencite[Chap. 4~, Sec.4.4]{chirka}.
+    	
+		
+		\begin{theorem}[de Remmert-Stein para variedades complejas]\label{remmertstein}
+			Sea $M$ una variedad compleja conexa de dimensión $n$ y $Z\subset M$ un subconjunto analítico de codimensión menor a $k+1$. Si $V\subset M\setminus Z$ es un subconjunto analítico de codimensión $k$, entonces la cerradura $\overline{V}$ en $M$ es un subconjunto analítico. 
+		\end{theorem}
+		
+		Para probar este teorema se hace una reducción local del mismo. En primer lugar, por la proposición \ref{puntossingulares}, el conjunto de puntos singulares de $Z$ está contenido en un subconjunto analítico propio $Z_1$. Asimismo, los puntos singulares de $Z_1$ están contenidos en un subconjunto analítico propio $Z_2\subset Z_1$. De esta manera, tenemos la siguiente cadena de subconjuntos analíticos
+		\begin{equation*}
+			Z=Z_0\supset Z_1 \supset Z_2 \supset \cdots 
+		\end{equation*}
+		con cada $Z_j\setminus Z_{j+1}$ una subvariedad compleja de codimensión $\geq k$ en $M$. Como cada $Z_{j+1}$ es un subconjunto analítico propio de $Z_j$, su dimensión es estrictamente menor, por lo tanto, el proceso termina después de un número finito de pasos. Entonces existe un $r\in\nn$ tal que $Z_{r+1}=\emptyset$. De esta manera, podemos extender $V$ sucesivamente en cada subvariedad $Z_{j}\setminus Z_{j+1}$, primero tomando la cerradura en $M\setminus Z_{1}$, luego en $M\setminus Z_2$ y continuando una cantidad finita de veces. Con lo cual, es suficiente probarlo suponiendo que $Z\subset M$ es una subvariedad compleja de codimensión $\geq k$.
+		
+		En segundo lugar, para probar que $\overline{V}$ es analítico, es suficiente mostrar que lo es en una vecindad para cualquiera de sus puntos. Por lo tanto, podemos suponer que $M$ es un polidisco de $\cc^n$ que contiene al origen y $0\in Z$. Después de un cambio de coordenadas,  podemos ver que la subvariedad $Z$ es de la forma $Z=Z(z_1,z_2,\dots,z_{k+1})$. De esta manera, tenemos la reducción local del teorema:
+		
+		\begin{propo}
+			Sean $D\subset\cc^n$ un polidisco que contiene al origen y $Z=Z(z_1,z_2,\dots,z_{k+1})$. Si $V$ es un subconjunto analítico de $D\setminus Z$ de codimensión $k$, entonces $\overline{V}$ es un subconjunto analítico de $D$.
+		\end{propo}
+		
+		\begin{remark}
+			El teorema de Remmert-Stein puede ser visto como una generalización geométrica del teorema de Hartogs. Una versión del teorema de Hartogs nos dice que si $f$ es una función holomorfa en $M\setminus\{p\}$, y $\dim M\geq 2$, entonces $f$ se extiende holomorficamente a toda $M$ (véase \parencite[Chap. 2, Sec. 1, Cor. 2.1.6]{huybrechts2005complex}).
+			
+			En esta misma situación, la gráfica
+			\begin{equation*}
+				\Gamma_f=\{(x,f(x)):x\in M\setminus \{p\}\}\subset (M\setminus \{p\})\times \cc,
+			\end{equation*}
+			es un subconjunto analítico. Así, el teorema de Remmert-Stein nos dice que la cerradura $\overline{\Gamma_f}$ es un subconjunto analítico de $M\times \cc$. En particular, $\overline{\Gamma_f}$ resulta ser la gráfica de una función holomorfa
+			\begin{equation*}
+				\tilde{f}\in\oo_M(M)
+			\end{equation*}
+			tal que $\tilde{f}|_{M\setminus\{p\}}=f$. Este es exactamente el mismo resultado que nos da Hartogs. 
+		\end{remark}
+		
+    \section{Teorema de Chow}
+    
+	Hemos estudiado las subvariedades analíticas y visto muchas propiedades interesantes de ellas. Para el objetivo de buscar la algebrización de variedades complejas, vimos que las imágenes de subvariedades analíticas son analíticas (\ref{aplicacionpropia}). Así, un encaje de una variedad compleja al espacio proyectivo significa tener un biholomorfismo entre la variedad y una subvariedad analítica del espacio proyectivo. Por lo tanto, la última pregunta que nos interesa abordar resulta tanto natural como profunda. ¿Cómo son las subvariedades analíticas del espacio proyectivo?
+	
+	En 1949, \textit{Wei-Liang Chow} publicó su artículo \enquote{On Compact Complex Analytic Varieties}, en el cual demuestra un profundo resultado conocido actualmente como \textit{teorema de Chow} y responde a las cuestiones más importantes de todo este trabajo. La demostración de este resultado ha tenido una historia y desarrollo muy interesante durante el siglo pasado. El enfoque de Chow fue usar varias técnicas analíticas y topológicas, luego en 1953 Reinhold Remmert y Karl Stein presentaron una demostración más simple desarrollando un resultado relacionado con la cerradura de conjuntos analíticos. Tres años después, en 1956, \textit{Jean Pierre Serre} publicó su famoso artículo \textit{"Géométrie algébrique et géométrie analytique"}, bautizado como \textbf{GAGA}, y presentó una demostración muy elegante usando toda la nueva herramienta de gavillas coherentes que desarrolló en su artículo. En nuestro caso, presentaremos una demostración basada en la construcción de Remmert y Stein.
+
+\begin{theorem}[Teorema de Chow]
+	Todo subconjunto analítico del $n$-espacio proyectivo es algebraico.
+\end{theorem}
+	\begin{proof}\parencite{chirka}
+		Sea $X\subset \pp^n$ un subconjunto analítico. Consideremos la proyección usual
+		\begin{align*}
+			\pi:\cc^{n+1}\setminus\{0\}\longrightarrow \pp^n
+		\end{align*}
+		Tomando $V_0=\pi^{-1}(X)\subset \cc^{n+1}\setminus\{0\}$, entonces $V_0$ es un subconjunto analítico (\ref{preimagen analitico}) de $\cc^{n+1}\setminus\{0\}$. Por el teorema de Remmert-Stein \ref{remmertstein}, la cerradura 
+		\begin{equation*}
+			V=\overline{V_0}=V_0\cup\{0\}
+		\end{equation*}
+		es un subconjunto analítico de $\cc^{n+1}$.\\
+		Ahora, observemos que  si $z\in V$, entonces para todo $t\in\cc$ tenemos que $tz\in V$. Esto significa que $V$ es un cono completo.
+		
+		Como $0\in V$, entonces existe una vecindad $U\subset\cc^{n+1}$ de $0$ y $f_1,\dots,f_k\in\mathscr{O}_{\cc^{n+1}}(U)$ tales que 
+		\begin{equation*}
+			V\cap U=Z(f_1,\dots,f_k).
+		\end{equation*}
+		Sea $I=\langle \overline{f_1},\dots,\overline{f_k} \rangle\subset \mathscr{O}_{n+1}$ el ideal de gérmenes. Si $\overline{f}\in I$, entonces $f$ se puede escribir como 
+		\begin{equation*}
+			f(z)=\sum_{i=0}^{\infty}h_i(z)
+		\end{equation*}
+		donde $h_i\in\cc[z_0,\dots,z_n]_{(i)}$ son polinomios homogéneos de grado $i$.\\
+		Como $V$ es un cono, entonces $\overline{h_i}\in I$ para todo $i$. En efecto, si $z\in V$ y $|\lambda|<1$, entonces 
+		\begin{equation*}
+			0=f(\lambda z)=\sum_{i=0}^{\infty}h_i(\lambda z)=\sum_{i=0}^{\infty}\lambda^ih_i( z)
+		\end{equation*}
+		Como $f(\lambda z)$ es holomorfa en $\lambda$, entonces por el teorema de la identidad, $h_i(z)=0$ para todo $i\in\nn$. Con esto, $\overline{h_i}\in I$.\\
+		Así, $I$ está generado por polinomios homogéneos. Como $\mathscr{O}_{n+1}$ es noetheriano (véase teorema \ref{anillonoetheriano}), $I$ es finitamente generado. Esto significa que existen $F_1,\dots, F_m\in\cc[z_0,\dots,z_n]$ polinomios homogéneos tal que $I=\langle F_1,\dots, F_m \rangle$.
+		Por lo tanto, $X=Z(F_1,\dots,F_m)$.
+	\end{proof}
+	
+	Supongamos que $M$ admite un haz lineal amplio $L\longrightarrow M$, entonces existe un encaje holomorfo a algún espacio proyectivo $\varphi:M\hookrightarrow\pp^N$
+	\[\begin{tikzcd}
+		L \\
+		\\
+		M && {\mathbb{P}^N}
+		\arrow[no head, from=1-1, to=3-1]
+		\arrow[hook, from=3-1, to=3-3]
+	\end{tikzcd}\]
+	Como $\varphi$ es un encaje, $\varphi(M)$ es biholomorfo a $M$. Por el teorema de la aplicación propia (\ref{aplicacionpropia}), $\varphi(M)\subset\pp^N$ es una subvariedad analítica. Por el teorema de Chow, $\varphi(M)$ es una variedad algebraica. Por lo tanto, podemos concluir que:
+
+\begin{corollary}
+	Toda variedad compleja que admite un haz amplio es algebraica.
+\end{corollary}
+
+	Como observamos en el capítulo \ref{cap2}, en geometría compleja no existe un resultado general análogo al teorema de Whitney. Por ello, resulta natural buscar encajes en un espacio tan familiar y estructurado como lo es el espacio proyectivo complejo \(\mathbb{P}^N\). Sin embargo, el teorema de Chow nos muestra que la posibilidad de realizar una variedad compleja como subvariedad proyectiva es una propiedad exclusiva de las variedades algebrizables.
+	
+	En geometría algebraica, una variedad proyectiva se entiende como una subvariedad algebraica del espacio proyectivo. En nuestra definición, toda variedad proyectiva admite un encaje en un espacio proyectivo complejo; por el Teorema \ref{proyectivossiamplio}, dicha variedad es algebraica. Por lo tanto, nuestra definición de variedad proyectiva coincide con la noción clásica de la geometría algebraica.
+
+	\begin{corollary}\label{teoriemann}
+		Toda superficie de Riemann compacta es algebraica.
+	\end{corollary}
+	
+	Con ello observamos que toda superficie de Riemann compacta puede realizarse como una variedad algebraica de dimensión $1$, es decir, como una curva algebraica. Sin embargo, estos resultados son solo teórico y no constituyen, por sí mismos, un método directo para determinar ecuaciones explícitas de una variedad compleja. De hecho, existe una rama activa de las matemáticas dedicada precisamente a construir y estudiar ecuaciones asociadas a superficies de Riemann; un ejemplo clásico de esta perspectiva es la teoría de las curvas modulares.
+	
+	\begin{example}\parencite{curvaselipticas}
+		Consideremos la superficie de Riemann
+		\[
+		T=\cc/\Lambda,
+		\]
+		donde $\Lambda=\omega_1\zz+\omega_2\zz$ es una retícula de $\cc$. A este retículo le asociamos la \textbf{función de Weierstrass} $\wp$, que desciende a una función meromorfa en $T$ y está dada por
+		\[
+		\wp(z)=\frac{1}{z^2}+\sum_{\omega\in\Lambda\setminus\{0\}}
+		\left(\frac{1}{(z-\omega)^2}-\frac{1}{\omega^2}\right).
+		\]
+		Su derivada satisface la relación
+		\[
+		(\wp'(z))^2=4\wp(z)^3-g_2\wp(z)-g_3,
+		\]
+		donde $g_2$ y $g_3$ son constantes que dependen de $\Lambda$ y vienen dadas por las \textbf{series de Eisenstein}
+		\[
+		g_2=60\sum_{\omega\in\Lambda\setminus\{0\}}\frac{1}{\omega^4},
+		\qquad
+		g_3=140\sum_{\omega\in\Lambda\setminus\{0\}}\frac{1}{\omega^6}.
+		\]
+		Con esto, obtenemos una aplicación holomorfa bien definida
+		\[
+		\phi:T\longrightarrow \pp^2,\qquad
+		z\longmapsto [\wp(z):\wp(z)^2:1],
+		\]
+		la cual define un encaje holomorfo. Así, se obtiene un biholomorfismo entre el toro $T$ y la curva elíptica dada por la ecuación
+		\[
+		4y^2=4x^3-g_2x-g_3.
+		\]
+		En general, se puede probar que toda superficie de Riemann de género $1$ está dada por la ecuación afín
+		\begin{equation*}
+			y^2=x(x-1)(x-\lambda),\qquad \text{para todo }\ \lambda\in\cc\setminus\{0,1\}. 
+		\end{equation*}
+	\end{example}
+
+	\begin{example}[Encaje de Segre]
+		Consideremos la superficie compleja $M=\pp^1\times\pp^1$ y denotemos por $p_1:M\to \pp^1$ y $p_2:M\to \pp^1$ las proyecciones de $M$. Por el teorema \ref{seccionesproyectivo}, sabemos que
+		\begin{equation*}
+			H^0(\pp^1,\oo(1))\cong\langle x_0,x_1\rangle, \qquad H^0(\pp^1,\oo(1))\cong\langle y_0,y_1\rangle.
+		\end{equation*}
+		Además, el pullback de las secciones bajo las proyecciones vuelven a ser los monomios $x_0,x_1,y_0,y_1$. De esta manera, las secciones $x_0$ y $x_1$ son linealmente independientes en $H^0(M,p_1^*\oo(1))$, y análogo con $y_0$ y $y_1$. Por lo que, estas secciones definen un subespacio lineal
+		\begin{equation*}
+			\cc[x_0,x_1]_{(1)}\otimes \cc[y_0,y_1]_{(1)}=\langle x_0,x_1\rangle\otimes \langle y_0,y_1\rangle\subset H^0(M,p_1^*\oo(1))\otimes H^0(M,p_2^*\oo(1)).
+		\end{equation*}
+		Definamos el haz lineal $L=p_1^*\oo(1)\otimes p_2^*\oo(1)$. Entonces, las secciones
+		\begin{equation*}
+			x_0\otimes y_0,\enspace x_0\otimes y_1,\enspace x_1\otimes y_0,\enspace x_1\otimes y_1
+		\end{equation*}
+		definen secciones linealmente independientes de $H^0(M,L)$. Usando el isomorfismo
+		\begin{align*}
+			\cc[x_0,x_1]\otimes \cc[y_0,y_1]\cong \cc[x_0,x_1,y_0,y_1]
+		\end{align*}
+		obtenemos que los productos 
+		\begin{equation*}
+			x_0y_0,\enspace x_0y_1,\enspace x_1y_0,\enspace x_1y_1
+		\end{equation*}
+		definen secciones linealmente independientes de $H^0(M,L)$. Con lo cual, obtenemos el morfismo inducido por estas secciones
+		\begin{align*}
+				&\sigma:\pp^1\times\pp^1\longrightarrow \pp^3\\
+			([x_0:x_1],[y_0:&y_1])\mapsto [x_0y_0:x_0y_1:x_1y_0:x_1y_1]
+		\end{align*}
+
+		Notemos que la aplicación $\sigma$ es holomorfa, pues sus coordenadas homogéneas son productos de coordenadas homogéneas en cada factor. Para probar que $\sigma$ es un encaje holomorfo, estudiaremos su expresión en cartas afines. Consideremos las cartas estándar de $\pp^1$
+		\begin{align*}
+			&U_0=\{[x_0:x_1]:x_0\neq 0\},\qquad U_1=\{[x_0:x_1]:x_1\neq 0\},\\
+			&V_0=\{[y_0:y_1]:y_0\neq 0\},\qquad V_1=\{[y_0:y_1]:y_1\neq 0\}.
+		\end{align*}
+		En $U_0\times V_0$ tenemos las coordenadas afines $(s,t)$ donde
+		\begin{equation*}
+			s=\frac{x_1}{x_0},\qquad t=\frac{y_1}{y_0}.
+		\end{equation*}
+		Dado que 
+		\begin{equation*}
+			[x_0y_0:x_0y_1:x_1y_0:x_1y_1]=\left[ 1:\frac{y_1}{y_0}:\frac{x_1}{x_0}:\frac{x_1y_1}{x_0y_0}\right],
+		\end{equation*}
+		entonces en las coordenadas $(s,t)$ la aplicación $\sigma$ queda dada como
+		\begin{equation*}
+			(s,t)\longmapsto [1:t:s:st].
+		\end{equation*}
+		Por tanto, sobre la carta afín $Z(X_0)^c\subset\pp^3$, la inversa de $\sigma$ sobre su imagen viene dada por
+		\begin{equation*}
+			[X_0:X_1:X_2:X_3]\longmapsto \left([1:X_2/X_0],[1:X_1/X_0]\right),
+		\end{equation*}
+		la cual es holomorfa. Análogamente, en las otras tres cartas de $M$ se obtienen expresiones locales de $\sigma$ y de su inversa dadas por
+		\begin{align*}
+			&U_0\times V_1:\quad (s,t)\mapsto [t:1:st:s],\qquad
+			[X]\mapsto \left([1:X_3/X_1],[X_0/X_1:1]\right),\\
+			&U_1\times V_0:\quad (s,t)\mapsto [s:st:1:t],\qquad
+			[X]\mapsto \left([X_0/X_2:1],[1:X_3/X_2]\right),\\
+			&U_1\times V_1:\quad (s,t)\mapsto [st:s:t:1],\qquad
+			[X]\mapsto \left([X_1/X_3:1],[X_2/X_3:1]\right).
+		\end{align*}
+		De aquí se sigue que $\sigma$ induce un biholomorfismo entre $M=\pp^1\times\pp^1$ y su imagen.
+		
+		Más aún, la imagen de $\sigma$ es la variedad algebraica proyectiva
+		\begin{equation*}
+			\sigma(M)=Z(X_0X_3-X_1X_2).
+		\end{equation*}
+		De esta manera, por la proposición \ref{encajesubvariedades}, la aplicación $\sigma$ es un encaje holomorfo.
+		
+		Por lo tanto, la superficie compleja $M=\pp^1\times\pp^1$ es algebrizable y la variedad algebraica asociada es
+		\begin{equation*}
+			V=Z(X_0X_3-X_1X_2)\subset\pp^3,
+		\end{equation*}
+			
+%			Resta identificar la imagen. Si
+%			\[
+%			[X_0:X_1:X_2:X_3]=\sigma([u_0:u_1],[v_0:v_1]),
+%			\]
+%			entonces
+%			\[
+%			X_0X_3-X_1X_2
+%			=
+%			(u_0v_0)(u_1v_1)-(u_0v_1)(u_1v_0)=0,
+%			\]
+%			luego \(\sigma(\PP^1\times \PP^1)\subseteq V(X_0X_3-X_1X_2)\).
+%			
+%			Recíprocamente, si \([X_0:X_1:X_2:X_3]\in V(X_0X_3-X_1X_2)\), entonces la matriz
+%			\[
+%			\begin{pmatrix}
+%				X_0 & X_1\\
+%				X_2 & X_3
+%			\end{pmatrix}
+%			\]
+%			tiene determinante cero, y por tanto rango a lo más uno. En consecuencia, dicha matriz se descompone como producto exterior de dos vectores no nulos de \(\CC^2\), es decir, existen \((u_0,u_1)\neq (0,0)\) y \((v_0,v_1)\neq (0,0)\) tales que
+%			\[
+%			\begin{pmatrix}
+%				X_0 & X_1\\
+%				X_2 & X_3
+%			\end{pmatrix}
+%			=
+%			\begin{pmatrix}
+%				u_0\\
+%				u_1
+%			\end{pmatrix}
+%			\begin{pmatrix}
+%				v_0 & v_1
+%			\end{pmatrix}.
+%			\]
+%			Por lo tanto,
+%			\[
+%			[X_0:X_1:X_2:X_3]
+%			=
+%			[u_0v_0:u_0v_1:u_1v_0:u_1v_1]
+%			\in \sigma(\PP^1\times\PP^1).
+%			\]
+%			Así,
+%			\[
+%			\sigma(\PP^1\times\PP^1)=V().
+%			\]
+%			
+
+	\end{example}
+
+\input{Capitulos/Otros criterios}
