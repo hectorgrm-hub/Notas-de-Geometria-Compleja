@@ -1,6 +1,3 @@
-\usepackage[spanish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 %\setlength{\columnsep}{1cm}
 %\setlength{\parskip}{1ex plus 0.5ex}
 %para editar el tamaño de los margenes
@@ -67,4 +64,17 @@ abc}
 
 \let\oldproofname=\proofname
 \renewcommand{\proofname}{\rm\bf{Demostración}}
-\renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\qedsymbol}{$\smiley$}
+
+
+% Configuración de encabezados y pies de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}  % Número de página en lados opuestos
+\fancyhead[RE]{\leftmark}    % Capítulo en páginas de la derecha
+\fancyhead[LO]{\rightmark}   % Sección en páginas de la izquierda
+
+% Título y autor del libro
+\title{\Huge \textbf{Notas de Geometría Compleja}} 
+\author{\Large Héctor Gabriel Rodríguez Morales}
+\date{}  % Deja vacío si no quieres que aparezca la fecha en la portada
