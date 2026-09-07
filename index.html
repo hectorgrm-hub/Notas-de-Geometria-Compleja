@@ -8,31 +8,31 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { display: flex; height: 100vh; font-family: system-ui, -apple-system, sans-serif; background: #1e1e1e; color: #e0e0e0; }
     
-    /* Panel lateral */
     sidebar {
-      width: 280px;
+      width: 300px;
       background: #252526;
       border-right: 1px solid #3c3c3c;
       display: flex;
       flex-direction: column;
       padding: 1.5rem 1rem;
+      overflow-y: auto;
     }
-    sidebar h2 { font-size: 1.1rem; color: #ffffff; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid #3c3c3c; }
+    sidebar h2 { font-size: 1.1rem; color: #ffffff; margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid #3c3c3c; }
     
+    .section-title { font-size: 0.8rem; text-transform: uppercase; color: #858585; margin: 1rem 0 0.5rem 0.5rem; letter-spacing: 0.5px; }
     .nav-list { list-style: none; }
-    .nav-item { margin-bottom: 0.5rem; }
     .nav-link {
-      display: block;
-      padding: 0.6rem 0.8rem;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0.8rem;
       color: #9cdcfe;
       text-decoration: none;
       border-radius: 4px;
-      font-size: 0.95rem;
-      transition: background 0.2s;
+      font-size: 0.9rem;
+      transition: background 0.15s ease;
     }
     .nav-link:hover { background: #37373d; color: #ffffff; }
 
-    /* Visor PDF */
     main { flex: 1; height: 100%; background: #525659; }
     iframe { width: 100%; height: 100%; border: none; }
   </style>
@@ -41,15 +41,24 @@
 
   <sidebar>
     <h2>Geometría Compleja</h2>
+    
+    <div class="section-title">Documento Completo</div>
     <ul class="nav-list">
-      <li class="nav-item">
-        <a class="nav-link" href="main.pdf" target="pdf-frame">📄 Notas Principales</a>
-      </li>
+      <li><a class="nav-link" href="Notas/main.pdf" target="pdf-frame">📄 Portada e Índice</a></li>
+    </ul>
+
+    <div class="section-title">Índice de Temas</div>
+    <ul class="nav-list">
+      <!-- Los enlaces apuntan a paginas o etiquetas especificas del PDF -->
+      <li><a class="nav-link" href="Notas/main.pdf#page=1" target="pdf-frame">📌 Capítulo 1</a></li>
+      <li><a class="nav-link" href="Notas/main.pdf#page=5" target="pdf-frame">📌 Capítulo 2</a></li>
+      <li><a class="nav-link" href="Notas/main.pdf#page=12" target="pdf-frame">📌 Variedades de Kähler</a></li>
     </ul>
   </sidebar>
 
   <main>
-    <iframe name="pdf-frame" src="main.pdf"></iframe>
+    <!-- Si la ruta Notas/main.pdf falla, prueba cambiándola a solo main.pdf -->
+    <iframe name="pdf-frame" src="Notas/main.pdf"></iframe>
   </main>
 
 </body>
