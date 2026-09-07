@@ -18,7 +18,10 @@ jobs:
           root_file: |
             Notas/main.tex
           work_in_root_file_dir: true
-
+          
+      - name: Mover PDF a la raíz
+        run: cp Notas/main.pdf ./main.pdf
+        
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
