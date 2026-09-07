@@ -44,7 +44,6 @@
       \field{eprinttype}{arXiv}
       \field{title}{Some examples due to H. Hironaka}
       \field{year}{2015}
-      \true{nocite}
       \verb{eprint}
       \verb 1501.01129
       \endverb
@@ -81,7 +80,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Complex analytic sets}
       \field{year}{1989}
-      \true{nocite}
     \endentry
     \entry{curvaselipticas}{online}{}{}
       \name{author}{1}{}{%
@@ -110,7 +108,6 @@
       \field{urlyear}{2025}
       \field{year}{2020}
       \field{urldateera}{ce}
-      \true{nocite}
       \verb{urlraw}
       \verb https://web.stanford.edu/~bvchurch/assets/files/ell_curves/Notes.pdf
       \endverb
@@ -149,7 +146,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Principles of algebraic geometry}
       \field{year}{2014}
-      \true{nocite}
     \endentry
     \entry{gunningrossi}{book}{}{}
       \name{author}{2}{}{%
@@ -182,7 +178,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Analytic functions of several complex variables}
       \field{year}{2022}
-      \true{nocite}
     \endentry
     \entry{grauertremment}{book}{}{}
       \name{author}{2}{}{%
@@ -215,7 +210,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Several complex variables VII: sheaf-theoretical methods in complex analysis}
       \field{year}{1994}
-      \true{nocite}
     \endentry
     \entry{Harts}{book}{}{}
       \name{author}{1}{}{%
@@ -243,7 +237,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Algebraic geometry}
       \field{year}{2013}
-      \true{nocite}
     \endentry
     \entry{huybrechts2005complex}{book}{}{}
       \name{author}{1}{}{%
@@ -271,7 +264,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Complex geometry: an introduction}
       \field{year}{2005}
-      \true{nocite}
     \endentry
     \entry{carlosga}{online}{}{}
       \name{author}{1}{}{%
@@ -296,7 +288,6 @@
       \field{labeltitlesource}{title}
       \field{note}{Accedido en: 2024}
       \field{title}{Geometría Algebraica}
-      \true{nocite}
       \verb{urlraw}
       \verb https://www.uv.es/ivorra/Libros/GA.pdf
       \endverb
@@ -332,7 +323,6 @@
       \field{booktitle}{Introduction to smooth manifolds}
       \field{title}{Smooth manifolds}
       \field{year}{2003}
-      \true{nocite}
       \field{pages}{246\bibrangedash 251}
       \range{pages}{6}
     \endentry
@@ -364,7 +354,6 @@
       \field{title}{Introduction to Complex Manifolds}
       \field{volume}{244}
       \field{year}{2024}
-      \true{nocite}
     \endentry
     \entry{lojasiewicz}{book}{}{}
       \name{author}{1}{}{%
@@ -392,7 +381,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Introduction to complex analytic geometry}
       \field{year}{2013}
-      \true{nocite}
     \endentry
     \entry{Moishezon1967}{book}{}{}
       \name{author}{1}{}{%
@@ -428,7 +416,6 @@
       \field{title}{On $n$-Dimensional Compact Complex Manifolds Having $n$ Algebraically Independent Meromorphic Functions}
       \field{volume}{63}
       \field{year}{1967}
-      \true{nocite}
       \field{pages}{51\bibrangedash 177}
       \range{pages}{127}
     \endentry
@@ -460,7 +447,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Resolution theorems for compact complex spaces with a sufficiently large field of meromorphic functions}
       \field{year}{1967}
-      \true{nocite}
       \field{pages}{1331\bibrangedash 1356}
       \range{pages}{26}
     \endentry
@@ -490,7 +476,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Introduction to complex analysis in several variables}
       \field{year}{2023}
-      \true{nocite}
     \endentry
     \entry{shafarevich2016basic}{book}{}{}
       \name{author}{1}{}{%
@@ -518,7 +503,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Basic algebraic geometry 2: Schemes and Complex Manifolds}
       \field{year}{1996}
-      \true{nocite}
     \endentry
     \entry{2002hodge}{book}{}{}
       \name{author}{1}{}{%
@@ -546,7 +530,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Hodge Theory and Complex Algebraic Geometry I.}
       \field{year}{2002}
-      \true{nocite}
     \endentry
     \entry{zaldrimann}{book}{}{}
       \name{author}{1}{}{%
@@ -571,7 +554,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Superficies de Riemann Compactas}
       \field{year}{2017}
-      \true{nocite}
       \verb{urlraw}
       \verb https://sites.google.com/view/fzaldivar/home
       \endverb
