@@ -1,56 +1,77 @@
-\documentclass[12pt,a4paper]{book}
+\documentclass[12pt,a4paper]{book}%landscape,twocolumn,
+\input{preambulo}
+\input{macros}
 
-\input{preambulo.tex}
-
-\input{macros.tex}
+\title{\Huge \textbf{Notas de Geometría Compleja}} 
+\author{\Large Héctor Gabriel Rodríguez Morales}
+\date{}
 
 \begin{document}
-
-\maketitle
-\thispagestyle{empty}  % Quitar el número de página en la portada
-
-\tableofcontents
-
-\listoffigures
-
-%\renewcommand{\listtablename}{Índice de tablas}
-%\listoftables
-
-%-----------------------new page----------------------------
-
-\input{Capitulos/Introduccion}
-
-%-----------------------new page----------------------------
-
-\input{Capitulos/Variedades Complejas}
-
-%-----------------------new page----------------------------
-
-\input{Capitulos/Encaje}
-
-%-----------------------new page----------------------------
-
-\input{Capitulos/Chow}
-
-%-----------------------new page----------------------------
-
-\input{Capitulos/Conclusion}
-
-%-----------------------new page----------------------------
-
-\input{Capitulos/apendice}
-
-%-----------------------new page----------------------------
-
-\backmatter
-
-
-\nocite{*}
-\printbibliography[
-heading=bibnumbered,
-title={Referencias}
-]
-
-%-----------------------new page----------------------------
-
+	
+	\maketitle
+	\thispagestyle{empty}  % Quitar el número de página en la portada
+	\newpage
+	
+	\tableofcontents
+	
+	\newpage
+	
+	\listoffigures
+	
+	\newpage
+	
+	%\renewcommand{\listtablename}{Índice de tablas}
+	%\listoftables
+	
+	%-----------------------new page----------------------------
+	
+	\mainmatter
+	
+%	\input{Capitulos/Introduccion}
+	
+	%-----------------------new page----------------------------
+	
+	\input{Capitulos/Geometria local/Geometria local}
+	 
+	\input{Capitulos/Variedades Complejas/Variedades Complejas}
+	
+	\input{Capitulos/Variedades Algebraicas/Variedades Algebraicas}
+	
+	\input{Capitulos/Algebrizacion/Encaje}
+	
+	\input{Capitulos/Algebrizacion/Chow}
+	
+	
+	%-----------------------new page----------------------------
+	
+%	\input{Capitulos/Encaje}
+	
+	%-----------------------new page----------------------------
+	
+%	\input{Capitulos/Chow}
+	
+	%-----------------------new page----------------------------
+	
+%	\input{Capitulos/Conclusion}
+	
+	
+	
+	%-----------------------new page----------------------------
+	
+%	\appendix
+%	
+%	\input{Capitulos/apendice}
+	
+	%-----------------------new page----------------------------
+	
+	\backmatter
+	
+	\nocite{*}
+	\printbibliography[
+	heading=bibnumbered,
+	title={Referencias}
+	]
+	
+	%-----------------------new page----------------------------
+	
 \end{document}

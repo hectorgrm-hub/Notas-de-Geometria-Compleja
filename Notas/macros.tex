@@ -1,3 +1,20 @@
+% Definición de entornos teorema, lema, etc.
+%\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[chapter]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{propo}[theorem]{Proposición}
+\newtheorem{corollary}[theorem]{Corolario}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definición}
+\newtheorem{example}[theorem]{Ejemplo}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Observación}
+
+\let\oldproofname=\proofname
+\renewcommand{\proofname}{\rm\bf{Demostración}}
+\renewcommand{\qedsymbol}{$\blacksmiley$}
+
 \newcommand{\nn}{\mathbb{N}}
 \newcommand{\rr}{\mathbb{R}}
 \newcommand{\cc}{\mathbb{C}}
@@ -7,3 +24,6 @@
 \newcommand{\afin}{\mathbb{A}}
 \newcommand{\dom}{\mathrm{dom}}
 \newcommand{\trdeg}{\mathrm{trdeg}}
+\newcommand{\Der}{\mathrm{Der}}
+\newcommand{\zn}{z_1,z_2,\dots,z_n}
+\newcommand{\im}{\mathfrak{m}}

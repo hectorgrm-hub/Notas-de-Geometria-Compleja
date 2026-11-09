@@ -1,0 +1,254 @@
+\section{Aplicaciones Holomorfas}
+
+Pese a que las funciones holomorfas son suaves, estas mismas tienen una rigidez mucho mayor que las funciones suaves en la geometría diferencial real. Como en el análisis complejo, esta diferencia tiene consecuencias profundas en el estudio de estos objetos, y en consecuencia también cambia la situación geométrica con respecto a la real. Por ejemplo, en la geometría diferencial real la orientabilidad es una condición adicional y fundamental para teoremas importantes, en geometría compleja se demuestra que toda variedad compleja es orientable. Por otra parte, la estructura del anillo de funciones holomorfas globales sobre una variedad compleja compacta es altamente restrictiva (véase teorema \ref{holomorfasglobal}).
+
+Vamos a establecer las formalidades sobre morfismos entre variedades complejas en fin de comprender la riqueza analítica de las mismas.
+
+\begin{definition}[Aplicación holomorfa]
+	Sean $M$ y $N$ dos variedades complejas. Una \textbf{aplicación holomorfa} entre $M$ y $N$ es una función continua $f:M\to N$ tal que para cada $p\in M$, para cada carta $(U,\varphi)$ alrededor de $p\in M$ y $(V,\psi)$ alrededor de $f(p)\in N$, la función
+	\begin{equation*}
+		\psi\circ f\circ \varphi^{-1}:\varphi(U\cap f^{-1}(V))\longrightarrow\psi(V)
+	\end{equation*}
+	es una aplicación holomorfa en $\varphi(p)$.
+	\begin{center}
+		\begin{tikzcd}
+			{p\in U} && {f(p)\in V} \\
+			\\
+			{\varphi(U\cap f^{-1}(V))} && {\psi(V)}
+			\arrow["f", from=1-1, to=1-3]
+			\arrow["\varphi"', from=1-1, to=3-1]
+			\arrow["\psi", from=1-3, to=3-3]
+			\arrow["{\psi\circ f\circ \varphi^{-1}}"', from=3-1, to=3-3]
+		\end{tikzcd}
+	\end{center}
+\end{definition}
+
+\begin{definition}
+	Una aplicación holomorfa $f:M\to N$ entre variedades complejas se llama \textbf{biholomorfismo} si es biyectiva y su inversa también es una aplicación holomorfa. Dos variedades complejas se dicen \textbf{biholomorfas} si existe un biholomorfismo entre ellas.
+\end{definition}
+
+\begin{remark}
+	Dada una función continua $f:M\to N$, la propiedad de ser holomorfa es independiente de la elección de las cartas holomorfas de la estructura holomorfa de $M$ y $N$. Así, la verificación de la propiedad puede realizarse para cualquier atlas de $M$ y $N$.
+\end{remark}
+
+\begin{lemma}$ $
+	\begin{enumerate}
+		\item La restricción de una aplicación holomorfa a un subconjunto abierto es holomorfa.
+		\item Toda aplicación constante entre variedades complejas es una aplicación holomorfa.
+		\item La aplicación identidad sobre cualquier variedad compleja es una aplicación holomorfa.
+		\item Toda carta holomorfa es un biholomorfismo sobre su imagen.
+		\item La composición de aplicaciones holomorfas es una aplicación holomorfa.
+	\end{enumerate}
+\end{lemma}
+
+Tenemos muchos resultados enigmáticos de las funciones holomorfas y resulta interesante ver sus consecuencias en las aplicaciones holomorfas entre variedades complejas. Uno de los más importantes, y una primera distinción frente a las variedades reales, es el \textit{teorema de la identidad}.
+
+\begin{theorem}[Teorema de la identidad]\label{teoidentidad}
+	Sean $M$ y $N$ dos variedades complejas, con $M$ conexa y $f,g:M\to N$ dos aplicaciones holomorfas que coinciden en un subconjunto abierto no vacío de $M$. Entonces $f=g$. 
+\end{theorem}
+\begin{proof}
+	Comencemos definiendo el conjunto
+	\begin{equation*}
+		A=\{p\in M:f\text{ y }g\text{ coinciden en una vecindad de }p\ \}.
+	\end{equation*}
+	Queremos demostrar que este conjunto es abierto y cerrado. Dado que $M$ es conexo, tendríamos que $A=M$.
+	\begin{itemize}
+		\item Sea $p\in A$, entonces existen cartas $(U,z)$ alrededor de $p$ y $(V,w)$ en $N$ tales que
+		\begin{equation*}
+			f(U),g(U)\subset V.
+		\end{equation*}
+		Como $f$ y $g$ son aplicaciones holomorfas, entonces las funciones $w\circ f\circ z^{-1}$ y $w\circ g\circ z^{-1}$ son holomorfas en $z(U)$. Además, como $p\in A$ entonces existe una vecindad $W\subset M$ de $p$ donde $f$ y $g$ coinciden. Así,
+		\begin{equation*}
+			(w\circ f\circ z^{-1})\left.\right|_{z(U\cap W)}=(w\circ g\circ z^{-1})\left.\right|_{z(U\cap W)}.
+		\end{equation*} 
+		Por el teorema de la identidad \ref{identidad}, las funciones coinciden en todo $z(U)$.
+		Por lo que, $f=g$ en todo $U$ y $U\subset A$.\\
+		De esta forma, $p$ es un punto interior de $A$ y concluimos que $A$ es un conjunto abierto.
+		
+		\item Supongamos que $b\in \partial A$. Queremos probar que $b\in A$ para concluir que $A$ es cerrado.
+		Como $b$ pertenece a la frontera de $A$ y $f$ y $g$ coinciden en $A$, por continuidad tenemos que $f(b)=g(b)$. Tomemos cartas $(U,z)$ de $M$ alrededor de $b$ y $(V,w)$ de $N$ alrededor de $f(b)=g(b)\in N$, con $U$ conexo. Definamos
+		\begin{align*}
+			F&=w\circ f\circ z^{-1}:z(U)\to w(V),\\
+			G&=w\circ g\circ z^{-1}:z(U)\to w(V),
+		\end{align*}
+		las cuales son holomorfas por hipótesis.\\
+		Ahora, como $b\in\partial A$, cualquier vecindad de $b$ debe intersectar $A$. En particular, $U\cap A\neq\emptyset$, ya que si esto no ocurriera, entonces $U\subseteq M\setminus A$ y por lo tanto $b$ estaría en el interior de $M\setminus A$, contradiciendo que $b\in\partial A$.\\
+		De esta manera, podemos tomar $p\in U\cap A$. Por definición de $A$, $f=g$ en una vecindad $W\subset U$ de $p$ tal que
+		$$
+		f|_W = g|_W.
+		$$
+		Al pasar a las coordenadas locales,
+		esto significa que $F=G$ en el abierto no vacío $z(W)\subseteq z(U)$. Como $F$ y $G$ son holomorfas y coinciden en un subconjunto abierto de $z(U)$, por el teorema de identidad \ref{identidad}, tenemos que
+		
+		$$
+		F = G \quad \text{en todo } z(U).
+		$$
+		
+		Con lo cual $f=g$ en todo $U$, y en particular en una vecindad de $b$. Por lo tanto, $b\in A$.
+	\end{itemize}
+\end{proof}
+
+
+\begin{corollary}
+	Sea $f:M\to N$ una aplicación holomorfa propia y biyectiva entre variedades complejas de la misma dimensión, entonces $f$ es un biholomorfismo.
+\end{corollary}
+\begin{proof}
+	Primero probemos que $f$ es un homeomorfismo.
+	
+	Dado que $f$ es una aplicación continua propia entre espacios Hausdorff y localmente compactos, entonces $f$ es cerrada. Además, como $f$ es biyectiva, su inversa $f^{-1}:N\to M$ cumple que la preimagen de cerrados es cerrado. Así, $f^{-1}$ es continua. Por lo que $f$ es un homeomorfismo. 
+	
+	Tomemos cartas $(U,\varphi)$ de $M$ y $(V,\psi)$ de $N$ con $f(U)\subset V$. Entonces la aplicación
+	\begin{equation*}
+		g:=\psi\circ f\circ \varphi^{-1}:\varphi(U)\subset\cc^n\longrightarrow \psi(V)\subset\cc^n
+	\end{equation*}
+	es holomorfa e inyectiva (pues $f$ lo es). Por la proposición \ref{biholomorfismojac}, $g$ es un biholomorfismo. Es decir, la aplicación
+	\begin{equation*}
+		g^{-1}=\varphi\circ f^{-1}\circ \psi^{-1}
+	\end{equation*}
+	es holomorfa. Solo basta probar que $f^{-1}$ es holomorfa para concluir que $f$ es biholomorfa. En efecto, si tomamos las cartas $(U',\varphi')$ de $M$ y $(V',\psi')$ de $N$ tales que intersectan a las cartas $(U,\varphi)$ y $(V,\psi)$, entonces
+	\begin{align*}
+		\varphi'\circ f^{-1}\circ \psi^{-1}&=\varphi'\circ (\varphi^{-1}\circ g^{-1}\circ \psi)\circ (\psi')^{-1}\\
+		&=(\varphi'\circ \varphi^{-1})\circ g^{-1}\circ (\psi\circ (\psi')^{-1}).
+	\end{align*}
+	Como $(\varphi'\circ \varphi^{-1})$, $g^{-1}$ y $(\psi\circ (\psi')^{-1})$ son holomorfas, entonces $\varphi'\circ f^{-1}\circ \psi^{-1}$ es holomorfa. Por definición, $f^{-1}$ es holomorfa.
+	\begin{center}
+		\begin{tikzcd}
+			{\psi(V')} && N && M && {\varphi'(U')} \\
+			\\
+			&& {\psi(V)} && {\varphi(U)}
+			\arrow[from=1-1, to=3-3]
+			\arrow["{\psi'}"', from=1-3, to=1-1]
+			\arrow["{f^{-1}}", from=1-3, to=1-5]
+			\arrow["\psi"', from=1-3, to=3-3]
+			\arrow["{\varphi'}", from=1-5, to=1-7]
+			\arrow["\varphi"', from=1-5, to=3-5]
+			\arrow["{g^{-1}}"', from=3-3, to=3-5]
+			\arrow[from=3-5, to=1-7]
+		\end{tikzcd}
+	\end{center}
+\end{proof}
+
+\subsection{Funciones holomorfas}
+En geometría, es un principio bien establecido que el estudio de un objeto geométrico se apoya en el análisis de las funciones definidas sobre el objeto. Para nuestros objetivos, las funciones holomorfas desempeñan un papel importantísimo para las propiedades algebraicas de las variedades complejas.
+
+\begin{definition}[Función holomorfa]
+	Sea $M$ variedad compleja. Una \textbf{función holomorfa} en $M$ es una aplicación holomorfa $f:X\to\cc$, ya que $\cc$ es una variedad compleja. Específicamente, $f:M\to \cc$ es una función holomorfa si para todo punto $p\in M$ y cualquier carta $(U,\varphi)$ alrededor de $p\in M$, la función
+	\begin{equation*}
+		f\circ \varphi^{-1}:\varphi(U)\subset\cc^n\to\cc
+	\end{equation*}
+	es holomorfa en el sentido usual de funciones de varias variables complejas.
+\end{definition}
+
+\begin{center}
+	\begin{tikzpicture}[>=stealth, scale=0.7]
+		
+		% 1. Variedad M (Manifold)
+		% Dibujamos la forma de la variedad usando una curva suave cerrada
+		\draw plot[smooth cycle, tension=0.7] coordinates {
+			(-3, 2.5) 
+			(-1.5, 4.2) 
+			(2.5, 4) 
+			(4.2, 2.5) 
+			(3.5, 1.2) 
+			(1, 0.8) 
+			(-2, 0.5)
+		};
+		% Etiqueta M
+		\node at (-3.5, 4) {\Large $M$};
+		
+		% 2. Subconjunto U
+		\draw (-1, 2.2) ellipse (1.6 and 1.1);
+		\node at (-1, 2.2) {\large $U$};
+		
+		% 3. Agujero / Género (Para denotar que es una superficie)
+		\draw (1.5, 2.5) to[bend right=45] (2.9, 2.5);
+		\draw (1.65, 2.35) to[bend left=45] (2.75, 2.35);
+		
+		% 4. Plano Complejo C (Arriba a la derecha)
+		% Ejes
+		\draw[->] (5, 2) -- (9, 2);
+		\draw[->] (7, 0.5) -- (7, 3.5);
+		% Etiqueta C
+		\node at (8.5, 3.6) {\Large $\mathbb{C}$};
+		
+		% 5. Espacio de la carta phi(U) (Abajo a la izquierda)
+		% Ejes (desfasados respecto al centro del círculo, como en la imagen)
+		\draw[->] (-4.5, -3) -- (-1, -3);
+		\draw[->] (-3.6, -4.5) -- (-3.6, -0.5);
+		% Círculo
+		\draw (-2.8, -2.5) circle (1.2);
+		% Etiqueta phi(U)
+		\node at (-2.7, -2.2) {$\varphi(U)$};
+		
+		% 6. Flechas y Mapeos
+		% Flecha f
+		\draw[->] (4.4, 3.3) to[bend left=12] node[above] {$f$} (6.2, 3.3);
+		
+		% Flecha phi
+		\draw[->] (-1.8, 0.8) to[bend right=15] node[left, xshift=-2pt] {$\varphi$} (-2.6, -0.3);
+		
+		% Flecha f o phi^{-1}
+		\draw[->] (-1.3, -1.6) to[bend left=15] node[below right, yshift=-2pt] {$f \circ \varphi^{-1}$} (5, 0.5);
+		
+	\end{tikzpicture}
+	\captionof{figure}{Definición de función holomorfa} 
+	\label{fig:funcion-holomorfa}
+\end{center}
+
+
+\begin{lemma}
+	Sea $M$ una variedad compleja y $f:M\to\cc$ una función. Entonces $f$ es holomorfa en $p\in M$ si, y solo si, existe una carta $(U,\varphi)$ alrededor de $p$ tal que la función $f\circ \varphi^{-1}$ es holomorfa en $\varphi(p)$.
+\end{lemma}
+\begin{proof}
+	Supongamos que existe una carta $(U,\varphi)$ alrededor de $p$ tal que la función $f\circ \varphi^{-1}$ es holomorfa en $\varphi(p)$. Sea $(V,\psi)$ una carta alrededor de $p$ tal que $U\cap V\neq \emptyset$. Así
+	\begin{equation*}
+		f\circ \psi^{-1}=(f\circ\varphi^{-1})\circ(\varphi\circ\psi^{-1})
+	\end{equation*}
+	Como cada paréntesis corresponde a una función holomorfa, entonces $f\circ \psi^{-1}$ es una función holomorfa.\\
+	\begin{center}
+		\begin{tikzcd}
+			{\psi(V)\subset\mathbb{C}^n} && M && {\mathbb{C}} \\
+			\\
+			&& {\varphi(U)\subset\mathbb{C}^n}
+			\arrow["{\varphi\circ\psi^{-1}}"', from=1-1, to=3-3]
+			\arrow["\psi"', from=1-3, to=1-1]
+			\arrow["f", from=1-3, to=1-5]
+			\arrow["\varphi"', from=1-3, to=3-3]
+			\arrow["{f\circ\varphi^{-1}}"', from=3-3, to=1-5]
+		\end{tikzcd}
+	\end{center}
+	
+	La otra implicación es clara por la definición.
+\end{proof}
+
+Este lema muestra que para comprobar que una función es holomorfa en un punto, es suficiente con hacerlo en una sola carta alrededor del punto. Se puede también hacer una demostración similar para aplicaciones en general pero requiere un diagrama bastante más grande. 
+
+Resulta ser de bastante interés construir objetos algebraicos a partir de objetos geométricos. Y para nuestro caso, las funciones holomorfas nos ayudan con esta asignación algebraica.
+\begin{remark}
+	Si $M$ una variedad compleja y $U\subset M$ un abierto. El conjunto de todas las funciones holomorfas en $U$, denotado por $\oo_M(U)$, es un anillo (con las operaciones usuales de funciones) llamado \textbf{anillo de funciones holomorfas} en $U$. Notemos además que $\oo_M(U)$ es una $\cc$-álgebra.
+	El anillo $\oo_M(M)$ es llamado \textbf{anillo de funciones holomorfas globales}.
+	
+\end{remark}
+
+Un hecho algebraico muy importante de las variedades complejas compactas y clave en la geometría compleja es la generalización del teorema de Liouville.
+
+\begin{theorem}\label{holomorfasglobal}
+	Sea $M$ una variedad compleja conexa compacta. Entonces
+	\begin{equation*}
+		\oo_M(M)=\cc.
+	\end{equation*}
+	Es decir, toda función holomorfa global es constante. 
+\end{theorem}
+\begin{proof}
+	Sea $f\in \mathscr{O}_M(M)$, es decir, $f:M\to\cc$ es una función holomorfa global.
+	Como $M$ es compacta, entonces la función continua $|f|$ tiene un valor máximo en algún punto $m\in M$.
+	Escogamos una carta $(U,\varphi)$ alrededor de $m\in M$ tal que $U$ sea conexo.\\
+	Como $\varphi$ es un homeomorfismo, entonces $\varphi(U)\subset\cc^n$ es un abierto conexo. En particular, $\varphi(m)$ es un punto interior de $\varphi(U)$. Luego, para todo punto $x\in \varphi(U)$ se cumple que
+	\begin{align*}
+		|f\circ \varphi^{-1}(x)|=|f(\varphi^{-1}(x))|\leq |f(m)|.
+	\end{align*}
+	Así, la función holomorfa $f\circ\varphi^{-1}$ alcanza un valor máximo en el abierto conexo $\varphi(U)\subset\cc^n$.\\
+	Por el principio del módulo máximo \ref{Principiodelmodulomaximo}, la función $f\circ\varphi^{-1}$ es constante en todo $\varphi(U)$. Con esto, la función $f$ es constante en todo $U$. Por el teorema de la identidad \ref{teoidentidad}, la función $f$ es constante en todo $M$.
+\end{proof}
+
+Los anillos de funciones holomorfas asignan a cada abierto de la variedad su respectivo objeto algebraico. Esto resulta útil para organizar y trabajar con información de manera local. Sin embargo, ¿qué sucede si queremos unir toda esa información local sin alterarla?

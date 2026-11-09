@@ -1,0 +1,443 @@
+\section{Variedades no singulares}
+
+Ahora vamos a dar la condición importante para que las variedades algebraicas sean variedades complejas.
+
+\subsection{Intuición algebraica}
+    Al igual que la dimensión de una variedad, daremos un definición geométrica a partir de una propiedad puramente algebraica.
+
+\begin{definition}
+    Sea $(A,\mathfrak{m})$ un anillo local y $k=A/\mathfrak{m}$ el campo residual. Decimos que $A$ es \textcolor{blue}{regular} si
+    \begin{equation*}
+        \dim_k(\mathfrak{m}/\mathfrak{m}^2)=\mathrm{dimkrull}A
+    \end{equation*}
+\end{definition}
+
+\begin{definition}
+    Sea $V\subset\afin^n$ una variedad afín. Decimso que un punto $p\in V$ es \textcolor{blue}{no singular}, \textcolor{blue}{suave} o \textcolor{blue}{liso} si el anillo local $\mathcal{O}_{V,p}$ es regular.
+    Denotamos por $V_{\text{sing}}$ al conjunto de puntos singulares de $V$.
+\end{definition}
+
+\begin{remark}
+    Sea $V\subset\afin^n$ una variedad afín y $p\in V$ un punto. Considerando el anillo local $(\mathcal{O}_{V,p},\mathfrak{m})$ y $\kappa$ su campo residual. Por el lema (\ref{residualisoC}), tenemos que
+    \begin{equation*}
+        \kappa\cong \cc
+    \end{equation*}
+    Entonces podemos cambiar el campo residual simplemente por $\cc$. Luego, por la proposición ($\ref{dimensiondelanillolocal}$) tenemos que 
+    \begin{equation*}
+        \mathrm{dimkrull}\mathcal{O}_{V,p}=\dim V
+    \end{equation*}
+    Entonces, $p\in V$ es regular si, y solo si,
+    \begin{equation*}
+        \dim_\cc(\mathfrak{m}/\mathfrak{m}^2)=\dim V
+    \end{equation*}
+\end{remark}
+
+Deseamos ahora deducir otra definición que nos dé más intuición geométrica de la suavidad de los puntos. 
+
+
+Sea $V \subset \afin^n_{\cc}$ una variedad afín sobre $\cc$.  Entonces $V$ está dada como el conjunto de ceros de un ideal radical $I \subset R := \cc[x_1,\dots,x_n]$.  Denotamos
+\begin{equation*}
+	A := R / I 
+	\quad\Longrightarrow\quad
+	\mathcal{O}_{V,p} = A_{\mathfrak m_p},
+\end{equation*}
+donde $\mathfrak m_p \subset A$ es el ideal maximal correspondiente al punto $p\in V$.  Más concretamente, si $p=(a_1,\dots,a_n)\in \cc^n$ es un punto en $V$, entonces el ideal maximal
+\begin{equation*}
+	\mathfrak m_p \;=\; \{\,\overline{f} \in A \mid f(p)=0\,\}
+\end{equation*}
+está generado por $\{\overline{x_1}-a_1,\dots,\overline{x_n}-a_n\}$ (donde $\overline{x_i}$ denota la clase de $x_i$ en $A$).
+
+Por definición, el anillo local $\mathcal{O}_{V,p} = A_{\mathfrak m_p}$ tiene ideal maximal $\mathfrak m_p\,A_{\mathfrak m_p}$; y llamaremos $\mathfrak n_p:=\mathfrak m_p\,A_{\mathfrak m_p}$ a ese ideal maximal en el localizado.  En lo que sigue, confundiremos por comodidad $\mathfrak m_p$ con su extensión $\mathfrak n_p$ en $\mathcal O_{V,p}$.
+
+---
+
+ 2. Definición de “local regular” y espacio cotangente
+
+ 2.1. Anillo local regular
+Un anillo local $(R_{\mathfrak m},\,\mathfrak m)$ (con cuerpo de fracciones de característica 0, en particular sobre $\cc$) se dice **regular** si el mínimo número de generadores de $\mathfrak m$ coincide con la dimensión de Krull de $R_{\mathfrak m}$.
+
+* Equivalentemente, $\mathfrak m$ se genera (en $R_{\mathfrak m}$) por exactamente
+
+  $$
+    \dim \bigl(R_{\mathfrak m}\bigr)
+  $$
+
+  elementos.
+* Además, para un anillo local $R_{\mathfrak m}$ se tiene siempre
+
+  $$
+    \dim_{k} \bigl(\mathfrak m / \mathfrak m^2\bigr) \;\ge\; \dim\bigl(R_{\mathfrak m}\bigr),
+  $$
+
+  donde $k=R_{\mathfrak m}/\mathfrak m$ es el cuerpo residual.  El anillo es **regular** justamente cuando hay igualdad:
+
+  $$
+    \dim_{k} \bigl(\mathfrak m/\mathfrak m^2\bigr)
+    \;=\; \dim\bigl(R_{\mathfrak m}\bigr).
+  $$
+
+En nuestro caso, $R_{\mathfrak m} = \mathcal O_{V,p}$ y el cuerpo residual es $\mathcal O_{V,p}/\mathfrak m_p \cong \cc$.
+
+2.2. Espacio cotangente y espacio tangente
+
+Dado el anillo local $\mathcal O_{V,p}$ con su ideal maximal $\mathfrak m_p$, definimos el **espacio cotangente** en $p$ como el espacio vectorial (sobre $\cc$)
+
+$$
+  \mathfrak m_p / \mathfrak m_p^2.
+$$
+
+Su dual (espacio de formas lineales) se llama el **espacio tangente** en $p$:
+
+$$
+  T_p V \;=\; \bigl(\mathfrak m_p / \mathfrak m_p^2\bigr)^{\vee} \;=\; \hom_{\cc}\bigl(\mathfrak m_p / \mathfrak m_p^2,\;\cc\bigr).
+$$
+
+Por otra parte, existe la descripción “algebraica” de $T_p V$ en términos de derivaciones:
+
+$$
+  T_p V \;=\; \Der_{\cc}\bigl(\mathcal O_{V,p},\,\cc\bigr),
+$$
+
+donde $\Der_{\cc}(\mathcal O_{V,p},\cc)$ es el espacio de todas las aplicaciones lineales
+
+$$
+  D: \mathcal O_{V,p} \;\longrightarrow\; \cc
+$$
+
+que satisfacen la regla de Leibniz $D(fg) = f(p)\,D(g) \;+\; g(p)\,D(f)$.  Uno verifica sin dificultad que:
+
+1. Tal $D$ debe anular $\mathfrak m_p^2$.
+2. Dado un funcional lineal $\ell : \mathfrak m_p/\mathfrak m_p^2 \to \cc$, uno puede definir $D_\ell(f) := \ell\bigl(f - f(p)\bigr)$, y esto extiende (por localización) a una derivación de $\mathcal O_{V,p}$.
+
+Por ello hay un isomorfismo canónico de $\cc$-espacios vectoriales:
+
+$$
+  \Der_{\cc}\bigl(\mathcal O_{V,p},\,\cc\bigr)
+  \;\cong\;
+  \bigl(\mathfrak m_p / \mathfrak m_p^2\bigr)^{\vee}
+  \;=\; T_p V.
+$$
+
+Así se identifica la dimensión del espacio tangente con
+
+$$
+  \dim_{\cc}\Bigl(T_p V\Bigr)
+  \;=\;
+  \dim_{\cc}\Bigl(\mathfrak m_p / \mathfrak m_p^2\Bigr).
+$$
+
+
+3. Presentación explícita mediante la matriz jacobiana
+
+Para ver la relación con la definición clásica del kernel de la matriz jacobiana, procedemos así:
+
+1. Sea $I = (f_1,\dots,f_r)\subset \cc[x_1,\dots,x_n]$ un sistema de generadores (no necesariamente mínimos) del ideal radical que define $V$.  Entonces
+
+   $$
+     A \;=\cc[x_1,\dots,x_n] \big/ (f_1,\dots,f_r),
+     \qquad
+     \mathcal O_{V,p} \;=\; A_{\mathfrak m_p}.
+   $$
+
+   El punto $p=(a_1,\dots,a_n)$ satisface $f_j(a_1,\dots,a_n)=0$ para todo $j=1,\dots,r$.
+
+2. En el anillo local $\mathcal O_{V,p}$, el ideal maximal $\mathfrak m_p$ se genera (en realidad de forma *módulo problemas de saturación*, pero para la teoría local basta decir) por las clases de $x_i - a_i$.  Más precisamente:
+
+   $$
+     \mathfrak m_p \;=\; \bigl(\,\overline{x_1}-a_1,\;\dots,\;\overline{x_n}-a_n\bigr)
+     \quad\subset\; A_{\mathfrak m_p}.
+   $$
+
+   y $f_j \equiv 0 \mod I$, de modo que en particular
+
+   $$
+     f_j(x) \;=\; \sum_{i=1}^n \frac{\partial f_j}{\partial x_i}\bigl(a\bigr)\,(x_i - a_i)
+     \;+\;\text{términos de orden}\geq 2\text{ en }(x_i - a_i).
+   $$
+
+   Al pasar a $\mathfrak m_p / \mathfrak m_p^2$, los términos cuadráticos (o de orden superior) desaparecen.
+
+3. Si denotamos por $\overline{x_i}-a_i$ la clase en $\mathfrak m_p / \mathfrak m_p^2$, entonces para cada generador $f_j$ tenemos en ese cociente la relación lineal:
+
+   $$
+     \sum_{i=1}^n 
+     \frac{\partial f_j}{\partial x_i}(a_1,\dots,a_n)
+     \,\bigl[\overline{x_i}-a_i\bigr]
+     \;=\; 0
+     \;\;\in\;\;
+     \mathfrak m_p / \mathfrak m_p^2.
+   $$
+
+   En otras palabras, las clases $\{\,\overline{x_i}-a_i\,\}$ en $\mathfrak m_p / \mathfrak m_p^2$ satisfacen exactamente las relaciones lineales dadas por las filas de la matriz jacobiana evaluada en $p$:
+
+   $$
+     J(p) \;=\; 
+     \begin{pmatrix}
+       \frac{\partial f_1}{\partial x_1}(p) & \cdots & \frac{\partial f_1}{\partial x_n}(p) \\
+       \vdots & \ddots & \vdots \\
+       \frac{\partial f_r}{\partial x_1}(p) & \cdots & \frac{\partial f_r}{\partial x_n}(p)
+     \end{pmatrix}.
+   $$
+
+   Llamemos $\kappa = \dim_{\cc}\bigl(\mathfrak m_p / \mathfrak m_p^2\bigr)$. Entonces $\{\,\overline{x_i}-a_i : i=1,\dots,n\,\}$ genera $\mathfrak m_p / \mathfrak m_p^2$, pero hay $r$ relaciones lineales entre ellas (las filas de $J(p)$). Por lo tanto,
+
+   $$
+     \kappa \;=\; n \;-\; \operatorname{rang}\bigl(J(p)\bigr),
+   $$
+
+   siempre que las derivadas parciales $\partial f_j/\partial x_i$ en $p$ realmente generen todas las relaciones lineales en $\mathfrak m_p/\mathfrak m_p^2$. Teóricamente, esto requiere que $f_1,\dots,f_r$ sean generadores “suficientes” de $I$ en un entorno de $p$. En variedades afines, uno puede refinar el sistema de generadores hasta que localmente en $p$ el número de ecuaciones independientes coincida con $\dim I $. Con esa convención, en el anillo local se ve que:
+
+   $$
+     \dim_{\cc}\bigl(\mathfrak m_p / \mathfrak m_p^2\bigr)
+     \;=\;
+     n \;-\; \bigl(\text{número de derivadas linealmente independientes }f_j\text{ en }p\bigr),
+   $$
+
+   es decir,
+
+   $$
+     \dim_{\cc}\bigl(\mathfrak m_p / \mathfrak m_p^2\bigr)
+     \;=\;
+     n \;-\; \operatorname{rank}\bigl(J(p)\bigr).
+   $$
+
+4. Por dualidad, esto implica
+
+$$
+  \dim_{\cc}\bigl(T_p V\bigr)
+  \;=\;
+  \dim_{\cc}\bigl(\mathfrak m_p / \mathfrak m_p^2\bigr)
+  \;=\;
+  n \;-\; \operatorname{rank}\bigl(J(p)\bigr).
+$$
+
+Por otro lado, la **dimensión local** (o dimensión de Krull) de $\mathcal O_{V,p}$ coincide con $\dim V$ “en el entorno de” $p$.  En geometría algebraica afín se sabe que
+
+$$
+  \dim\bigl(\mathcal O_{V,p}\bigr)
+  \;=\;
+  \dim V
+  \;=\;
+  n \;-\; (\text{número mínimo de ecuaciones independientes que definen }V\text{ en }p).
+$$
+
+Pero justo el “número mínimo de ecuaciones independientes” es, de nuevo, $\operatorname{rank}(J(p))$ (puesto que, sobre $\cc$, ser ecuación “independiente” equivale a que su fila en la jacobiana no sea combinación lineal de las anteriores).  Por tanto
+
+$$
+  \dim\bigl(\mathcal O_{V,p}\bigr)
+  \;=\;
+  n \;-\; \operatorname{rank}\bigl(J(p)\bigr).
+$$
+
+---
+4. Conclusión: equivalencia de las definiciones
+
+* **(Anillo local regular)**
+  $\mathcal O_{V,p}$ es **regular** si y sólo si
+
+  $$
+    \dim_{\cc}\bigl(\mathfrak m_p / \mathfrak m_p^2\bigr)
+    \;=\; 
+    \dim\bigl(\mathcal O_{V,p}\bigr).
+  $$
+
+  Pero hemos visto que
+
+  $$
+    \dim_{\cc}(\mathfrak m_p / \mathfrak m_p^2)
+    \;=\;
+    n \;-\; \operatorname{rank}(J(p))
+    \quad\text{y}\quad
+    \dim(\mathcal O_{V,p})
+    \;=\;
+    n \;-\; \operatorname{rank}(J(p)).
+  $$
+
+  Por consiguiente, la igualdad es automática **si** en $p$ la jacobiana realmente detecta todas las ecuaciones “independientes” de $I$.  En términos prácticos, esto significa que, localmente en $p$, $I$ está generado por $\operatorname{rank}(J(p))$ ecuaciones cuya jacobiana tiene rango constante.  Así, “$\mathcal O_{V,p}$ es regular” equivale a que
+
+  $$
+    \dim_{\cc}(\mathfrak m_p / \mathfrak m_p^2)
+    \;=\;
+    \dim(\mathcal O_{V,p}).
+  $$
+
+  Por el cálculo anterior, esto sucede **si y sólo si** $n - \operatorname{rank}(J(p))$ coincide con $n - \operatorname{rank}(J(p))$, lo cual es tautológicamente cierto, siempre que la presentación de $I$ alrededor de $p$ sea “zuñida” a las filas no degeneradas de la jacobiana.
+
+* **(Espacio tangente (derivaciones) con dimensión “correcta”)**
+  Como ya vimos,
+
+  $$
+    \dim_{\cc}\bigl(T_p V\bigr)
+    \;=\;
+    \dim_{\cc}\bigl(\mathfrak m_p / \mathfrak m_p^2\bigr)
+    \;=\;
+    n \;-\; \operatorname{rank}(J(p))
+    \;=\;
+    \dim\bigl(\mathcal O_{V,p}\bigr).
+  $$
+
+  De modo que exigir que “el espacio tangente $T_p V$ tenga dimensión igual a $\dim V$” equivale exactamente a la misma igualdad.
+
+Por tanto **“$\mathcal O_{V,p}$ es regular”** se traduce en la condición **“$\dim T_p V \;=\; \dim V$”**, y ésta a su vez coincide con “el kernel de la matriz jacobiana evaluada en $p$ tiene dimensión $n-\operatorname{rank}(J(p))$, que es exactamente $\dim V$.”
+
+En resumen, la cadena de equivalencias es:
+
+1. $\mathcal O_{V,p}$ es regular
+   $\Longleftrightarrow$
+   $\dim_{\cc}\bigl(\mathfrak m_p / \mathfrak m_p^2\bigr) \;=\; \dim\bigl(\mathcal O_{V,p}\bigr).$
+
+2. Pero
+
+   $$
+     \dim\bigl(\mathcal O_{V,p}\bigr)
+     \;=\;
+     n \;-\; \operatorname{rank}\bigl(J(p)\bigr),
+     \quad
+     \dim_{\cc}\bigl(\mathfrak m_p / \mathfrak m_p^2\bigr)
+     \;=\;
+     n \;-\; \operatorname{rank}\bigl(J(p)\bigr).
+   $$
+
+   Así que la igualdad de dimensiones equivale a
+
+   $$
+     \dim_{\cc}\bigl(\mathfrak m_p / \mathfrak m_p^2\bigr)
+     \;=\;
+     n \;-\; \operatorname{rank}\bigl(J(p)\bigr).
+   $$
+
+3. Por dualidad, esto es lo mismo que
+   $\displaystyle
+     \dim_{\cc}(T_p V)
+     \;=\;
+     \dim\bigl(\mathcal O_{V,p}\bigr)
+     \;=\;
+     \dim V.
+   $
+
+Así queda formalmente justificada la equivalencia entre la definición “$p$ es no singular si $\mathcal O_{V,p}$ es regular” y la definición “$p$ es no singular si $\dim T_p V = \dim V$ (o, equivalentemente, si el kernel de la matriz jacobiana tiene la dimensión adecuada)”.
+
+---
+
+Comentario final (tono escéptico y curioso)
+
+Puede parecer casi milagroso que los dos conceptos —la regularidad de un anillo local (un asunto puramente algebraico–noetheriano) y la dimensión del espacio de derivaciones (un punto de vista infinitesimal—coincidan tan exactamente. Sin embargo, la clave está en que, sobre $cc$, todas las derivadas parciales (las filas de la jacobiana) capturan **exactamente** las dependencias de primer orden entre las ecuaciones que definen $V$. Si en algún punto $p$ la jacobiana “va perdiendo rango”, eso significa que hay ecuaciones (o combinaciones de ellas) que dejan de aportar “nueva información lineal” sobre las variables, y por ende el número de generadores mínimos del ideal maximal crece más de lo que indica la dimensión geométrica.
+
+En términos “físicos” podríamos pensar: si $V$ fuera la intersección de varias “superficies” $f_1=0,\dots,f_r=0$, entonces que $p$ sea regular significa que, en ese preciso punto, las normales a cada superficie $df_j(p)$ son independientes hasta un cierto número; y en el nivel algebraico, eso se traduce en que el anillo local admite justamente $\dim V$ generadores “libres” en su ideal maximal, con lo cual no hay “atascos” de ecuaciones redundantes de orden uno.
+
+Con esto queda claro que, trabajando sobre $\cc$, la identificación entre “anillo local regular” y “espacio tangente de la dimensión correcta” es perfectamente canónica. Si se prefiere olvidar un poco de coordenadas, puede resumirse así:
+
+> **Proposición.** Sea $V\subset \afin^n$ una variedad afín definida por $I\subset \cc[x_1,\dots,x_n]$. Para $p\in V$, las siguientes afirmaciones son equivalentes:
+\begin{enumerate}
+	\item $\mathcal O_{V,p}$ es un anillo local regular.
+	\item $\dim_{\cc}\bigl(\mathfrak m_p/\mathfrak m_p^2\bigr) = \dim(\mathcal O_{V,p})$.
+	\item  $\dim_{\cc}\bigl(T_p V\bigr) = \dim V$.
+	\item Si $f_1,\dots,f_r$ generan (en un entorno de $p$) al ideal de definición de $V$, entonces $\operatorname{rank}\bigl(\bigl(\partial f_j/\partial x_i\bigr)(p)\bigr) = n - \dim V$.
+\end{enumerate}
+
+Cada flecha se demuestra tan solo traduciendo “dimensión del anillo local” a “número de ecuaciones independientes” y luego a “rango de la matriz jacobiana”. Así, en definitiva, las dos formas habituales de decir “$p$ es no singular” (una puramente algebraica, la otra puramente infinitesimal) resultan idénticas.
+
+\subsection{Espacio tangente de Zariski}
+Consideremos primero el caso afín
+
+\begin{definition}
+    Sea $V\subset\afin^n$ una variedad afin y sea $I(V)$. Definimos el \textcolor{blue}{espacio tangente} de $V$ en $a=(a_1,\dots,a_n)\in V$ por
+    \begin{equation*}
+        T_pV:=\left\{(p_1,\dots,p_n)\in\cc^n:\sum_{i=1}^n\frac{\partial f}{\partial x_i}(a)(x_i-p_i)=0,\text{ para todo }f\in I \right\}
+    \end{equation*}
+\end{definition}
+
+\begin{remark}
+    SUpongamos que $0\in V$, Tomando $p=(p_1,\dots,p_n)\in T_0V$ y $p'=(p'_1,\dots,p'_n)\in T_0V$, entonces para todo $f\in I(V)$ y $\lambda\in\cc$
+    \begin{gather*}
+        \sum_{i=1}^n\frac{\partial f}{\partial x_i}(0)(\lambda p_i+p'_i)=\lambda\sum_{i=1}^n\frac{\partial f}{\partial x_i}(0)(p_i) +\sum_{i=1}^n\frac{\partial f}{\partial x_i}(0)(p'_i)=0
+    \end{gather*}
+    Así, $\lambda p+p'\in T_0V$. De esta manera, $T_0V$ es un subespacio vectoria de $\cc^n$.\\
+    Ahora, si $M$ es un $A$-módulo y tomamos $x\in M$. Podemos identificar a $x$ con el origen tomando el conjunto
+    \begin{equation*}
+        M-x=\{p-x:p\in M\}
+    \end{equation*}
+    Este conjunto es de nuevo un $A$-módulo cuyo cero es el $x-x$. 
+\end{remark}
+
+\begin{example}
+    Si $V=\afin^n$, entonces $I(V)=I(\afin^n)=\langle 0\rangle$. Tomando cualquier punto $p\in\afin^n$ tenemos que
+    \begin{equation*}
+        T_p\afin^n=\cc^n
+    \end{equation*}
+    Por la obsevación anterior, $T_p\afin^n$ es un $\cc$-espacio vectorial identificando el origen con $p$ y $\dim_\cc T_p\afin^n=n$.\\
+    Más aún, si $V\subset\afin^n$ es cualquier variedad afín y $p\in V$. El espacio tangente de $V$ en $p$ es un subespacio vectorial de $\cc^n$, identificando el origen con $p$, y de esta manera tenemos que
+    \begin{equation*}
+        \dim_\cc T_p V\leq n
+    \end{equation*}
+\end{example}
+
+\begin{definition}
+    Sea $f\in\cc[x_1,\dots,x_n]$ un polinomio y $a=(a_1,\dots,a_n)$. Definimos la \textcolor{blue}{parte lineal} de $f$ en $a$ como el polinomio lineal
+    \begin{equation*}
+        f^{(1)}_a=\sum_{i=1}^n\frac{\partial f}{\partial x_i}(p)(x_i-a_i)
+    \end{equation*}
+    Notemos que la parte lineal es un polinomio lineal.
+\end{definition}
+
+\begin{lemma}
+    Sea $V\subset\afin^n$ una variedad afin y $p\in V$. Si $I(V)=\langle f_1,\dots,f_t\rangle$, entonces
+    \begin{equation*}
+        T_pV=Z(f^{(1)}_{1,p},\dots,f^{(1)}_{t,p})
+    \end{equation*}
+    En particular, $T_pV$ es un cerrado (de Zariski) de $\afin^n$.
+\end{lemma}
+
+\begin{remark}
+    Si consideramos $V\subset\afin^n$ una variedad afin, $a=(a_1,\dots,a_n)$ y $I(V)=\langle f_1,\dots,f_t\rangle$. Observemos que el sistema de ecuaciones lineales que definen a $T_pV$ es 
+    \begin{align*}
+            \frac{\partial f_1}{\partial x_1}(a)(x_1-a_1)+\cdots+\frac{\partial f_1}{\partial x_n}(a)(x_n-a_n)&=0\\
+            \vdots&\\
+            \frac{\partial f_t}{\partial x_1}(a)(x_1-a_1)+\cdots+\frac{\partial f_t}{\partial x_n}(a)(x_n-a_n)&=0
+    \end{align*}
+    Esto signifa que la matriz asociada al sistema de ecuaciones que determina $T_pV$ es la matriz jacobiana $J(f_1,\dots,f_t)(p)$\footnote{Recordemos que estamos pensando al espacio vectorial $T_pV$ trasladado por $p$.}. Entonces, por el teorema de rango-nulidad
+    \begin{equation*}
+        \dim_\cc\ker(J(f_1,\dots,f_t)(p))=n-\dim_\cc\mathrm{Im}(J(f_1,\dots,f_t)(p))
+    \end{equation*}
+    Ya que $\ker(J(f_1,\dots,f_t)(p))=T_pV$ y $\dim_\cc\mathrm{Im}(J(f_1,\dots,f_t)(p))=\mathrm{rk}(J(f_1,\dots,f_t)(p))$, entonces
+    \begin{equation*}
+        \dim_\cc T_pV=n-\mathrm{rk}(J(f_1,\dots,f_t)(p))
+    \end{equation*}
+\end{remark}
+
+\begin{definition}[Puntos suaves]
+    Sea $V\subset\afin^n$ una variedad afin y $f_1,\dots,f_t\in\cc[x_1,\dots,x_n]$ generadores del ideal $I(V)$. Decimos que $p$ es un punto \textcolor{blue}{suave} o \textcolor{blue}{no singular} si el rango de la matriz jacobiana
+    \begin{equation*}
+        J(f_1,\dots,f_t)(p):=\left(\frac{\partial f_i}{\partial x_j} (p)\right)_{i,j}
+    \end{equation*}
+    es $n-\dim V$. Decimos que $p$ es \textcolor{blue}{singular} si no es suave.
+\end{definition}
+
+\begin{remark}
+    El rango de la matriz no depende de la elección de los generadores.
+\end{remark}
+
+
+\begin{definition}[Variedad afín no singular]
+    Sea $V\subset\afin^n$ una variedad afin. Definimos el conjunto de puntos singulares
+    \begin{equation*}
+        V_{\text{sing}}=\{p\in V:p\text{ es singular}\}
+    \end{equation*}
+    Decimos que $V$ es \textcolor{blue}{no singular} o \textcolor{blue}{lisa} si $V_{\text{sing}}$ es vacío, es decir, no tiene puntos singulares.
+\end{definition}
+
+
+
+
+\begin{theorem}[Harstones]
+    Sea $V\subset\afin^n$ una variedad afín, entonces el conjunto $V_{\text{sing}}$ es un cerrado propio de $V$.
+\end{theorem}
+
+Ahora definamos la singularidad en variedades proyectivas
+\begin{definition}
+    Sea $V\subset\pp^n$ una variedad algebraica y consideremos su cubierta afin
+    \begin{equation*}
+        V=\bigcup_{i=0}^nV_i
+    \end{equation*}
+    Decimos que $V$ es \textcolor{blue}{no singular}, \textcolor{blue}{lisa} o \textcolor{blue}{suave} s 
+\end{definition}

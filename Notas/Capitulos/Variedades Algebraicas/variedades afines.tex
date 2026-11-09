@@ -1,0 +1,336 @@
+\section{Variedades afines}
+
+\subsection{Definición y propiedades básicas}
+
+    \begin{definition}[Conjunto algebraico afín]
+        Un subconjunto $X\subset \cc^n$ es un \textcolor{blue}{conjunto algebraico afín} si existe un subconjunto $S\subset\cc[x_1,\dots,x_n]$ tal que
+        \begin{equation*}
+            X=\{p\in\cc^n:f(p)=0,\text{ para todo }f\in S\}=Z(S)
+        \end{equation*}
+        En particular, si $S=\{f\}$, entonces el conjunto algebraico afin $Z(f)$ es llamada \textcolor{blue}{hipersuperficie afín}.
+    \end{definition}
+
+    \begin{remark}\label{hipersuperficies}
+        Notemos que si $I\subset\cc[x_1,\dots,x_n]$ es el ideal generado por $S$, entonces $Z(I)=Z(S)$. Luego, por el teorema de la base de Hilbert (\ref{basehilbert}), el ideal $I$ es finitamente generado. De esta manera
+        \begin{equation*}
+            Z(I)=Z(\langle f_1,\dots,f_k\rangle)=Z( f_1,\dots,f_k)=Z(f_1)\cap\cdots\cap Z(f_k)=Z(S)
+        \end{equation*}
+        Por lo tanto, todo conjunto algebraico afin es ceros de una cantidad finita de polinomios.
+    \end{remark}
+    
+    \begin{propo}
+        La unión de dos conjuntos algebraicos afines es un conjunto algebraico afín. La intersección albitraria de conjuntos algebraicos afines es un conjunto algebraico afín. El vacío y $\cc^n$ es un conjunto algebraico afín.
+    \end{propo}
+
+    \begin{remark}[Topología de Zariski]\label{zariskiafin}
+        Notemos de la proposición anterior que los conjuntos algebraicos definen una topología por cerrados para $\cc^{n}$. Esta topología se llama \textcolor{blue}{topología de Zariski} y llamamos el \textcolor{blue}{$n$-espacio afín} al conjunto $\afin^n:=\cc^n$ dotado con la topología de Zariski.\\
+    \end{remark}
+
+    \begin{definition}
+        Un subconjunto $V$ de un espacio topológico $X$ se llama \textcolor{blue}{irreducible} si no existen $V_1$ y $V_2$ dos subconjuntos cerrados propios de $V$ tales que $V=V_1\cup V_2$. El conjunto vacío no es considerado irreducible.
+    \end{definition}
+
+    \begin{example}
+        Consideremos la recta afín $\afin^1$. Todo ideal $I\subset \cc[x]$ es principal, entonces está generado por un solo polinomio. Sin embargo, todo polinomio de una variable tiene una cantidad finita de ceros. Así, toda variedad afin de $X\subset \afin^1$ es un conjunto finito
+        \begin{equation*}
+            X=\{p_1,\dots,p_k\}
+        \end{equation*}
+        Y como $\afin^1$ es un conjunto infinito (ya que como conjunto $\afin^1=\cc$), no es posible verlo como unión de dos conjuntos finitos y en consecuencia, no es unión de dos conjuntos cerrados (de Zariski). Por lo tanto, $\afin^1$ es irreducible. \\
+        Más aún, todo cerrado (de Zariski) es un conjunto finito. Entonces, la topología de Zariski de $\cc$ coincide con la topología cofinita de $\cc$ y por lo tanto, $\afin^1$ no es Hausdorff.
+    \end{example}
+
+    \begin{definition}[Variedad algebraica afín]
+        Un conjunto algebraico afín $V\subset\afin^n$ irreducible es llamado \textcolor{blue}{variedad algebraica afín} o simplemente \textcolor{blue}{variedad afín}.  
+    \end{definition}
+    
+    \begin{definition}[Ideal asociado]
+        Sea $Y\subset \cc^n$ un subconjunto. Definimos el \textcolor{blue}{ideal asociado} al conjunto
+        \begin{equation*}
+            I(Y)=\{f\in\cc[x_1,\dots,x_n]:f(p)=0\text{ para todo }p\in Y\}
+        \end{equation*}
+    \end{definition}
+
+    \begin{propo}$ $
+        \begin{enumerate}
+            \item Si $T_1\subset T_2$ son subconjuntos de $\cc[x_1,\dots,x_n]$, entonces $Z(T_2)\subset Z(T_1)$.
+            \item Si $Y_1\subset Y_2$ son subconjuntos de $\cc^n$, entonces $I(Y_2)\subset I(Y_1)$.
+            \item Para cualquier subconjuntos  $Y_1, Y_2$ de $\cc^n$, se tiene que $I(Y_1\cup Y_2)=I(Y_1)\cap I(Y_2)$.
+            \item (Teorema de los ceros de Hilbert): Para cualquier ideal $\mathfrak{a}\subset \cc[x_1,\dots,x_n]$
+            \begin{equation*}
+                I(Z(\mathfrak{a}))=\sqrt{\mathfrak{a}}
+            \end{equation*}
+            \item Para cualquier subconjunto $Y\subset \cc^n$, $Z(I(Y))=\overline{Y}$.
+        \end{enumerate}
+    \end{propo}
+
+    \begin{corollary}\label{ceroshilbert}
+        Sea $A=\cc[x_1,\dots,x_n]$ y $I\subset A$ es un ideal. La asignación $I\mapsto Z(I)$ da una correspondecia uno a uno entre 
+        \begin{table}[h]
+        \centering
+            \begin{tabular}{l|llll}
+             Geometría ($\afin^n$) & Álgebra ($\cc[x_1,\dots,x_n]$)  \\ \cline{1-2}
+             Conjuntos algebraicos afines &Ideales radicales\\
+             Variedades afines&Ideales primos\\
+             Puntos de $\afin^n$&Ideales maximales\\
+            \end{tabular}
+            \end{table}   
+    \end{corollary}
+
+    Este resultado no solo es una correspondencia técnica, si no una piedra angular en la arquitectura conceptual en la geometría algebraica. Es una caracterízación de los objetos geometrícos enteramente con su propiedad algebraica. Justo la geometría algebraica se trata de esto, un intercambio de información la geometría y el algebra de los objetos. 
+    
+    \begin{propo}\label{componentesirreducibles}
+        Todo conjunto algebraico de $\afin^n$ puede ser expresada de manera única como una unión finita de variedades afines, no contenidas en otros.\\
+        Las variedades asociadas al conjunto algebraico son llamadas \textcolor{blue}{componentes irreducibles}. 
+    \end{propo}
+
+    
+    \begin{definition}
+        Sea $V\subset\afin^n$ un conjunto algebraico afín. Definimos el \textcolor{blue}{anillo de funciones regulares} o el \textcolor{blue}{anillo de coordenadas} sobre $V$ al anillo
+        \begin{equation*}
+            A(V):=\cc[x_1,\dots,x_n]/I(V)
+        \end{equation*}
+    \end{definition}
+
+    \begin{remark}
+        Inmediatamente de la correspondencia en (\ref{ceroshilbert}) tenemos que $V\subset \afin^n$ es una variedad afín si, y solo sí, $A(V)$ es un dominio entero. Más aún, $A(V)$ es una $\cc$-álgebra entera de tipo finito noetheriano.\\ 
+        De hecho, si $B$ es una $\cc$-álgebra entera de tipo finito noetheriano entonces existe un morfismo de $\cc$-álgebras sobreyectivo
+        \begin{equation*}
+            \phi:\cc[x_1,\dots,x_m]\to B
+        \end{equation*}
+        y con esto
+        \begin{equation*}
+            B\cong\cc[x_1,\dots,x_m]/\ker\phi 
+        \end{equation*}
+        Como $B$ es dominio entero, el ideal $\mathfrak{p}:=\ker\phi$ es un ideal primo. Así, el ideal primo $\mathfrak{p}$ determina una variedad algebraica afin
+        \begin{equation*}
+            V=Z(\mathfrak{p})\subset\afin^n
+        \end{equation*}
+        la cumple que
+        \begin{equation*}
+            A(V)\cong B
+        \end{equation*}
+        \end{remark}
+
+    Ahora, definamos un invariante algebraico que corresponderá con la noción geométrica de una variedad.
+    
+    \begin{definition}
+        Sea $V\subset\afin^n$ una variedad algebraica afín. Definimos la \textcolor{blue}{dimensión} de $V$ por
+        \begin{equation*}
+            \dim V = \mathrm{dimkrull}A(V)
+        \end{equation*}
+        Si $X\subset\afin^n$ es un conjunto algebraico, entonces se puede ver como unión finita de variedades algebraicas (\ref{componentesirreducibles})
+        \begin{equation*}
+            X=\bigcup_{i=1}^k V_i
+        \end{equation*}
+        Definimos la dimensión de $X$ por
+        \begin{equation*}
+            \dim X:=\max_{1\leq i\leq k}\dim V_i
+        \end{equation*}
+        Si todas las componente irreducibles de $X$ tienen la misma dimensión, decimos que $X$ tiene \textcolor{blue}{dimensión pura}.\\
+        Si $W\subset V$ es una subvariedad (cerrado de Zariski en $V$), definimos la \textcolor{blue}{codimensión} de $W$ sobre la variedad afín $V$ como
+        \begin{equation*}
+            \mathrm{codim}_{V} W=\dim V - \dim W
+        \end{equation*}
+        Se suele tomar la conveción que $\dim \emptyset =-1$.
+    \end{definition}
+    
+    \begin{example}
+        Sabemos que $\afin^n$ es una variedad afin y es claro que
+        \begin{equation*}
+            I(\afin^n)=\langle 0 \rangle
+        \end{equation*}
+        Entonces
+        \begin{equation*}
+             A(\afin^n)=\cc[x_1,\dots,x_n]/I(\afin^n)=\cc[x_1,\dots,x_n]/\langle 0 \rangle=\cc[x_1,\dots,x_n]
+        \end{equation*}
+        Por (falta cita), tenemos que
+        \begin{equation*}
+            \dim \afin^n = n
+        \end{equation*}
+    \end{example}
+
+    Sabemos que $\afin^n=\cc^n$ como conjuntos. De esta forma, $\afin^n$ es trivialmente una variedad compleja de dimensión $n$, la cual coincide con la dimensión de $\afin^n$ como variedad algebraica afin. Aunque pueda parecer trivial, esta casualidad refleja una compatibilidad profunda entre la estructura algebraica y la estructura analítica, que será central en los desarrollos posteriores de este trabajo.
+
+    \begin{propo}
+        Sea $X\subset \afin^n$ una variedad afin irreducible. Entonces $X$ tiene dimensión $n-1$ si, y solo si, $X=Z(f)$ donde $f\in\cc[x_1,\dots,x_n]$ es un polinomio irreducible no constante.
+    \end{propo}
+
+\subsection{Funciones sobre variedades afines}
+
+    Vamos a pensar ahora solo en conjunto algebraicos irreducibles, es decir, variedades afines. Si $V\subset\afin^n$ es una variedad afin, entonces $A(V)$ es un dominio entero (falta cita). Así, podemos tomar el campo de fracciones asociado $Q(A(V))$.
+
+    \begin{definition}[Funciones racionales]
+        Sea $V\subset\afin^n$, entonces el campo
+        \begin{equation*}
+            K(V):=Q(A(V))
+        \end{equation*}
+        es llamado \textcolor{blue}{campo de funciones racionales} en $V$.
+    \end{definition}
+
+    Notemos que los elementos de $K(V)$ no son funciones en general, pues son fracciones de la forma $p(x)/q(x)$ donde $q(x)$ no se anula en todo $V$. Sin embargo, puede anularse en varios puntos de $V$ y $p(x)/q(x)$ no sería una función bien definida en esos puntos.
+
+    \begin{definition}[Función regular]
+        Sea $V\subset\afin^n$ una variedad afín y $f\in K(V)$. Decimos que $f$ es \textcolor{blue}{regular} en un punto $p\in V$ si existe una expresión 
+        \begin{equation*}
+            f=\frac{g}{h},\qquad g,h\in A(V)\text{ tal que }h(p)\neq 0
+        \end{equation*}
+        Notemos que para el abierto $U=V\setminus Z(h)$, se tiene que $h(q)\neq 0$ para todo $q\in U$. Así, $f=g/h$ está bien definido en todo un abierto $U$.\\
+        Decimos que $f$ es \textcolor{blue}{regular} en $U\subset V$ si es regular en todos los puntos de $U$.
+    \end{definition}
+
+    De esta manera, tenemos que $f\in K(V)$ es regular en $p\in V$ si, y solo si, existe una vecindad $U$ de $p$ tal que $f$ es regular en $U$. Más aún, como $f:V\to\cc$ es una función que para todo punto de $V$ existe una vecindad donde se ve como un cociente de polinomios, entonces $f$ es una función holomorfa (observando que las funciones holomorfas las solemos definir sobre abiertos y $V$ es cerrado en la topología usual de $cc^n$). 
+    \begin{remark}
+        Si $f\in K(V)$ es regular en un punto $p\in V$. Podemos definir el \textcolor{blue}{valor} de $f$ en $p$ simplemente como la expresión $f=g/h$, con $h(p)\neq 0$, evaluada de forma usual
+        \begin{equation*}
+            f(p)=\frac{g(p)}{h(p)}
+        \end{equation*}
+        Notemos que el valor de $f$ en $p$ está bien definido, pues si $f=g'/h'$ es otra expresión de $f$ en $p$ se tiene que 
+        \begin{equation*}
+            f=\frac{g}{h}=\frac{g'}{h'}
+        \end{equation*}
+        entonces
+        \begin{gather*}
+            \frac{g}{h}=\frac{g'}{h'}\\
+            gh'=g'h\\
+            g(p)h'(p)=g'(p)h(p)\\
+            \frac{g(p)}{h(p)}=\frac{g'(p)}{h'(p)}\\
+        \end{gather*}
+        Así, $f$ es una función "verdadera" en un subconjunto de $V$ dado por
+        \begin{equation*}
+            \mathrm{dom}(f)=\{p\in V:f\text{ es regular en }p\}
+        \end{equation*}
+    \end{remark}
+
+    
+
+    \begin{propo}
+        Sea $V\subset\afin^n$ una variedad afin, entonces $f\in K(V)$ es regular en todo $V$ si, y solo si, $f\in A(V)$.
+    \end{propo}
+
+    \begin{propo}
+        Las funciones regulares $\phi:U\subset\afin^n\to \afin^1$ son funciones continuas (respecto a la topología de Zariski).
+    \end{propo}
+
+    Ahora notemos este resultado identico a uno ya conocido (\ref{teoidentidad})
+    \begin{corollary}[Teorema de la identidad]\label{teoidetidadvarafin}
+        Sea $V\subset \afin^n$ una variedad afín. Si $f,g:V\to \afin^1$ son dos funciones \textcolor{red}{regulares} de $V$ tale que $f=g$ en un abierto de $V$, entonces $f=g$ en todo $V$
+    \end{corollary}
+    
+    
+    \begin{definition}[Aplicación racional]
+        Sean $V\subset\afin^n$ y $W\subset\afin^m$ dos variedades afines. Una \textcolor{blue}{aplicación racional} es una función $\phi:X\dashrightarrow Y$\footnote{Claramente necesitamos que $\phi(\mathrm{dom}\phi)\subset Y$} donde cada función coordenada es una función racional. Es decir, existen $m$ funciones racionales $f_1,\dots,f_m\in K(V)$ tales que
+        \begin{equation*}
+            \phi(p)=(f_1(p),\dots, f_m(p))
+        \end{equation*}
+        Decimos que $\phi$ es \textcolor{blue}{dominante} si $\phi(\mathrm{dom}\phi)\subset W$ es un abierto no vacío.
+    \end{definition}
+
+    Notemos que $\phi$ solo está definido en un subconjunto de $V$
+        \begin{equation*}
+            \mathrm{dom}\phi:=\bigcap_{i=1}^m\mathrm{dom}f_i
+        \end{equation*}
+
+    \begin{definition}[Aplicación regular]
+        Sea $\phi:V\dashrightarrow W$ una aplicación racional. Si $p\in \mathrm{dom}\phi$, decimos que $\phi$ es una \textcolor{blue}{aplicación regular} en $p$. En particular, $\phi$ es \textcolor{blue}{regular} en $U\subset V$ si $U\subset\mathrm{dom}(\phi)$.
+    \end{definition}
+        
+
+    \begin{definition}
+        Una aplicación regular $\phi:V\to W$ entre variedades afines es un \textcolor{blue}{isomorfismo} si es biyectiva y su inversa es una aplicación regular. En este caso, decimos que $V$ y $W$ son \textcolor{blue}{isomorfas}.
+    \end{definition}
+
+    \begin{propo}
+        Dos variedades afines $V$ y $W$ son isomorfas si, y solo si, $A(V)\cong A(W)$.
+    \end{propo}
+    
+    \begin{definition}[Aplicación birracional]
+        Una aplicación racional dominante $\phi:V\dashrightarrow W$ es \textcolor{blue}{birracional} si existe una aplicación racional dominante $\psi:W\dashrightarrow V$ tal que $\phi\circ \psi=Id_W$ y $\phi\circ \psi=Id_W$. En este caso, decimos que $V$ y $W$ son \textcolor{blue}{birracionales}.
+    \end{definition}
+
+    \begin{propo}
+        Dos variedades afines $V$ y $W$ son birracionales si, y solo si, $K(V)\cong K(W)$.
+    \end{propo}
+
+    \begin{remark}
+        Notemos que si dos variedades $V$ y $W$ son isomorfas, entonces
+        \begin{gather*}
+            A(V)\cong A(W)\\
+            \mathrm{dimkrull} A(V)=\mathrm{dimkrull} A(W)\\
+            \dim V = \dim W
+        \end{gather*}
+        Luego, si $V$ y $W$ son isomorfas, entonces
+        \begin{gather*}
+            K(V)\cong K(W)\\
+            \mathrm{trdeg}K(V)=\mathrm{trdeg}K(W)\\
+            \dim V=\dim W,\qquad 
+        \end{gather*}
+    \end{remark}
+    
+    \begin{definition}[Gavilla de funciones regulares]
+        Sea $V$ una variedad afín Definimos la \textcolor{blue}{gavilla de funciones regulares} a la regla de asignación $\mathcal{O}_V:Top_V\to Rings$. Para cada abierto $U\subset V$ se le asigna el anillo
+            \begin{equation*}
+                \mathcal{O}_V(U):=\{\phi:U\to\afin^1: \phi\text{ es regular en }U\}
+            \end{equation*}
+    \end{definition}
+
+    \begin{propo}
+        $\mathcal{O}_V$ es una gavilla
+    \end{propo}
+    
+    \begin{example}[Anillo local $\mathcal{O}_{V,p}$](Local, Noetheriano, dominio entero)\label{anillolocalafin}
+        Sea $V\subset\afin^n$ una variedad afin. Consideremos $\mathcal{O}_{V}$ la gavilla de funciones regulares sobre $V$ y $p\in V$. 
+        $$\mathcal{O}_{V,p}=\left\{\frac{P(x_1,\dots,x_n)}{Q(x_1,\dots,x_n)}:P,Q\in A(V),\text{ }Q(p)\neq 0 \right\} $$
+
+        \begin{equation*}
+            \mathfrak{m}_p=\{f\in\mathcal{O}_V(V):f(p)=0\}
+        \end{equation*}
+
+        \begin{equation*}
+            \mathcal{O}_{V,p}=\mathcal{O}_V(V)_{\mathfrak{m}_p}
+        \end{equation*}
+
+        Por el lema (\ref{lemaisoresidual}), el ideal maximal de $\mathcal{O}_{V,p}$ es
+        \begin{equation*}
+            \mathfrak{m}_p\mathcal{O}_{V,p}
+        \end{equation*}
+    \end{example}
+
+    \begin{propo}\label{dimensiondelanillolocal}
+        Si $V\subset\afin^n$ es una variedad afin. Entonces para todo $p\in V$
+        \begin{equation*}
+            \mathrm{dimkrull}\mathcal{O}_{V,p}=\dim V
+        \end{equation*}
+    \end{propo}
+
+    \begin{lemma}\label{residualisoC}
+        Sea $V\subset\afin^n$ es una variedad afin y $p\in V$. Consideremos el campo residual del anillo local $(\mathcal{O}_{V,p},\mathfrak{m})$
+        \begin{equation*}
+            \kappa=\mathcal{O}_{V,p}/\mathfrak{m}
+        \end{equation*}
+        Entonces existe un isomorfismo natural
+        \begin{equation*}
+            \kappa\cong \cc
+        \end{equation*}
+    \end{lemma}
+
+    \begin{proof}
+        Si consideramos la función evaluación
+        \begin{gather*}
+            ev_:A(V)\to \cc\\
+            f\mapsto f(p)
+        \end{gather*}
+        Entonces el kernel es el ideal
+        \begin{equation*}
+            \mathfrak{m}_p=\{f\in A(V):f(p)=0\}
+        \end{equation*}
+        Por el ejemplo (\ref{anillolocalafin}) tenemos que
+        \begin{equation*}
+            \kappa=\mathcal{O}_{V,p}/\mathfrak{m}=\mathcal{O}_{V,p}/\mathfrak{m}_p\mathcal{O}_{V,p}
+        \end{equation*}
+        Entonces, por el lema (\ref{lemaisoresidual}) es considerar los isomorfismos
+        \begin{equation*}
+            \kappa=\mathcal{O}_{V,p}/\mathfrak{m}_p\mathcal{O}_{V,p}\cong A(V)_{\mathfrak{m}_p}/\mathfrak{m}_pA(V)_{\mathfrak{m}_p}\cong Q(A(V)/\mathfrak{m}_p)\cong A(V)/\mathfrak{m}_p\cong \cc
+        \end{equation*}
+    \end{proof}
+
+    

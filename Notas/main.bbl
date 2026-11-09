@@ -19,6 +19,39 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global/global}
+    \entry{atiyah2018introduction}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=67ee9912177ae60c68f5fc393dc586be}{%
+           family={Atiyah},
+           familyi={A\bibinitperiod},
+           given={Michael\bibnamedelima F},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=2bcd484028b297fb16bdaf7be4465c47}{%
+           family={Macdonald},
+           familyi={M\bibinitperiod},
+           given={Ian\bibnamedelima Grant},
+           giveni={I\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {CRC press}%
+      }
+      \strng{namehash}{f1ca07d9795773346ed6ed6ecefa116d}
+      \strng{fullhash}{f1ca07d9795773346ed6ed6ecefa116d}
+      \strng{fullhashraw}{f1ca07d9795773346ed6ed6ecefa116d}
+      \strng{bibnamehash}{f1ca07d9795773346ed6ed6ecefa116d}
+      \strng{authorbibnamehash}{f1ca07d9795773346ed6ed6ecefa116d}
+      \strng{authornamehash}{f1ca07d9795773346ed6ed6ecefa116d}
+      \strng{authorfullhash}{f1ca07d9795773346ed6ed6ecefa116d}
+      \strng{authorfullhashraw}{f1ca07d9795773346ed6ed6ecefa116d}
+      \field{labelalpha}{AM18}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to commutative algebra}
+      \field{year}{2018}
+      \true{nocite}
+    \endentry
     \entry{barlet2015exampleshhironaka}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=c852f1a86db1d625a7448af109e5f0b8}{%
