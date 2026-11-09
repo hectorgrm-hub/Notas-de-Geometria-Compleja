@@ -1,0 +1,421 @@
+\chapter{Álgebra Conmutativa}
+En este trabajo, todos los anillos los consideramos anillos conmutativos con unidad, y los morfismos de anillos mapean el uno al uno.
+
+\section{Generalidades}
+
+\begin{definition}[$A$-módulo]
+    Sea $A$ un anillo y $M$ un grupo abeliano. Decimos que $M$ es un \textbf{$A$-módulo} (izquierdo) si existe una operación $\cdot:A\times M\to M$ tal que para todo $a,b\in A$ y $m,n\in M$ se cumple que: 
+    \begin{enumerate}
+        \item $a\cdot (m+n)=a\cdot m+a\cdot n$
+        \item $(a+b)\cdot m=a\cdot m + b\cdot m$
+        \item $(ab)\cdot m=a(b\cdot n)$
+        \item $1\cdot m=m$
+    \end{enumerate}
+\end{definition}
+
+Se define $A$-módulo derecho de forma análoga, sin embargo, ambas estructuras coinciden ya que $A$ es un anillo conmutativo. Por lo que no haremos distinción sobre los $A$-módulos izquierdo y derechos para llamarlos simplemente \textit{$A$-módulos}.
+
+\begin{definition}[$A$-álgebra]
+    Sean $A$ y $B$ dos anillos. Decimos que $B$ es un \textbf{$A$-álgebra} si $B$ es un $A$-módulo. Equivalentemente, si existe 
+    morfismo de anillos $f:A\to B$ no cero. Este morfismo induce una estructura de $A$-módulo a $B$ de la siguiente forma
+    \begin{align*}
+        \cdot:A\times B\to B\\
+        a\cdot b:=f(a)b
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Morfismo de álgebras]
+    Sean $A$ y $A'$ dos $B$-álgebras. Entonces, existen morfismos de anillos $f:B\to A$ y $f':B\to A'$. Un \textbf{morfismo de $B$-álgebras} es un morfismo de anillos $\phi:A\to A'$ tal que el siguiente diagrama conmuta
+    \begin{center}
+        \begin{tikzcd}
+	& B \\
+	\\
+	A && {A'}
+	\arrow["f"', from=1-2, to=3-1]
+	\arrow["{f'}", from=1-2, to=3-3]
+	\arrow["\phi"', from=3-1, to=3-3]
+\end{tikzcd}
+    \end{center}
+\end{definition}
+
+\begin{definition}
+    Sea $A$ un anillo. Decimos que un $A$-módulo $M$ es \textbf{finitamente generado} (o \textbf{finito}) si existen elementos $m_1,\dots,m_n\in M$ tal que
+    \begin{equation*}
+        M=\mathrm{gen}_A\{m_1,\dots,m_n\}=\left\{\sum_{i=1}^n a_im_i: a_i\in A \right\}
+    \end{equation*}
+    Equivalentemente, $M$ es finito si es isomorfo a $n$ copias de $A$
+    \begin{equation*}
+    	M\cong\bigoplus_{i=1}^n A.
+    \end{equation*}
+    Decimos que una $A$-álgebra $B$ es \textbf{finitamente generada} como $A$-álgebra (o de \textbf{tipo finito}) si existe un morfismo de $A$-álgebras sobreyectivo
+    \begin{center}
+        \begin{tikzcd}
+	{A[x_1,\dots,x_n]} && B && 0
+	\arrow["\phi", from=1-1, to=1-3]
+	\arrow[from=1-3, to=1-5]
+\end{tikzcd}
+    \end{center}
+    
+\end{definition}
+
+
+    Notemos de inmediato que si una $A$-álgebra es finitamente generado como $A$-módulo, entonces es de tipo finito pues está generado por polinomios lineales.
+    
+    \begin{example}
+    	Supongamos que $M$ es un $A$-álgebra finitamente generada como $A$-módulo. Consideremos el morfismo $\phi:A[x_1,\dots,x_n]\to M$ dado por
+    	\begin{equation*}
+    		\phi(f(x_1,dots,x_n))=f(m_1,\dots,m_n).
+    	\end{equation*}
+    	Como $M$ es finito, entonces existe un conjunto generador finito $\{m_1,\dots,m_n\}\subset M$. Así, para todo $m\in M$ existen $a_1,\dots,a_n\in A$ tal que
+    	\begin{equation*}
+    		m=a_1m_1+\dots+a_nm_n.
+    	\end{equation*} 
+    	Esto implica que 
+    	\begin{equation*}
+    		m=\phi(a_1x_1+\dots+a_nx_n).
+    	\end{equation*}
+    	Por lo tanto, $\phi$ es un morfismo sobreyectivo. Es decir, $M$ es un $A$-álgebra de tipo finito.
+    \end{example}
+    
+    \begin{remark}
+    	Sea $B$ una $A$-álgebra de tipo finito. Entonces existe un morfismo sobreyectivo
+    	\begin{equation*}
+    		f:A[x_1,\dots,x_n]\longrightarrow B.
+    	\end{equation*}
+    	Por el primer teorema de isomorfía,
+    	\begin{equation*}
+    		B\cong A[x_1,\dots,x_n]/\ker(f).
+    	\end{equation*}
+    	Conversamente, si $B\cong A[x_1,\dots,x_n]/I$ para algún ideal $I\subset A[x_1,\dots,x_n]$. Entonces el morfismo canónico
+    	\begin{align*}
+    		f:A[x_1,\dots,x_n]&\longrightarrow A[x_1,\dots,x_n]/I\cong B\\
+    		&\alpha\mapsto [\alpha]
+    	\end{align*}
+    	es sobreyectivo con kernel $\ker(f)=I$. Así, $B$ es una $A$-álgebra de tipo finito. Por lo tanto
+    	\begin{center}
+    		\textbf{$B$ de una $A$-álgebra de tipo finito si, y solo si, $B$ es isomorfo como $A$-álgebra a un anillo cociente $A[x_1,\dots,x_n]/I$ para algún ideal $I\subset A[x_1,\dots,x_n]$.}
+    	\end{center}
+    \end{remark}
+    
+    
+    \begin{definition}
+    	Decimos que un morfismo de anillos $f:A\to B$ es un \textbf{morfismo finito} si $B$ es un $A$-módulo finito. Análogamente, decimos que $f$ es un \textbf{morfismo de tipo finito} si $B$ es una $A$-álgebra de tipo finito.
+    	Por último, decimos que $f$ es un \textbf{morfismo de presentación finita} si es de tipo finito y el ideal asociado a $B$ es finitamente generado, es decir, existen $f_1,\dots,f_k$ polinomios tal que
+    	\begin{equation*}
+    		B\cong A[X_1,\dots,x_n]/\langle f_1,\dots,f_k\rangle.
+    	\end{equation*}
+    \end{definition}
+    
+    \begin{example}[Anillo de números duales]
+    	Consideremos el anillo
+    	\begin{equation*}
+    		B=\cc[\epsilon]/\langle \epsilon^2\rangle.
+    	\end{equation*}
+   
+		Notemos que los elementos de $B$ son de la forma,
+    	\begin{equation*}
+    		a+b\epsilon,\qquad a,b\in\cc,\qquad \epsilon^2=0.
+    	\end{equation*}
+    	Este anillo satisface varias propiedades importantes.
+    	\begin{itemize}
+    		\item Es un $\cc$-espacio vectorial de dimensión $2$ con base $\{1,\epsilon\}$. Esto quiere decir que el morfismo natural
+    		\begin{equation*}
+    			f:\cc\longrightarrow \cc[\epsilon]/\langle \epsilon^2\rangle,
+    		\end{equation*}
+    		es finito.
+    		\item No es dominio entero porque $\epsilon\cdot\epsilon=0$.
+    		\item Un elemento es invertible si, y solo si, $a\neq 0$. Esto debido a que
+    		\begin{equation*}
+    			(a+b\epsilon)^{-1}=\frac{1}{a}-\frac{b}{a^2}\epsilon.
+    		\end{equation*}
+    		Por lo que, el ideal $\langle \epsilon \rangle$ contiene todos lo elementos no invertible y por lo tanto, es el único ideal maximal de $B$. Es decir, $B$ es un anillo local.
+    		\item El campo residual de $B$ es
+    		\begin{equation*}
+    			\frac{\cc[\epsilon]/\langle \epsilon^2\rangle}{\langle \epsilon \rangle}\cong\cc.
+    		\end{equation*}
+    		\item El anillo $B$ es un anillo artiniano, y en consecuencia, $B$ es noetheriano.
+    	\end{itemize}
+    \end{example}
+    
+    
+ \section{Espectro primo de un anillo}
+ 
+ 
+ \section{Dimensión de un anillo}
+    
+    Ahora introduzcamos una noción de dimensión para cualquier anillo.
+\begin{definition}
+    Sea $A$ un anillo. La \textcolor{blue}{altura} $\mathrm{ht}$ de un ideal primo $\mathfrak{p}\subset A$ es el supermo de todos $n$ de las cadenas
+    \begin{equation*}
+        \langle 0 \rangle= \mathfrak{p}_0\subset \mathfrak{p}_1\subset \cdots \subset \mathfrak{p}_n= \mathfrak{p}
+    \end{equation*}
+    Definimos la \textcolor{blue}{dimensión de Krull} como el número
+    \begin{equation*}
+        \mathrm{dimkrull}(A)=\sup_{\mathfrak{p}\text{ primo}}\mathrm{ht}(\mathfrak{p})
+    \end{equation*}
+\end{definition}
+
+    \begin{theorem}\label{krulltrdeg}
+        Sea $k$ un campo y $B$ dominio entero finitamente generado como $k$-álgebra.
+        \begin{enumerate}
+            \item Si $Q(B)$ es el campo de fracciones asociado al dominio entero $B$, entonces
+            \begin{equation*}
+                \mathrm{trdeg}_kQ(B)=\mathrm{dimkrull} B
+            \end{equation*}
+            \item Para cualquier ideal primo $\mathfrak{p}\subset B$ se cumple que
+            \begin{equation*}
+                \mathrm{dimkrull} B = \mathrm{ht}(\mathfrak{p}) + \mathrm{dimkrull} B/\mathfrak{p}
+            \end{equation*}
+        \end{enumerate}
+    \end{theorem}
+
+    \begin{corollary}
+        Si $k$ un campo, entonces la dimensión de Krull del anillo de polinomio $k[x_1,\dots, x_n]$ es $n$.
+    \end{corollary}
+    \begin{proof}
+        Solo es suficiente notar que $k[x_1,\dots, x_n]$ trivialmente una $k$-álgebra de tipo finito y
+        \begin{equation*}
+            \mathrm{trdeg}_kQ(k[x_1,\dots, x_n])=\mathrm{trdeg}_k k(x_1,\dots, x_n)=n
+        \end{equation*}
+        Por el teorema anterior
+        \begin{equation*}
+            \mathrm{dimkrull}k[x_1,\dots, x_n]=n
+        \end{equation*}
+    \end{proof}
+
+    \begin{definition}
+        Sea $\mathfrak{p}$ un ideal primo de $A$ e $I\subset A$ un ideal contenido en $\mathfrak{p}$. Decimos que $\mathfrak{p}$ es minimal sobre $I$ si no existe otro ideal primo $\mathfrak{q}$ tal que
+        \begin{equation*}
+            I\subsetneq \mathfrak{q}\subsetneq \mathfrak{p}
+        \end{equation*}
+    \end{definition}
+    
+    \begin{theorem}[del ideal principal de Krull]\label{principalkrull}
+        Sea $A$ un anillo noetheriano y $f\in A$ un elemento no unidad ni divisor de cero. Entonces todo ideal primo minimal sobre $\langle f \rangle$ tiene altura $1$.
+    \end{theorem}
+
+    \begin{propo}\label{dfuprincipal}
+        Sea $A$ un dominio entero noetheriano. Entonces $A$ es DFU si, y solo si, todo ideal primo de altura $1$ es principal.
+    \end{propo}
+
+    \begin{lemma}\label{lemaisoresidual}
+        Sea $A$ un anillo y $\mathfrak{p}$ un ideal primo de $A$, entonces $A_\mathfrak{p}$ un anillo local con ideal maximal
+        \begin{equation*}
+            \mathfrak{p}A_\mathfrak{p}:=\left\{\frac{a}{s}\in A_\mathfrak{p}:a\in \mathfrak{p}\right\}
+        \end{equation*}
+        Además, existe un isomorfismo entre el campo residual $\kappa(\mathfrak{p})=A_\mathfrak{p}/\mathfrak{p}A_\mathfrak{p}$ y el campo de fracciones del dominio entero $A/\mathfrak{p}$
+    \end{lemma}
+
+    \begin{theorem}[de la base de Hilbert]\label{basehilbert}
+    	Si $A$ es un anillo noetheriano, entonces $A[X_1,\dots, X_n]$ también es un anillo noetheriano.
+    \end{theorem}
+    
+    \subsection{Anillo noetheriano con dimensión infinita}
+    
+    A continuación, presentaremos un ejemplo de \textit{Nagata}, el cual es un anillo noetheriano de dimensión infinita. Cabe destacar que dicho anillo no puede ser local.
+    
+    
+\section{Álgebra de series formales}
+
+\begin{definition}
+    Sea $A$ un anillo. Una \textbf{serie formal de potencias} con coeficientes en $A$ es un mapeo
+    \begin{align*}
+        \mathrm{N}^n\to A\\
+        \alpha\mapsto c_\alpha
+    \end{align*}
+    donde $c_\alpha\in A$. Este mapeo se denota por el simbolo
+    \begin{equation*}
+        \sum_{\alpha\in\mathrm{N}^n}c_{\alpha}z^{\alpha}
+    \end{equation*}
+    donde $z=(\zn)$ donde $\zn$ son variables indeterminadas sobre $A$. El conjunto de todas las series formales de potencias con coeficientes en $A$ se denota por
+    \begin{equation*}
+        A[[\zn]]
+    \end{equation*}
+    Una serie formal de potencias $f=\sum_{\alpha\in\mathrm{N}^n}c_{\alpha}z^{\alpha}$ tiene un \enquote{valor en el cero} bien definido
+    \begin{equation*}
+        f(0):=c_{0,\dots,0}
+    \end{equation*}
+\end{definition}
+
+\begin{theorem}
+    Sea $A$ un anillo y $k$ un campo. Entonces se cumple lo siguiente:
+    \begin{enumerate}
+        \item $A[[\zn]]$ es un anillo con las siguientes operaciones
+        \begin{align*}
+            \sum_{\alpha\in\mathrm{N}^n}a_{\alpha}X^{\alpha}+\sum_{\alpha\in\mathrm{N}^n}b_{\alpha}X^{\alpha}:=\sum_{\alpha\in\mathrm{N}^n}(a_{\alpha}+b_\alpha)X^{\alpha}\\
+            \left(\sum_{\alpha\in\mathrm{N}^n}a_{\alpha}X^{\alpha}\right)\cdot\left(\sum_{\beta\in\mathrm{N}^n}b_{\beta}X^{\beta}\right):=\left(\sum_{\gamma\in\mathrm{N}^n}c_{\gamma}X^{\gamma}\right)
+        \end{align*}
+        donde 
+        \begin{equation*}
+            c_\gamma:=\sum_{\alpha+\beta=\gamma}a_\alpha b_\beta
+        \end{equation*}
+        Más aún, si $A$ es una $k$-álgebra  entonces $A[[\zn]]$ también es una $k$-álgebra con la operación
+        \begin{equation*}
+        \lambda\cdot\sum_{\alpha\in\mathrm{N}^n}a_{\alpha}X^{\alpha}:=\sum_{\alpha\in\mathrm{N}^n}(\lambda\cdot a_{\alpha})X^{\alpha}
+        \end{equation*}
+        
+    \item $A[[\zn]]$ contiene al anillo de polinomios (álgebra) $A[\zn]$ como un subanillo (subalgebra).
+
+    \item 
+    \begin{align*}
+        A[[z_1,z_2,\dots,z_n]]&=(A[[z_1,z_2,\dots,z_{n-1}]])[[z_n]]\\
+        &=\cdots=((A[[z_1]])\dots [[z_n]])
+    \end{align*}
+    
+    \item Si $A$ es un anillo noetheriano, entonces $A[[\zn]]$ también es un anillo noetheriano.
+
+    \item Si $A=k$ es un campo, entonces $k[[\zn]]$ es un DFU. 
+    \end{enumerate}    
+\end{theorem}
+
+Recordemos que los números complejos vienen equipados con una norma llamada módulo $|\cdot|:\cc^n\to \rr_{\geq 0}$ dada por la norma euclidiana de $\rr^{2n}$. Vamos a darle una norma al anillo de series formales con este módulo.
+
+Para cada $r\in\rr_{>0}^n$, definimos el mapeo
+	\begin{equation*}
+		\|\cdot\|_r:\cc[[\zn]]\longrightarrow \rr_{\geq 0}\cup\{\infty\}
+	\end{equation*}
+dado por
+\begin{equation*}
+	\|f\|_r:=\sum_{\alpha\in\nn^n} |c_\alpha|r^\alpha\in\rr_{\geq 0}\cup\{\infty\}.
+\end{equation*}
+Notemos que $\|\cdot\|_r$ es una norma sobre el conjunto de series de potencias $f$ con $\|f\|_r<\infty$.
+
+\begin{definition}
+	Sea $f=\sum_{\alpha\in\mathbb{N}^{n}}c_\alpha z^{\alpha}\in \cc[[\zn]]$ una seria forma de potencias. Decimos que $f$ \textbf{converge} si existe un vector real $r\in \rr_{>0}^n$ tal que
+		\begin{equation*}
+			\|f\|_r<\infty.
+		\end{equation*}
+	Equivalentemente que
+	\begin{equation*}
+		\sup_{\alpha\in\mathbb{N}^{n}}|c_\alpha|r^\alpha<\infty.
+	\end{equation*} 
+\end{definition}
+
+Esta condición nos dice que para que una serie converja, su crecimiento debe ser a lo más exponencial.
+
+\begin{example}
+	Cualquier polinomio en $\cc[\zn]$ converge pero no toda serie forma de potencias converge. Por ejemplo, consideremos la serie
+	\begin{equation*}
+		f=\sum_{n=0}^{\infty} n!z^n.
+	\end{equation*} 
+	Supongamos que existe $r>0$ tal que
+	\begin{equation*}
+		\sup_{n\in\nn}n!r^n<\infty.
+	\end{equation*}
+	
+\end{example}
+\begin{definition}
+    El conjunto de las \textbf{series convergente} (en el cero) es el conjunto definido por
+    \begin{align*}
+    	\cc\{\zn\}:=&\{f\in\cc[[\zn]]:\text{ existe }r\in \rr_{>0}^n\text{ tal que }\|f\|_r<\infty\}\\
+    	=&\left\{\sum_{\alpha\in\mathbb{N}^{n}}c_\alpha z^{\alpha}:\text{existe }r\in\rr^n_{\geq 0}\text{ tal que }\sup_{\alpha\in\mathbb{N}^{n}}|c_\alpha| r^{\alpha}<\infty \right\}
+    \end{align*}
+\end{definition}
+
+\begin{remark}
+    Notemos que tenemos una cadena estricta de subalgebras
+    \begin{equation*}
+        \cc[z_1,\dots,z_n]\subsetneq\cc\{z_1,\dots,z_n\}\subsetneq\cc[[z_1,\dots,z_n]]
+    \end{equation*}
+    Además, sabemos que podemos definir una serie convergente en un punto $a=(a_1,\dots,a_n)$ y obtener el conjunto $\cc\{z_1-a_1,\dots,z_n-a_n\}$. Sin embargo, es inmediato que
+    \begin{equation*}
+        \cc\{z_1-a_1,\dots,z_n-a_n\}\cong 
+        \cc\{z_1,\dots,z_n\}
+    \end{equation*}
+\end{remark}
+
+\begin{definition}
+    Sea $f=\sum_{\alpha\in\mathbb{N}^n}c_\alpha z^{\alpha}\in\cc[[z_1,\dots,z_n]]$ una serie formal de potencias. El \textcolor{blue}{orden} (o subgrado) de $f$ esta definido por
+    \begin{equation*}
+        \mathrm{ord}(f)=\begin{cases}
+            \infty &,\text{ si }f\\
+            \min\{|\alpha|:c_\alpha\neq 0\} &,\text{ si }f\neq 0
+        \end{cases}
+    \end{equation*}
+\end{definition}
+
+\begin{example}
+    Consideremos la serie
+    \begin{align*}
+        f(z_1,z_2)&=z_1^4+z_2\sin(z_1z_2)\\
+        &=z_1^4+z_2\sum_{k\geq 1}\frac{(-1)^k}{(2k+1)!}(z_1z_2)^{2k+1} \\
+    \end{align*}
+    Entonces
+    \begin{equation*}
+        \mathrm{ord}(f)=3
+    \end{equation*}
+\end{example}
+
+\begin{lemma}
+    Sea $f,g\in \cc[[z_1,\dots,z_n]]$. Entonces se cumple que:
+    \begin{enumerate}
+        \item El orden satisface que
+        \begin{align*}
+            \mathrm{ord}(f+g)\geq \min\{\mathrm{ord}(f),\mathrm{ord}(g)\}\\
+            \mathrm{ord}(fg)=\mathrm{ord}(f)+\mathrm{ord}(g)\\
+        \end{align*}
+        \item El álgebra $\cc[[z_1,\dots,z_n]]$ es un dominio entero.
+        \item $f\in  \cc[[z_1,\dots,z_n]]$ es unidad si, y solo si, $\mathrm{ord}(f)=0$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{propo}
+    El anillo $\cc[[z_1,\dots,z_n]]$ es un anillo local. Es decir, el conjunto de todos los elementos no unidad
+    \begin{equation*}
+        \mathfrak{m}=\{f\in  \cc[[z_1,\dots,z_n]]:f(0)=0\}
+    \end{equation*}
+    es un ideal. Más aún, es un ideal máximal, es único y está generado por $z_1,\dots,z_n$.
+\end{propo}
+
+\section{Teorema de los ceros de Hilbert}
+
+Un morfismo de anillos $f:A\to B$ se llama \textbf{integral} si para todo elementos $b\in B$ es integral sobre $A$, es decir, existe un polinomio mónico $\sum_{i=1}^na_ix^i\in A[x]$ tal que
+\begin{equation*}
+	\sum_{i=1}^{n}f(a_i)b^i=0.
+\end{equation*}
+Esta ecuación es llamada \textbf{ecuación integral} de $b$ sobre $A$. 
+
+\begin{propo}
+	Sea $f:A\to B$ un morfismo de anillo. Entonces $f$ es finito si, y solo si, es integral y de tipo finito.
+\end{propo}
+\begin{proof}
+	Supongamos que $f:A\to B$ es finitamente generado como $A$-módulo con la estructura inducida por $f$. Claramente, $f:A\to B$ también es de tipo finito. 
+\end{proof}
+
+
+\begin{theorem}[Lema de normalización de Noether]
+	Sea $A$ una $k$-álgebra de tipo finito. Entonces existe un entero $d\geq 0$ y un morfismo inyectivo finito $k[x_1,\dots,x_d]\hookrightarrow A$.
+\end{theorem}
+
+
+\begin{corollary}
+	Sea $k$ un campo e $I$ un ideal propio de $k[x_1,\dots, x_n]$. Entonces existe una sub-algebra $k[s_1,\dots,s_n]$ de $k[x_1,\dots,x_n]$ y un entero $0\leq r\leq n$ tal que:
+	\begin{enumerate}
+		\item $k[x_1,\dots,x_n]$ es finito sobre $k[s_1,\dots,s_n]$.
+		\item $k[s_1,\dots,s_n]\cap I=\langle s_1,\dots,s_n\rangle$.
+		\item $k[s_{r+1},\dots,s_n]\to k[x_1,\dots,x_n]/I$ es finito e inyectivo. 
+	\end{enumerate}
+\end{corollary}
+
+\begin{corollary}
+	Sea $A$ una $k$-álgebra de tipo finito. Sea $\im$ un ideal maximal de $A$, entonces $A/\im$ es una extensión finita algebraica de $k$.
+\end{corollary}
+
+\begin{corollary}[Teorema de los ceros débil]
+	Sea $k$ un campo algebraicamente cerrado. Entonces para cualquier ideal maximal $\im$ de $k[x_1,\dots,x_n]$ existe un único punto $(a_1,\dots,a_n)\in k^n$ tal que
+	\begin{equation*}
+		\im=\langle x_1-a_1,\dots,x_n-a_n\rangle.
+	\end{equation*}
+\end{corollary}
+
+\begin{lemma}
+	Sea $A$ una $k$-álgebra de tipo finito no cero. Entonces la intersección de todos los ideales maximales de $A$ es igual al nilradical de $A$.
+\end{lemma}
+
+\begin{theorem}
+	Sea $k$ un campo algebraicamente cerrado e $I$ un ideal de $k[x_1,\dots,x_n]$. Si $f\in k[x_1,\dots,x_n]$ es un polinomio tal que 
+	\begin{equation*}
+		F(\alpha)=0,\qquad \text{para todo }\ \alpha\in Z(I),
+	\end{equation*}
+	entonces $f\in \sqrt{I}$.
+\end{theorem}

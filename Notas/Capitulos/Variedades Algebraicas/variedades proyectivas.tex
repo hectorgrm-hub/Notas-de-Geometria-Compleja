@@ -1,0 +1,304 @@
+\section{Variedades proyectivas}
+
+\subsection{Definición y propiedades básicas}
+
+    Comenzemos definiendo el espacio donde vamos a trabajar a partir de ahora
+    \begin{definition}
+        El \textcolor{blue}{n-espacio proyectivo}, denotado por $\pp^n$, es el conjunto de todos los subespacios vectoriales de dimensión 1 de $\cc^{n+1}$
+    \end{definition}
+
+    \begin{remark}
+        Notemos que para cualquier punto $(x_1,\cdots,x_{n+1})\neq 0$ determina una única recta $\{\lambda(x_0,\cdots,x_{n}):k\in\cc\}$ que pasa por el origen (subespacio vectorial de dimensión 1). Entonces, dos puntos $(x_0,\cdots,x_n)$ y $(y_0,\cdots,y_n)$ determinan la misma recta si, y solo si, existe $\lambda\in\cc\setminus\{0\}$ tal que  $(x_0,\cdots,x_n)=\lambda(y_0,\cdots,y_n)$.
+    \end{remark}
+    
+    Esto motiva a que manejemos la siguiente definición
+    \begin{definition}
+        El \textcolor{blue}{n-espacio proyectivo} es el conjunto $\pp^n=\cc^{n+1}\setminus\{0\}/\sim$ donde $z,w\in\cc^{n+1}\setminus\{0\}$ está relacionados si, y solo si, existe $\lambda\in\cc\setminus\{0\}$ tal que  $z=\lambda w$.
+    \end{definition}
+
+    \begin{remark}\label{esferaproyectivo}
+        Otra forma de pensar al espacio proyectivo es considerando la esfera unitaria 
+        $$S^{n+1}=\{(a_0,\dots,a_n)\in\cc^{n+1}:a_0^2+\cdots+a_n^2=1\}$$
+        definimos la relación de equivalencia $(a_0,\dots,a_n)\sim (b_0,\dots,b_n)$ si, y solo si, existe $\theta\in[0,2\pi]$ tal que $(a_0,\dots,a_n)=e^{i\theta}(b_0,\dots,b_n)$. Definiendo de forma análoga
+        \begin{equation*}
+            \pp^n:=S^{n+1}/\sim
+        \end{equation*}
+        Y la proyección canónica
+        \begin{gather*}
+            q:S^{n+1}\to \pp^n\\
+            a\mapsto [a]
+        \end{gather*}
+        induce una función continua respecto a la topología cociente inducida por $S^{n+1}$.
+    \end{remark}
+    
+    \begin{propo}\label{n-espacio}
+        El n-espacio proyectivo $\pp^n$ es una variedad compleja conexa compacta de dimensión $n$. 
+    \end{propo}
+    
+    \begin{proof}
+        Dotamos a $\pp^n$ con la topología cociente dada por la proyección canónica
+        \begin{equation*}
+            \pi:\cc^n\setminus \{0\} \to \cc^{n+1}\setminus\{0\}/\sim
+        \end{equation*}
+        Definamos la \textcolor{blue}{cubierta estandar afín} de $\pp^n$ dada por los $n+1$ abiertos
+        \begin{equation*}
+            U_i=\{[x_0:\cdots:x_n]:x_i\neq 0]\}\subset \pp^n=Z(x_i)^c
+        \end{equation*}
+        Así, tenemos las funciones $\phi_i:U_i\to\cc^n$ dadas por
+        \begin{align*}
+            [x_0:x_1:\dots:x_n]\mapsto & \left( \frac{x_0}{x_i},\frac{x_1}{x_i},\dots, \frac{x_{i-1}}{x_i},\frac{x_{i+1}}{x_i},\dots,\frac{x_n}{x_i}\right)
+        \end{align*} 
+        Estas funciones son continuas por la propiedad característica de la topología cociente \parencite[Teo. 3.70 Pg. 70]{lee2010introduction} y su inversa está dada por
+        \begin{equation*}
+            \phi_{i}^{-1}(z_1,\dots,z_n)=[z_1,\dots,z_{i-1},1,z_i,\dots,z_n]
+        \end{equation*}\\
+        Así, las funciones $\phi_i$ son homeomorfismos llamados \textcolor{blue}{cartas afines}.
+         Además, las funciones de transición $\phi_{ij}=\phi_i\circ\phi_j^{-1}:\phi_j(U_i\cap U_j)\to\phi_i(U_i\cap U_j)$
+        \begin{equation*}
+            \phi_{ij}(w_1,\dots,w_n)=\left(\frac{w_1}{w_i},\dots \frac{w_{i-1}}{w_1},\frac{w_{i+1}}{w_i},\dots,\frac{w_{j-1}}{w_i},\frac{1}{w_i},\frac{w_{j+1}}{w_i},\dots,\frac{w_n}{w_i} \right)
+        \end{equation*}
+        Notemos que $\phi_i(U_i \cap U_j)=\cc^n\setminus Z(w_i)$. Con esto, $\phi_{ij}$ aplicaciones holomorfas.\\
+        Las propiedades topológicas de Hausdorff y segundo contable es análogo que en $\pp^1$. Si consideramos la función continua\ref{esferaproyectivo} $q:S^{2n+1}\to\pp^n$ dada por 
+        \begin{equation*}
+            q(w_0,\dots,w_n)=[w_0,\dots,w_n]
+        \end{equation*}
+        tenemos que $q$ es sobreyectiva y como $S^{2n+1}$ es conexo y compacto, entonces $\pp^n$ es conexo y compacto.
+    \end{proof}
+    
+    \begin{remark}
+        Notemos que cada $U_i$ son homeomorfos a $\cc^n$. Entonces $\pp^n$ está cubierto por $n+1$ espacios complejos $\cc^n$. 
+    \end{remark}
+
+    Por la naturaleza del espacio proyectivo, si queremos definir una variedad algebraica en este espacio no podemos definirlo directamente como zeros de polinomios. Por ejemplo, si consideramos el polinomio $f(x,y)=x^2+y+1$. Un cero de $f(x,y)$ es el punto $(0,-1)$, pero $[0:-1]=[0,-2]$ y el punto $(0,-2)$ no es cero de $f(x,y)$.\\
+    Para solucionar esto debemos considerar polinomios homogéneos. Ya que si $f(x,y)$ es un polinomio homogéneo de grado $d$ y $[a:b]$ es solución, entonces
+    \begin{equation*}
+        0=f(a,b)=f(\lambda a,\lambda b)=\lambda^d f(a,b)=0
+    \end{equation*}
+    para todo $\lambda\in\cc\setminus\{0\}$. Por lo que las soluciones de $f$ no dependerán del representante de la clase.\\
+    Esto motiva que definamos las variedades algebraicas  (proyectivas) de la siguiente forma
+    \begin{definition}
+        Un subconjunto $V\subset \pp^n$ es un \textcolor{blue}{conjunto algebraico proyectivo} o simplemente una \textcolor{blue}{conjunto algebraico} si existe un subconjunto de polinomios homogéneos $T\subset\cc[x_0,\dots,x_n]$ tal que
+        \begin{equation*}
+            V=Z(T)=\{[z]\in\pp^{n}:F_i(z)=0, \text{ para todo } F_i\in T\}\subset \pp^{n}
+        \end{equation*}
+        En particular, si $T=\{F\}$, la variedad $V=Z(F)$ se llama \textcolor{blue}{hipersuperficie algebraica proyectiva} y el \textcolor{blue}{grado} de $V$ es $deg F$.
+    \end{definition}
+
+    \begin{remark}
+        Análogo al caso afín (\ref{zariskiafin}) tenemos que los conjuntos algebraicos inducen una topología sobre $\pp^n$ por cerrados llamada \textcolor{blue}{topología de Zariski}. Llamaremos a la topología cociente de $\pp^n$ como \textcolor{blue}{topología compleja} para diferenciarla de la topología de Zariski.\\
+        Un $V\subset\pp^n$ es un conjunto algebraico 
+    \end{remark}
+
+    \begin{definition}[Variedad algebraica]
+        Un $V\subset\pp^n$ es un conjunto algebraico irreducible es llamado \textcolor{blue}{variedad algebraica proyectiva} o simplemente \textcolor{blue}{variedad algebraica}.
+    \end{definition}
+
+    \begin{definition}
+        Sea $V\subset \pp^n$ un conjunto algebraico. Definimos el \textcolor{blue}{ideal (homogéneo) asociado}
+        \begin{equation*}
+            I(V):=\{F\in\cc[x_0,\dots,x_n]:F\text{ es homogéneo},F(p)=0\text{ para todo }p\in V\}
+        \end{equation*}
+        y el \textcolor{blue}{anillo de coordenadas} 
+        \begin{equation*}
+            S(V):=\cc[x_0,\dots,x_n]/I(V)
+        \end{equation*}
+    \end{definition}
+
+    \begin{remark}\label{propbasicaproy}
+        Análogo al caso afín, si $V\subset\pp^n$ es una variedad algebraica proyectiva, entonces el anillo de coordenadas $S(V)$ es un dominio entero.
+    \end{remark}
+    
+    \begin{remark}[Relación entre hipersuperficies afines y proyectivas]
+        De la proposición \ref{n-espacio} sabemos que existen abiertos $U_i\subset \pp^n $ homeomorfos a $\cc^n$ que cubren a $\pp^n$
+        \begin{equation*}
+            U_i=\{[z_0,\dots,z_i\dots,z_n]:z_i\neq 0\},\qquad i=0,1,\dots, n\}=Z(x_i)^{c}
+        \end{equation*}
+        Sea $Z(F)$ la hipersuperficie proyectiva definida por el polinomio homogéneo $F$. Consideremos las funciones continuas
+        \begin{align*}
+            \varphi_i: U_i=\cc^n\to\pp^n,\qquad i=0,1,\dots, n
+        \end{align*}
+        dadas por
+        \begin{equation*}
+            \varphi_i(z_1,\dots, z_n)=[z_1:\cdots:1:\cdots:z_n],\qquad i=0,1,\dots, n
+        \end{equation*}
+        donde el $1$ se encuentra en la $i$-ésima entrada.\\
+        Entonces $\varphi_0^{-1}(U_0\cap C)=\{(x,y)\in\cc^2: F(1,x,y)=0\}$ es una curva plana afín. Es el mismo caso para $\varphi_1^{-1}(U_1\cap C)$ y $\varphi_2^{-1}(U_2\cap C)$. Conversamente, dada una curva plana afín $C(f)$, donde $f\in\cc[y,z]$, entonces definimos
+        \begin{equation*}
+            F(x,y,z)=x^{d}f\left(\frac{y}{x},\frac{z}{x}\right)
+        \end{equation*}
+        donde $d=\deg f$. Entonces $F$ define una curva plana proyectiva tal que 
+        \begin{equation*}
+            \varphi_{0}^{-1}(U_0\cap C(F))=\{(x,y)\in\cc^2:F(1,y,z)=0\}=C(f)\subset \cc^2
+        \end{equation*}
+
+    \end{remark}
+
+    \begin{definition}
+        Sea $V\subset \pp^n$ una variedad algebraica y consideremos $\{U_i\}_{i=0}^{n}$ la cubierta estandar afín. Definimos la \textcolor{blue}{dimensión} de $V$ como el máximo de las dimensiones de las variedades afines $X\cap U_i\subset \afin^n$.
+    \end{definition}
+
+    \begin{propo}
+        La variedad proyectiva $\pp^n$ tiene dimensión $n$ como variedad algebraica.
+    \end{propo}
+    \begin{proof}
+        Basta notar que $\pp^n\cap U_i=U_i\cong \afin^n$. Por lo que
+        \begin{equation*}
+            \dim \pp^n = \max_{i\in\{0,1,\dots,n\}} \{\dim U_i\} =\dim \afin ^n =n
+        \end{equation*}
+    \end{proof}
+
+    Notemos que, nuevamente, la dimensión de $\pp^n$ como variedad algebraica coincide su dimensión como variedad compleja.
+
+    \subsection{Funciones sobre variedades proyectivas}
+
+    Al igual que el caso afín, si consideramos una variedad algebraica proyectiva $V\subset\pp^n$, queremos definir funciones sobre $V$. Sin embargo, si consideremos un cociente de polinomios homogéneos $F/G$ y evaluamos en un punto
+    \begin{equation*}
+        \frac{F(p)}{G(p)}=\frac{F(\lambda p)}{G(\lambda p)}=\frac{\lambda^{\deg F}F(p)}{\lambda^{\deg G}G(p)}
+    \end{equation*}
+    entonces el cociente determinará una función bien definida si $\deg F=\deg G$ y $G(p)\neq 0$ 
+    
+    \begin{definition}[Funciones racionales]
+        Sea $V\subset \pp^n$, entonces el conjunto
+        $$ K(V)=\left\{\frac{F}{G}:F,G\text{ homogéneos },\deg F=\deg G, G\not\in I(V) \right\}/\sim$$
+        donde $F/G\sim F'/G'$ si, y solo si, $FG'-F'G\in I(V)$. Este conjunto es llamado \textcolor{blue}{campo de funciones racionales} en $V$.\\
+    \end{definition}
+    
+    En ocasiones escribiremos también $K_{\pp^n}(V)$ y $K_{\afin^n}(V)$ dependiendo el caso.
+
+    \begin{remark}
+        Si $\frac{F}{G}\in K(V)$ no cero, entonces $F\neq 0$. Así, $\frac{G}{F}$ es una función racional de $V$ tal que
+        \begin{gather*}
+            \frac{F}{G}\frac{G}{F}=\frac{F'}{G'}\\
+            \frac{FG}{FG}=\frac{F'}{G'}\\
+            FGF'-FGG'\in I(V)\\
+        \end{gather*}
+        Así, para todo $p\in V$
+        \begin{gather*}
+            F(p)G(p)F'(p)=F(p)G(p)G'(p)\\
+            F'(p)=G'(p)
+        \end{gather*}
+        Esto es, $F'/G'=1$ e implica que
+        \begin{equation*}
+            \frac{F}{G}\frac{G}{F}=1
+        \end{equation*}
+        Por lo tanto, $\frac{F}{G}\in K(V)$ es unidad y por lo tanto, $K(V)$ es un campo.
+    \end{remark}
+
+    \begin{lemma}
+        Sea $V\subset\pp^n$ una variedad algebraica proyectiva con cubierta
+        \begin{equation*}
+            V=\bigcup_{i=0}^n V_i
+        \end{equation*}
+        Si $V$ no está totalmente contenida en algún $Z(x_i)$, entonces
+        \begin{equation*}
+            K_{\pp^n}(V)\cong K_{\afin^n}(V_i)
+        \end{equation*}
+        para cada $i=0,1,\dots, n$.
+    \end{lemma}
+
+    \begin{remark}
+        Notemos que si $V\subset\pp^n$ es una variedad algebraica, entonces para cada $i=0,1,\dots, n$
+        \begin{equation*}
+             K_{\pp^n}(V)\cong K_{\afin^n}(V_i)
+        \end{equation*}
+        si $V$ no está totalmente contenida en $Z(x_i)$. Así,
+        \begin{align*}
+            \mathrm{trdeg}_\cc K_{\pp^n}(V)&=\mathrm{trdeg}_\cc K_{\afin^n}(V_i)\\
+            &=\dim V_i
+        \end{align*}
+        De esta manera, la dimensión de todas las variedades afines $V_i$ es igual a la dimensión de $V$.
+    \end{remark}
+
+    \begin{definition}[Función regular]
+        Sea $V\subset\pp^n$ una variedad algebraica y $\phi\in K(V)$. Decimos que $\phi$ es \textcolor{blue}{regular} en un punto $p\in V$ si existe una expresión 
+        \begin{equation*}
+            \phi=\frac{G}{H},\qquad G,H\text{ homogéneos del mismo grado tal que }H(p)\neq 0
+        \end{equation*}
+        Decimos que $\phi$ es \textcolor{blue}{regular} en $U\subset V$ abierto si es regular en todos los puntos de $U$.
+        Definimos el dominio de $\phi$ por
+        \begin{equation*}
+            \dom(\phi)=\{p\in V:\phi\text{ es regular en }p\}
+        \end{equation*}
+        Escribimos por
+        \begin{equation*}
+            \mathcal{O}_V(U):=\{\phi\in K(V): \phi\text{ es regular en }U\}
+        \end{equation*}
+    \end{definition}
+
+    Notemos el parecido del siguiente resultado con (\ref{holomorfasglobal})
+    \begin{propo}[Zaldivar lema 3.13]
+        Sea $V\in\pp^n$ una variedad algebraica proyectiva. Entonces
+        \begin{equation*}
+            \mathcal{O}_V(V)=\cc
+        \end{equation*}
+        Es decir, toda función regular global es constante.
+    \end{propo}
+
+    \begin{propo}[Zaldivar propo 3.14]
+        Sea $V\subset\pp^n$ una variedad algebraica y $\phi\in K(V)$. Entonces existe un abierto $U\subset V$ tal que $\phi$ es regular.
+    \end{propo}
+
+    Ahora notemos este resultado identico a uno ya conocido (\ref{teoidentidad})
+    \begin{corollary}[Teorema de la identidad]\label{teoindetidadvarafin}
+        Sea $V\subset \afin^n$ una variedad afín. Si $f,g:V\to \afin^1$ son dos funciones \textcolor{red}{regulares} de $V$ tale que $f=g$ en un abierto de $V$, entonces $f=g$ en todo $V$
+    \end{corollary}
+
+    
+    \begin{definition}[Aplicación racional]
+        Sean $V\subset\pp^n$ y $W\subset\pp^m$ dos variedades algebraicas. Una \textcolor{blue}{aplicación racional} es una función $\phi:X\dashrightarrow Y$\footnote{Claramente necesitamos que $\phi(\mathrm{dom}\phi)\subset Y$} donde cada función coordenada es una función racional. Es decir, existen $m+1$ funciones racionales $\phi_0,\dots,\phi_m\in K(V)$ tales que
+        \begin{equation*}
+            \phi(p)=[\phi_1(p):\dots:\phi_m(p)]
+        \end{equation*}
+    \end{definition}
+
+    Notemos que $\phi$ solo está definido en un subconjunto de $V$
+        \begin{equation*}
+            \mathrm{dom}\phi:=\bigcap_{i=1}^m\mathrm{dom}f_i
+        \end{equation*}
+    y además necesitamos que $\phi_i(p)$ sean no cero todos a la vez.
+    
+    \begin{definition}[Aplicación regular]
+        Sea $\phi:V\subset\pp^n\dashrightarrow W\subset\pp^m$ una aplicación racional. Decimos que $\phi$ es \textcolor{blue}{regular} en $p\in X$ si existe una representación $\phi=(\phi_0,\dots,\phi_m)$ tal que
+        \begin{enumerate}
+            \item Cada $\phi_i$ es regular en $p$.
+            \item Algún $\phi_i$ no se anula en $p$.
+        \end{enumerate}
+        Decimos que $\phi$ es \textcolor{blue}{dominante} si $\phi(\dom\phi)\subset W$ es un abierto no vacío.
+    \end{definition}
+
+    \begin{definition}
+        Sea $V,W$ dos variedades algebraicas y $U_1\subset V$, $U_2\subset W$ dos abiertos. 
+        \begin{enumerate}
+            \item Un \textcolor{blue}{morfismo} $\phi:U_1\to U_2$ es una aplicación racional $\phi:V\dashrightarrow W$ restringida si $U_1\subset\dom\phi$ y $\phi(U_1)\subset U_2$.
+            \item Decimos que $\phi:U_1\to U_2$ es un \textcolor{blue}{isomorfismo} si existe un morfismo $\psi:U_2\to U_1$ tal que
+            \begin{equation*}
+                \psi\circ\phi=id_{U_1}\qquad \phi\circ\psi=id_{U_2}
+            \end{equation*}
+            En este caso, decimos que $U_1$ y $U_2$ son \textcolor{blue}{isomorfos}.
+        \end{enumerate}
+    \end{definition}
+
+    \begin{propo}
+        La función $\phi_i:U_i\to\afin^n$ de \ref{n-espacio} es un isomorfismo.
+    \end{propo}
+    
+    \begin{definition}[Aplicación birracional]
+        Una aplicación racional dominante $\phi:V\dashrightarrow W$ es \textcolor{blue}{birracional} si existe una aplicación racional dominante $\psi:W\dashrightarrow V$ tal que $\phi\circ \psi=Id_W$ y $\phi\circ \psi=Id_W$. En este caso, decimos que $V$ y $W$ son \textcolor{blue}{birracionalmente equivalenres}.
+    \end{definition}
+
+    \begin{propo}
+        Dos variedades afines $V$ y $W$ son birracionales si, y solo si, $K(V)\cong K(W)$.
+    \end{propo}
+    
+    \begin{definition}[Gavilla de funciones regulares]
+        Sea $V$ una variedad algebraica. Definimos la \textcolor{blue}{gavilla de funciones regulares} a la regla de asignación $\mathcal{O}_V:Top_V\to Rings$ que para cada abierto $U\subset V$ se le asigna el anillo
+            \begin{equation*}
+                \mathcal{O}_V(U):=\{\phi\in K(V): \phi\text{ es regular en }U\}
+            \end{equation*}
+    \end{definition}
+    Completamente análogo al caso afín, $\mathcal{O}_V$ es una gavilla de anillos.
+    
+    \begin{example}[Anillo local $\mathcal{O}_{V,p}$](Local, Noetheriano, dominio entero)
+        Sea $V\subset\afin^n$ una variedad afin. Consideremos $\mathcal{O}_{V}$ la gavilla de funciones regulares sobre $V$ y $p\in V$. 
+        $$\mathcal{O}_{V,p}=\left\{\frac{P(x_1,\dots,x_n)}{Q(x_1,\dots,x_n)}:P,Q\in A(V),\text{ }Q(p)\neq 0 \right\} $$
+    \end{example}

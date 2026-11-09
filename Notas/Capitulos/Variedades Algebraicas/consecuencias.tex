@@ -1,0 +1,35 @@
+\section{Lo analítico en el mundo algebraico}
+
+Veamos las consecuencias que occuren de que las variedades algebraicas son variedades complejas.
+
+\begin{example}
+    Sobre una variedad algebraica (afín o proyectiva) las funciones regulares son holomorfas y las funciones racionales son meromorfas.
+\end{example}
+
+Podriamos pensar que una función racional sea meromorfa en un punto y al mismo tiempo sea regular en el mismo punto. Sin embargo, esto no puede pasar:
+\begin{theorem}
+    Sea $V\subset\pp^n$ una variedad algebraica lisa y $\phi\in K(V)$. Si $f$ es holomorfa en $p$, entonces $f$ es regular en $p$.
+\end{theorem}
+
+Nos gustaría relacionar directamente las funciones regulares y holomorfas. Sin embargo, ambas nociones están definidas en topología distintas y estructuras distintas. La estructura algebraica dada por ceros de polinomios y la topología de Zariski, mientras y la estructura holomorfa (también llamada analítica) dadas por cartas holomorfas y la topología compleja. \\
+Pero sí podemos demostrar la correspondencia con las funciones meromorfas y racionales definidas en toda la variedad. 
+
+\begin{theorem}
+    Sea $V\subset\pp^n$ una variedad proyectiva lisa. Entonces 
+    \begin{equation*}
+        K(V)=\mathcal{K}(V)
+    \end{equation*}
+    Es decir, las funciones racionales y meromorfas globales coinciden.
+\end{theorem}
+
+\begin{propo}
+    Toda aplicación holomorfa $f:V\to W$ entre variedades algebraicas proyectivas lisas es regular.
+\end{propo}
+
+\begin{propo}
+    Dos variedades algebraicas son isomorfas si, y  solo si, son biholomorfas.
+\end{propo}
+
+\begin{theorem}
+    Toda variedad compleja compacta conexa dentro de una variedad algebraica lisa es una variedad algebraica lisa.
+\end{theorem}

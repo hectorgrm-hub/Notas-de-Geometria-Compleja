@@ -1,0 +1,179 @@
+\section{Funciones Meromorfas}
+
+En geometría diferencial o algebraica, es común estudiar el comportamiento global de los objetos estudiando sus funciones. Sin embargo, notamos que las funciones holomorfas sobre variedades complejas conexas compactas (por ejemplo, las superficies de Riemann compactas) son constantes (\ref{holomorfasglobal}). Por lo que no podemos obtener información global de estas variedades a partir de sus funciones ¿Qué podemos hacer?
+
+Las funciones meromorfas extienden el concepto de funciones holomorfas al permitir \enquote{polos controlados}, lo que enriquece aún más la estructura analítica de las variedades. Más aún, el conjunto de todas las funciones meromorfas forma un campo (véase proposición \ref{campodefunciones}), lo cual permite aplicar herramientas algebraicas más potentes. De esta manera, el estudio de las funciones meromorfas se vuelve esencial para comprender la estructura local y la geometría global de las variedades complejas.
+
+\begin{definition}
+	Sea $M$ una variedad compleja y $p\in M$. Definamos
+	\begin{equation*}
+		\mathcal{K}_{M,p}:=Q(\oo_{M,p})
+	\end{equation*}
+	donde $Q(\oo_{M,p})$ es el campo de fracciones asociado al dominio entero $\oo_{M,p}$ (véase corolario \ref{dominiolocal}). Esto es,
+	\begin{equation*}
+		\mathcal{K}_{M,p}=\left\{ \frac{f_p}{g_p}:f_p,g_p\in\oo_{M,p}\text{ y }g_p\neq 0\right\}.
+	\end{equation*}
+	Este campo es llamado \textbf{campo de funciones meromorfas} en $p$.
+\end{definition}  
+
+\begin{definition}
+	Sea $M$ una variedad compleja. Una \textbf{función meromorfa} sobre $U\subset M$ es una aplicación
+	\begin{equation*}
+		f:U\longrightarrow \bigsqcup_{x\in U}\mathcal{K}_{M,x}
+	\end{equation*}
+	la cual asocia a $x\in U$ una función $f_x\in \mathcal{K}_{M,x}$ la cual cumple que para todo $p\in U$, existe una vecindad $V\subset U$ de $p$ y funciones holomorfas $g,h\in\oo_M(V)$, con $h\neq 0$, tal que $f|_V=\frac{g}{h}$\footnote{Esta igualdad significa que para todo $x\in V$ se tiene que $f(x)=\frac{g_x}{h_x}$.}.
+\end{definition}
+
+La \textbf{gavilla de funciones meromorfas} se denota por $\mathcal{K}_{M}$ y asigna a cada abierto $U$ el conjunto de funciones meromorfas sobre $U$.
+
+\begin{propo}\label{campodefunciones}
+	Sea $M$ una variedad compleja y $U\subset M$ un abierto conexo. Entonces $\mathcal{K}_{M}(U)$ es un campo.
+\end{propo}
+\begin{proof}
+	Recordemos que la estructura de anillo de $\mathcal{K}_{M}(U)$ está dada punto a punto, es decir,
+	\begin{align*}
+		(f+g)(x):=f(x)+g(x)\in\mathcal{K}_{M,x}\\
+		(fg)(x):=f(x)g(x)\in\mathcal{K}_{M,x}.
+	\end{align*}
+	y el elemento unidad es la función constante $1$ la cual es la fracción $1/1$ en cada campo $\mathcal{K}_{M,p}$.
+	
+	Sea $f\in \mathcal{K}_{M}(U)$ no cero. Buscamos un $f^{-1}\in\mathcal{K}_{M}(U)$ tal que $ff^{-1}=1$.
+	Como $f\neq 0$, entonces existe un punto $p\in U$ tal que $f_p\in\mathcal{K}_{M,p}$ es no cero. Entonces existe una vecindad $V\subset U$ conexa de $p$ tal que
+	\begin{equation*}
+		f|_V=\frac gh,\qquad g,h\in\oo_M(V),\enspace h\neq 0,\enspace g_p\not\in\mathfrak{m}_p.
+	\end{equation*}
+	Es decir, $g_p\neq 0$ como germen en $p$. Notemos que el conjunto 
+	\begin{equation*}
+		Z=\{x\in V:g(x)=0\}
+	\end{equation*}
+	es un subconjunto analítico propio, esto es, $g$ no se puede anular en un abierto no vacío de $V$. Si $g$ se anulara en todo $V$, entonces $f|_V=0$ y contradice que $f_p\neq 0$.
+	
+	De esta manera, podemos definir la inversa localmente 
+	\begin{equation*}
+		f^{-1}|_V=\frac hg.
+	\end{equation*} 
+	Repetimos este proceso para cada punto donde el germen no sea nulo. Esto nos da una cubierta $\{W_i\}_{i\in I}$ de $U$ tal que
+	\begin{equation*}
+		f^{-1}|_{W_i}=\frac{h_i}{g_i}
+	\end{equation*}
+	está bien definida y satisfacen 
+	\begin{equation*}
+		f|_{W_i}f^{-1}|_{W_i}=1\in\mathcal{K}_M(W_i).
+	\end{equation*}
+	Notemos que además las funciones $f^{-1}|_{W_i}$ coinciden en las intersecciones $W_i\cap W_j$. Así, por la propiedad de sección global de la gavilla $\mathcal{K}_M$ tenemos que existe $f^{-1}\in \mathcal{K}_{M}(U)$ tal que
+	\begin{equation*}
+		ff^{-1}=1.
+	\end{equation*}
+\end{proof}
+
+Si $M$ es una variedad compleja conexa, el espacio de secciones globales $\mathcal{K}_{M}(M)$ es llamado \textbf{campo de funciones meromorfas} sobre $M$ y lo denotamos por $\mathcal{K}(M)$. Este campo es de suma importancia para las variedades complejas y se relaciona con un teorema muy importante de la geometría compleja.
+
+\begin{theorem}[Carlos Ivorra Teo. 4.21]
+	Sea $a\in\cc^n$ y $f,g\in\mathscr{O}_{\cc^n,a}$ coprimos, entonces existe una vecindad $U\subset\cc^n$ de $a$ tal que $f$ y $g$ son holomorfas en $U$ y coprimos como elementos de $\mathscr{O}_{\cc^n,b}$ para todo $b\in U$.
+\end{theorem} 
+
+\begin{lemma}[Lema de Schwarz]
+	Sea $f\in\mathscr{O}_{\cc^n}(U)$ donde $U$ es un abierto tal que contiene al polidisco cerrado
+	\begin{equation*}
+		\overline{B_1(0)}=\{z\in\cc^n:|z_i|\leq 1,\text{ para todo }i=1,2,\dots,n\}\subset U
+	\end{equation*}
+	Supongamos que $f$ y todas sus derivadas de orden menor que $h$ se anulan en $0$. Entonces, para todo $z\in B_1(0)$ se cumple que
+	\begin{equation*}
+		|f(z)|\leq M\max_{1\leq i\leq n}|z_i|^h
+	\end{equation*}
+\end{lemma}
+
+\begin{theorem}[Siegel]
+	Sea $M$ una variedad compleja conexa compacta de dimensión $n$. Entonces
+	\begin{equation*}
+		\mathrm{trdeg}_\cc \mathcal{K}(M)\leq n.
+	\end{equation*}
+\end{theorem}
+
+
+\begin{definition}
+	Sea $M$ una variedad compleja conexa compacta. Definimos la \textbf{dimensión algebraica} de $M$ como
+	\begin{equation*}
+		a(M):=\mathrm{trdeg}_\cc\mathcal{K}(M).
+	\end{equation*}
+\end{definition}
+
+Por el teorema de Siegel, la dimensión algebraica siempre está acotada por la dimensión de la variedad. Por lo que, la dimensión algebraica puede interpretarse como una medida del grado en que una variedad compleja se aproxima al mundo algebraico.
+
+\begin{theorem}\parencite[Chap. VIII, Sec. 3.1, Theo. 1]{shafarevich2016basic}
+	Sea $V\subset \pp^n$ una variedad algebraica no singular. Entonces las funciones meromorfas y funciones racionales en $V$ coinciden. Es decir, $\mathcal{K}(V)=\cc(V)$.
+\end{theorem}
+
+Sabemos que en variedades algebraicas, el grado de trascendencia de $\cc(V)$ coincide con la dimensión de la variedad algebraica (véase observación \ref{dimcubierta}). Así, la dimensión algebraica de una variedad algebraica coincide con su dimensión compleja, esto es,
+\begin{equation*}
+	a(V)=n.
+\end{equation*}
+Esto último nos lleva a la siguiente definición.
+
+\begin{definition}
+	Una variedad compleja conexa compacta $M$ se llama \textbf{variedad de Moishezon} si
+	\begin{equation*}
+		a(M)=\dim M.
+	\end{equation*}
+\end{definition}
+
+Su nombre se debe al matemático ruso \textit{Boris Gershevich Moishezon} y sus trabajos publicados en 1966 \enquote{On $n$-dimensional compact varieties with n algebraically independent meromorphic functions, I, II and III} en los cuales introdujo el estudio de estas variedades y desarrolló los resultados que veremos más adelante.
+
+\begin{example}[Variedad que no es Moishezon]\label{hopfsuperficie}
+	Sea $A:\cc^2\to\cc^2$ la aplicación definida por
+	\begin{equation*}
+		A(z_1,z_2)=(\lambda z_1,\lambda z_2),\qquad 0<|\lambda|<1.
+	\end{equation*}
+	Consideremos el grupo cíclico
+	\begin{equation*}
+		\langle A\rangle=\{A^n:n\in\zz\}.
+	\end{equation*}
+	Como $A(z)=\lambda z$, entonces
+	\begin{equation*}
+		A^n(z)=\lambda^n z.
+	\end{equation*}
+	Así, tenemos la relación de equivalencia
+	\begin{equation*}
+		z\sim w\qquad \longleftrightarrow\qquad w=A^n(z)\enspace \text{para algún }\ n\in\zz.
+	\end{equation*}
+	Con lo cual, obtenemos la superficie compleja
+	\begin{equation*}
+		M=\cc^2\setminus\{0\}/\sim,
+	\end{equation*}
+	llamada \textbf{superficie de Hopf} (véase \parencite[Example 1.19]{leecomplex}). En particular, $M$ es difeomorfo a $S^1\times S^3$. Sea
+	\begin{equation*}
+		f\in\mathcal{K}(M)
+	\end{equation*}
+	una función meromorfa definida en $M$. Tomando el pullback por el cociente $\pi:\cc^2\setminus\{0\}\to M$
+	\begin{equation*}
+		\tilde{f}:=f\circ\pi,
+	\end{equation*}
+	levanta $f$ a una función meromorfa en $\cc^2\setminus\{0\}$ y $A$-invariante, es decir, $\tilde{f}\in\mathcal{K}(\cc^2\setminus\{0\})$ y $\tilde{f}\circ A=\tilde{f}$. Vamos a probar que $\tilde{f}$ es constante.\\
+	Notemos que el conjunto $\{0\}$ tiene codimensión $2$ sobre $\cc^2$. Sin embargo, los polos de una función meromorfa están contenidos en un conjunto de codimensión $1$. Así, $\tilde{f}$ tiene una singularidad aislada en el cero. Por el teorema de Hartogs, $\tilde{f}$ se extiende holomorficamente a $0$. En particular, $\tilde{f}$ es continua en $0$.
+	Sea $z\in \cc^2\setminus\{0\}$, entonces la sucesión $\{A^nz\}=\{\lambda^nz\}$ converge a cero. Por la continuidad de $\tilde{f}$ en el cero tenemos que 
+	\begin{equation*}
+		\tilde{f}(z)=\tilde{f}(A^nz)\underset{n\to\infty}{\longrightarrow}\tilde{f}(0).
+	\end{equation*}
+	Esto quiere decir que $\tilde{f}(z)=\tilde{f}(0)$ para todo $z\in \cc^2\setminus\{0\}$, es decir, $\tilde{f}$ es constante. De esta manera, $f$ es una función constante. Por lo tanto,
+	\begin{equation*}
+		\mathrm{trdeg}_\cc\mathcal{K}(M)=0.
+	\end{equation*} 
+	y $M$ no es una variedad de Moishezon.
+\end{example}
+
+%Un resultado que ya intuía Riemann, el cual fue demostrado más tarde, es que toda superficie de Riemann admite funciones meromorfas no constantes. Es decir, si $S$ es una superficie de Riemann compacta se cumple que
+%\begin{equation*}
+%	\mathrm{trdeg}_\cc\mathcal{K}(S)\neq 0.
+%\end{equation*}
+%Dado que una superficie de Riemann es una variedad compleja de dimensión $1$, entonces por el teorema de Siegel
+%\begin{equation*}
+%	\mathrm{trdeg}_\cc\mathcal{K}(S)=1.
+%\end{equation*}
+%De esta manera, toda superficie de Riemann es de Moishezon y por el teorema \ref{teoriemann} sabemos que toda superficie de Riemann compacta es algebrizable. Por lo tanto, en dimensión $1$, ser de Moishezon sí es condición suficiente para ser algebrizable. 
+%
+%Para dimensión dos, la situación es similar.
+%\begin{theorem}[Kodaira]
+%	Toda variedad compleja compacta de dimensión 2 con dos funciones meromorfas algebraicamente independientes es algebrizable.
+%\end{theorem}  
+%
+%Por lo tanto, en dimensión $2$, ser de Moishezon también es una condición suficiente para admitir una estructura algebraica. Esto nos quiere decir un contraejemplo de una variedad de Moishezon que no sea algebraica lo vamos a encontrar en dimensión $\geq 3$ (véase contraejemplo de Hironaka \ref{hironakaejemplo}).

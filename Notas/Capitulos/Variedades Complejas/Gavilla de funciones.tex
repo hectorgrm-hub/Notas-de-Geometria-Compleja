@@ -1,0 +1,283 @@
+\section{Gavilla de funciones holomorfas}
+
+La última pregunta nos lleva directamente a la idea de una \textit{gavilla}. Esta nos permite organizar información local y describir cómo se comportan y pegan en las intersecciones, con el objetivo de entender qué está sucediendo de forma global o cuando nos restringimos a un abierto más pequeño.
+
+\subsection{Problema de Mittag-Leffler}
+	Vamos a dar un ejemplo sobre el surgimiento y aplicación de la teoría de gavillas en la geometría compleja.\\
+	Sea $S$ una superficie de Riemann (no necesariamente compacta), un punto $p$ en $S$ y $(z,U)$ una carta alrededor de $p$. Una \textbf{parte principal} en $p$ es la parte polar de una seríe de Laurent
+	\begin{equation*}
+			\sum_{k=1}^na_kz^{-k}
+		\end{equation*} 
+	Si $\mathscr{O}_p$ es el anillo de funciones holomorfas en $p$, entonces el conjunto de funciones meromorfas en $p$ está dado por
+	\begin{equation*}
+			\mathscr{M}_p=\left\{\frac{f_p}{g_p}: f_p,g_p\in\mathscr{O}_p, g_p\neq 0\right\}.
+		\end{equation*}
+	De esta manera, una parte principal en $p$ es simplemente un elemento del grupo cociente $\mathscr{M}_p/\mathscr{O}_p$. La pregunta de \textbf{Mittag-Leffler} es: Dado un conjunto discreto de puntos $\{p_n\}$ de $S$ y una parte principal para cada $p_n$, ¿Existe una función meromorfa en $S$, holomorfa fuera de $\{p_n\}$ y que su parte principal en cada $p_n$ sea la especificada?. Esta pregunta es localmente trivial y el problema es pasar de la información local a la global. Un respuesta a esta pregunta viene de la cohomología de Ćech.\\
+	Consideremos una cubierta $\mathscr{U}=\{U_\alpha\}$ tal que cada abierto $U_\alpha$ contenga a lo más un punto $p_n$ y sea $f_\alpha$ una función meromorfa en $U_\alpha$ que resuelva el problema en $U_\alpha$. Sea
+	\begin{equation*}
+			f_{\alpha\beta}:=f_\alpha-f_\beta\in\mathscr{O}_S(U_\alpha\cap U_\beta).
+		\end{equation*}
+	Entonces en la triple intersección $U_\alpha\cap U_\beta\cap U_\gamma$
+	\begin{equation*}
+			f_{\alpha\beta} + f_{\beta\gamma} + f_{\gamma\alpha}=0.
+		\end{equation*}
+	Pegar las funciones $f_\alpha$ es equivalente a encontrar una colección de funciones $g_\alpha\in\mathscr{O}_S(U_\alpha)$ tal que
+	\begin{equation*}
+			f_{\alpha\beta}=g_{\alpha}-g_{\beta}.
+		\end{equation*}
+	Así, la función meromorfa $f:S\to\cc$ que cumple
+	\begin{equation*}
+			f|_{U_\alpha}=f_\alpha+g_\alpha
+		\end{equation*}
+	es la solución al problema.\\
+	En términos de la teoría de Ćech, dados los conjuntos 
+	\begin{align*}
+			&Z^1(\mathscr{U},\mathscr{O}_S)=\{\{f_{\alpha\beta}\}:f_{\alpha\beta} + f_{\beta\gamma} + f_{\gamma\alpha}=0\}\\
+			&B^1(\mathscr{U},\mathscr{O}_S)=\{\{f_{\alpha\beta}\}:f_{\alpha\beta} = g_{\beta} - g_{\alpha},\text{para alguna colección} \{g_\alpha\}\}.
+		\end{align*}
+	El \textbf{primer grupo de cohomología de Ćech} asociado a la cubierta $\mathscr{U}$
+	\begin{equation*}
+			H^1(\mathscr{U},\mathscr{O}_S)=Z^1(\mathscr{U},\mathscr{O}_S)/B^1(\mathscr{U},\mathscr{O}_S)
+		\end{equation*}
+	es la obstrucción para resolver el problema globalmente. Es decir, $\{f_\alpha\}$ es solución si su clase en el grupo
+		\begin{equation*}
+				H^1(S,\mathscr{O}_S)=\lim_{\mathscr{U}} H^1(\mathscr{U},\mathscr{O}_S)
+			\end{equation*}
+ 	es cero.
+ 	
+ 	La dificultad de este problema radica en asegurar que las construcciones coincidan en las intersecciones de los abiertos de una cubierta. Esta necesidad de organizar datos locales compatibles y de "pegar" funciones para obtener una función global es precisamente el leitmotiv de la teoría de gavillas. En términos de esa teoría, los datos de partes principales definen una colección de secciones locales de la gavilla de funciones meromorfas con polos en un divisor dado, y la existencia de una solución global se interpreta como la posibilidad de levantar ese cociclo a una sección global. La cohomología de gavillas cuantifica las obstrucciones al pegado, lo cual muestra que la teoría de gavillas, además de útil, es imprescindible para abordar problemas globales de funciones en variedades complejas.
+ 	
+\subsection{Definición}
+
+En esta sección, $M$ siempre denota una variedad compleja\footnote{En general, puede ser cualquier espacio topológico a menos que se especifique.}. 
+\begin{definition}
+	Una \textbf{pregavilla} de anillos es un funtor contravariante $\mathscr{F}:\mathrm{Top}_M\longrightarrow \mathrm{Rings}$, donde $\mathrm{Top}_M$ es la categoría de abiertos de $M$ vistos como un conjunto parcialmente ordenado y $\mathrm{Rings}$ la categoría de anillos conmutativos con uno. Es decir,
+	\begin{enumerate}
+		\item Para cada abierto $U$, se le asigna un anillo $\mathscr{F}(U)$.
+		\item Si $V\subset U$ son dos abiertos de $M$, entonces existe un morfismo de anillos $\rho_{U}^V:\mathscr{F}(U)\to \mathscr{F}(V)$. Más aún, satisface que
+		\begin{itemize}
+			\item $\mathscr{F}(\emptyset)=0$
+			\item $\rho_{U}^{U}=\mathrm{id}$
+			\item Si $W\subset V \subset U$, entonces $\rho_U^W=\rho_V^W\circ \rho_U^V$.
+		\end{itemize}
+		
+	\end{enumerate}
+	Si $\mathscr{F}$ además satisface las siguientes propiedades, decimos que $\mathscr{F}$ es una \textbf{gavilla}:
+	\begin{itemize}
+		\item [1)] (Axioma de unicidad) Sea $\{U_i\}_{i\in I}$ una cubierta de $U\subset M$ y $s\in\mathscr{F}(U)$. Si $s\left.\right|_{U_i}:=\rho_U^{U_i}(s)=0$, para toda $i\in I$, entonces $s=0$.
+		\item [2)] (Axioma de pegado) Sea $\{U_i\}_{i\in I}$ una cubierta de $U\subset M$ y $s_i\in\mathscr{F}(U_i)$. Si
+		\begin{equation*}
+			\rho_{U_i}^{U_i\cap U_j}(s_i)=s_i\left.\right|_{U_i\cap U_j}= s_j\left.\right|_{U_i\cap U_j}=\rho_{U_j}^{U_i\cap U_j}(s_j)
+		\end{equation*}
+		para toda $i,j\in I$, entonces existe $s\in \mathscr{F}(U)$ tal que 
+		\begin{equation*}
+			s\left.\right|_{U_i}=s_i\qquad \text{para toda }i\in I
+		\end{equation*}
+	\end{itemize}
+	Estas propiedades se suelen llamar \textbf{axioma de gavillas}.
+\end{definition}
+
+\begin{remark}$ $
+	\begin{enumerate}
+		\item El elemento $s\in \mathscr{F}$ del axioma $2)$ es único por el axioma $1)$. 
+		\item La propiedad $\mathscr{F}(\emptyset)=0$ se puede deducir del segundo axioma. Así que se suele obviar cuando se comprueba que un funtor es una gavilla.
+	\end{enumerate}
+\end{remark}
+
+El estudio de las gavillas es fundamental y por su naturaleza algebraica, son de suma importancia en la geometría algebraica.
+\begin{remark}
+	En ocasiones se suele usar la notación $\Gamma(U,\mathscr{F}(U)):=\mathscr{F}(U)$, pero nosotros solo la usaremos para el caso global $\mathscr{F}(M)$. A los elementos de $\Gamma(M,\mathscr{F})$ se les llaman \textbf{secciones globales}.\\
+	Los elementos $s\in\mathscr{F}(U)$ son llamados \textbf{secciones} de $\mathscr{F}$ sobre $U$ y $s\left.\right|_V$ es llamado \textbf{restricción} a $V$ de la sección $s$ de $U$. Esta designación viene de los principales ejemplos de gavillas, donde las secciones son \enquote{pedazos} de funciones más grandes y las restricciones son, sorpresivamente, restricciones de otras funciones.\\
+	También se pueden definir (pre)gavillas de grupos, módulos, espacios vectoriales, álgebras, etc. lo cual solo depende de a qué categoría va el funtor $\mathscr{F}$ y no hay cambios en la definición.
+\end{remark}
+
+\begin{example}[Gavilla de funciones holomorfas]
+	Consideremos el funtor $\mathscr{O}_M:\mathrm{Top}_M\to \mathrm{Rings}$ definido como:
+	\begin{enumerate}
+		\item Para cada abierto $U\subset M$ se le asigna el anillo de funciones holomorfas locales $\mathscr{O}_M(U)$.
+		\item Si $V\subset U$, entonces se induce el morfismo de anillos (la restricción de funciones) $\rho_U^V:\mathscr{O}_M(U)\to\mathscr{O}_M(V)$. Más aún
+		\begin{itemize}
+			\item $\rho_U^U:\mathscr{O}_M(U)\to\mathscr{O}_M(U)$ es claramente la identidad.
+			\item Si $W\subset V\subset U$, entonces se tienen los morfismos $\mathscr{O}_M(U)\to \mathscr{O}_M(V)\to\mathscr{O}_M(W)$. Así, se cumple que 
+			$$\rho_U^W=\rho_V^W\circ\rho_U^V $$
+		\end{itemize}
+	\end{enumerate}
+	Comprobemos ahora los axiomas de gavillas.
+	\begin{enumerate}
+		\item Sea $\{U_i\}_{i\in I}$ una cubierta de un abierto $U\subset M$ y una sección $f\in\mathscr{O}_M(U)$ tal que
+		\begin{equation*}
+			f\left.\right|_{U_i}=\rho_U^{U_i}(f)=0,\qquad \text{para cada }\enspace i\in I.
+		\end{equation*}
+		Entonces es claro que $f=0$. Ya que si $p\in U$, entonces $p\in U_i$ para algún $i\in I$ y esto implica que $f(p)=0$.
+		\item Sea $\{U_i\}_{i\in I}$ una cubierta de $U\subset M$ y funciones $f_i\in \mathscr{O}_M(U_i)$ tales que
+		\begin{equation*}
+			f_i\left.\right|_{U_i\cap U_j}=f_j\left.\right|_{U_i\cap U_j}
+		\end{equation*}
+		para toda $i,j\in I$. Definamos $f:U\to\cc$ dada por
+		\begin{equation*}
+			f(p):=f_i(p),\qquad \text{ si }\enspace p\in U_i
+		\end{equation*}
+		Notemos que $f$ es una función bien definida ya que $f_i\left.\right|_{U_i\cap U_j}=f_j\left.\right|_{U_i\cap U_j}$. Más aún, $f$ es holomorfa en cada punto de $U$, es decir, $f\in\mathscr{O}_M(U)$.
+	\end{enumerate}
+	Por lo tanto, $\mathscr{O}_M$ es una gavilla de anillos ($\cc$-álgebra).
+\end{example}
+
+\begin{example}
+	Análogo al ejemplo anterior, podemos definir la \textbf{gavilla de funciones holomorfas no cero}
+	\begin{equation*}
+		\oo_M^*:\mathrm{Top}_M\to \mathrm{Ab}
+	\end{equation*}
+	dado por
+	\begin{equation*}
+		\oo_M^*(U)=\{f\in\oo_M(U):f(p)\neq 0,\text{ para todo }p\in U\}.
+	\end{equation*}
+	Notemos que este conjunto tiene estructura de grupo abeliano con el producto de funciones. Por lo tanto, $\oo_M^*$ es una gavilla de grupos abelianos.
+\end{example}
+
+\begin{definition}[Tallo de una pregavilla]
+	Sea $\mathscr{F}$ una pregavilla y $p\in M$. Consideremos pares $(U,s)$ tales que
+	\begin{enumerate}
+		\item $U\subset M$ es una vecindad de $p$.
+		\item $s\in\mathscr{F}(U)$ es una sección sobre $U$.
+	\end{enumerate}
+	Definamos la siguiente relación de equivalencia para los pares $(U,s)$
+	\begin{equation*}
+		(U,s)\sim (V,t)\enspace\text{si existe un abierto }W\subset U\cap V\text{ tal que }p\in W\text{ y }s\left.\right|_W=t\left.\right|_W.
+	\end{equation*}
+	Definimos el \textbf{tallo de la gavilla} en $p$ como el conjunto de clases de equivalencia de los pares $(U,s)$
+	\begin{equation*}
+		\mathscr{F}_p:=\{[(U,s)]:p\in U\text{ y }s\in\mathscr{F}(U)\}.
+	\end{equation*}
+	A los elementos de $\mathscr{F}_p$ se les llama \textbf{gérmenes} en $p$ y la clase de equivalencia de un par $(U,s)$ es usualmente denotada por  
+	\begin{equation*}
+		[(U,s)]=\langle U,s \rangle = [s]_p = s_p.
+	\end{equation*}
+\end{definition}
+
+\subsection{Anillo de gérmenes de funciones holomorfas}
+\begin{example}[Anillo local $\mathscr{O}_{M,p}$]
+	Consideremos $\mathscr{O}_M$ la gavilla de funciones holomorfas sobre una variedad compleja $M$ y sea $p\in M$. Denotamos por $\mathscr{O}_{M,p}$ el tallo de $\mathscr{O}_M$ en $p$.\\
+	Notemos que $\mathscr{O}_{M,p}$ tiene estructura de anillo (conmutativo con uno) con las operaciones
+	\begin{align*}
+		[f]_p+[g]_p:=[f+g]_p,\\
+		[f]_p[g]_p:=[fg]_p.
+	\end{align*}
+	Definamos el conjunto de gérmenes no invertible en $p$
+	\begin{equation*}
+		\mathfrak{m}_p=\{[f]_p:f(p)=0\}.
+	\end{equation*}
+	Demostremos que $\mathfrak{m}_p$ es un ideal de $\mathscr{O}_{M,p}$.
+	\begin{enumerate}
+		\item Sean $[f]_p,[g]_p\in \mathfrak{m}_p$, esto es $f(p)=g(p)=0$. Entonces $(f+g)(p)=0$. Por lo que $[f]_p+[g]_p\in\mathfrak{m}_p $.
+		\item Sea $[f]_p\in \mathfrak{m}_p$ y $[g]_p\in\mathscr{O}_{M,p}$. Entonces $(fg)(p)=f(p)g(p)=0$.
+		Por lo que, $[f]_p[g]_p\in \mathfrak{m}_p$.
+	\end{enumerate}
+	Esto significa que el conjunto de todos los elementos no unidad de $\mathscr{O}_{M,p}$ es un ideal, es decir, $\mathscr{O}_{M,p}$ es un anillo local. Este anillo es llamado \textbf{anillo de gérmenes de funciones holomorfas} en $p$.
+\end{example}
+
+\iffalse
+\begin{remark}
+	Sea $\phi:M\to N$ una aplicación holomorfa. Notemos que $\phi$ induce un morfismo de anillos
+	\begin{align*}
+		\phi^*:\mathscr{O}_{N,\phi(p)}\longrightarrow \mathscr{O}_{M,p}
+	\end{align*}
+	dada por
+	\begin{align*}
+		\phi^*([f]_{\phi(p)})=[f\circ \phi]_p
+	\end{align*}
+	\begin{center}
+		\begin{tikzcd}
+			M && N \\
+			\\
+			&& {\mathbb{C}}
+			\arrow["\phi", from=1-1, to=1-3]
+			\arrow["{ f\circ\phi}"', from=1-1, to=3-3]
+			\arrow["f", from=1-3, to=3-3]
+		\end{tikzcd}
+	\end{center}
+	\begin{itemize}
+		\item (Bien definida) Sean $[f]_{\phi(p)}=[g]_{\phi(p)}$ gérmenes de $\mathscr{O}_{N,\phi(p)}$. Entonces existe una vecindad $U\subset N$ de $\phi(p)$ tal que
+		\begin{equation*}
+			f|_U=g|_U
+		\end{equation*}
+		Consideremos el abierto $V=\phi^{-1}(U)\subset M$ y sea $x\in V$. Ya que $\phi(x)\in V$, entonces tenemos que
+		\begin{align*}
+			(f\circ \phi)(x)=f(\phi(x))=g(\phi(x))=(g\circ \phi)(x)
+		\end{align*}
+		Esto prueba que 
+		\begin{align*}
+			(f\circ \phi)|_V=(g\circ \phi)|_V
+		\end{align*} 
+		Es decir,
+		\begin{align*}
+			\phi^*([f]_{\phi(p)})=[f\circ \phi]_p=[g\circ \phi]_p=\phi^*([g]_{\phi(p)})
+		\end{align*}
+		
+		\item (Morfismo de anillos) Sean $[f]_{\phi(p)},[g]_{\phi(p)}$ gérmenes de $\mathscr{O}_{N,\phi(p)}$. Entonces
+		\begin{align*}
+			\phi^*([f]_{\phi(p)}+[g]_{\phi(p)})&=	\phi^*([f+g]_{\phi(p)})\\
+			&=[(f+g)\circ \phi]_p\\
+			&=[f\circ \phi+ g\circ \phi]_p\\
+			&=[f\circ \phi]_p+[g\circ \phi]_p\\
+			&=\phi^*([f]_{\phi(p)})+\phi^*([g]_{\phi(p)})
+		\end{align*}
+		\begin{align*}
+			\phi^*([f]_{\phi(p)}[g]_{\phi(p)})&=		\phi^*([fg]_{\phi(p)})\\
+			&=[(fg)\circ \phi]_p\\
+			&=[(f\circ \phi) (g\circ \phi)]_p\\
+			&=[f\circ \phi]_p[g\circ \phi]_p\\
+			&=\phi^*([f]_{\phi(p)})\phi^*([g]_{\phi(p)})
+		\end{align*}
+	\end{itemize}
+\end{remark}
+\fi
+\begin{propo}
+	Sea $M$ una variedad compleja de dimensión $n$ y $p\in M$. Entonces existe un isomorfismo de anillos
+	\begin{equation*}
+		\mathscr{O}_{M,p}\cong \cc\{z_1,\dots,z_n\}
+	\end{equation*}
+	donde $\cc\{z_1,\dots,z_n\}$ es el anillo de series de potencias convergentes. 
+\end{propo}
+
+\begin{proof}
+	Sea $(U,\varphi)$ una carta alrededor de $p\in M$ tal que $\varphi:U\to \Omega\subset \cc^n$, para algún dominio centrado en $0$ y $\varphi(p)=0$.\\
+	Definamos la siguiente función
+	\begin{equation*}
+		\Phi:\mathscr{O}_{M,p}\to\cc\{z_1,\dots,z_n\}
+	\end{equation*}
+	de la siguiente manera: Para cada $f_p\in \mathscr{O}_{M,p}$, escojamos un representante $f\in\mathscr{O}_M(U_f)$ definido en un abierto $U_f\subset U$, entonces la función
+	\begin{equation*}
+		f\circ \varphi^{-1}:\varphi(U_f)\subset \Omega\to \cc.
+	\end{equation*}
+	es una función holomorfa. Por definición de función holomorfa (véase definición \ref{taylor}), existe una única serie de potencias convergente 
+	\begin{equation*}
+		(f\circ \varphi^{-1})(z)=\sum_{\alpha\in\nn^n} a_\alpha z^{\alpha},\qquad z\in \varphi(U_f).
+	\end{equation*}
+	Entonces, definimos
+	\begin{equation*}
+		\Phi(f_p):=\sum_{\alpha\in\nn^n} a_\alpha z^{\alpha}\in\cc\{z_1,\dots,z_n\}.
+	\end{equation*}
+	Notemos que $\Phi$ es una función bien definida ya que si $f_p\sim g_p$, entonces coinciden en alguna vecindad de $p$. Así, $f\circ \varphi^{-1}$ y $g\circ \varphi^{-1}$ también coinciden en alguna vecindad del $0$. Por la unicidad del desarrollo en serie de Taylor, el desarrollo en series de $f\circ \varphi^{-1}$ y $g\circ \varphi^{-1}$ coinciden.\\
+	Ahora, notemos que
+	\begin{align*}
+		\Phi(f_p)(z)+\Phi(g_p)(z)=\sum_{\alpha\in\nn^n} a_\alpha z^{\alpha}+\sum_{\alpha\in\nn^n} b_\alpha z^{\alpha}=\sum_{\alpha\in\nn^n}(a_\alpha+b_\alpha)z^\alpha=\Phi(f_p+g_p)(z)
+	\end{align*}
+	y
+	\begin{equation*}
+		\Phi(f_p)(z)\Phi(g_p)(z)=\sum_{\alpha\in\nn^n} a_\alpha z^{\alpha}\sum_{\beta\in\nn^n} b_\beta z^{\beta}=\sum_{\gamma\in\nn^n} e_\gamma z^{\gamma}=\Phi(f_pg_p)(z),
+	\end{equation*}
+	donde $e_\gamma=\sum_{\alpha+\beta=\gamma}a_\alpha b_\beta$. Entonces, $\Phi$ es un morfismo de anillos.\\
+	Sea $f_p\in\ker\Phi$, entonces la serie asociada a $f\circ \varphi^{-1}$ es idénticamente cero en alguna vecindad de $0$. Entonces $f=0$ en alguna vecindad de $p$. Así, $f_p=0$.\\
+	Ahora, sea $\sum_{\alpha\in\nn^n} a_\alpha z^\alpha \in\cc\{z_1,\dots,z_n\}$, entonces esta define una función $F(z):=\sum_{\alpha\in\nn^n} a_\alpha z^\alpha$ cuyo dominio $D$ está centrado en el $0$ y podemos restringirlo para que $\varphi^{-1}(D)\subset U$. Tomando la función
+	\begin{equation*}
+		f:=F\circ\varphi:\varphi^{-1}(D)\subset
+		U\to \cc
+	\end{equation*}
+	Entonces, $f$ es una función holomorfa en $p$ tal que $\Phi(f_p)=\sum_{\alpha\in\nn^n} a_\alpha z^\alpha$. Por lo tanto, $\Phi$ es un isomorfismo de anillos.
+\end{proof}
+
+Sabemos que $\cc\{z_1,\dots, z_n\}$ posee numerosas propiedades algebraicas importantes (véase apéndice sección \ref{complocal}), por lo que se tiene de inmediato que:
+
+\begin{corollary}\label{dominiolocal}
+	El anillo de gérmenes de funciones holomorfas $\mathscr{O}_{M,p}$ es un dominio de factorización única, local y noetheriano.
+\end{corollary}
